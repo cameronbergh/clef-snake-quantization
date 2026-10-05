@@ -5,6 +5,7 @@ import gzip
 import hashlib
 import json
 from pathlib import Path
+import statistics
 from .benchmark import choice
 from .game import Game
 
@@ -25,6 +26,7 @@ def audit(root):
     seeds = manifest["seeds"]
     assert seeds and len(seeds) == len(set(seeds)), "Saved seeds must be distinct"
     published = json.loads((root / "results.json").read_text())
+    assert published["seed_manifest"] == manifest
     expected_models = set(published["aggregate_by_model"])
     round_summaries = json.loads((root / "rounds.json").read_text())
     assert len(round_summaries) == published["total_rounds"] == len(expected_models) * len(seeds)
@@ -94,6 +96,15 @@ def audit(root):
     assert set(counts) == expected_models
     assert all(value == len(seeds) for value in counts.values())
     assert all(counts[m] == published["aggregate_by_model"][m]["rounds"] for m in counts)
+    for model in counts:
+        scores = [r["score"] for r in checks if r["model"] == model]
+        aggregate = published["aggregate_by_model"][model]
+        assert aggregate["scores"]["n"] == len(scores)
+        assert aggregate["scores"]["mean"] == round(statistics.mean(scores), 3)
+        assert aggregate["scores"]["median"] == statistics.median(scores)
+        assert (aggregate["scores"]["min"], aggregate["scores"]["max"]) == (min(scores), max(scores))
+        assert aggregate["score_std_population"] == round(statistics.pstdev(scores), 3)
+        assert aggregate["total_model_calls"] == len(ids[model])
     result = {"passed": True, "rounds": len(checks), "paired_seed_units": len(seeds), "calls": sum(len(v) for v in ids.values()),
               "rounds_by_model": counts, "exact_request_and_field_order_parity": True, "all_trajectory_and_food_events_verified": True,
               "all_head_argmax_and_provenance_verified": True, "no_duplicate_or_competing_inference_ids": True,

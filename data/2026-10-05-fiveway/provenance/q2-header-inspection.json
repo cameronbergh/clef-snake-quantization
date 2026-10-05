@@ -1,0 +1,37 @@
+{
+  "tensor_count": 427,
+  "tensor_names_shapes_match_iq2": true,
+  "architecture_token_metadata_match_iq2": true,
+  "head_tensor_names": [],
+  "type_counts": {
+    "Q4_K": 56,
+    "F32": 225,
+    "Q3_K": 2,
+    "Q5_K": 12,
+    "Q2_K": 132
+  },
+  "embedding_tables": {
+    "output.weight": {
+      "type": "Q4_K",
+      "shape": [
+        4096,
+        248320
+      ],
+      "sample_row_dequantized_shape": [
+        1,
+        4096
+      ]
+    },
+    "token_embd.weight": {
+      "type": "Q3_K",
+      "shape": [
+        4096,
+        248320
+      ],
+      "sample_row_dequantized_shape": [
+        1,
+        4096
+      ]
+    }
+  }
+}

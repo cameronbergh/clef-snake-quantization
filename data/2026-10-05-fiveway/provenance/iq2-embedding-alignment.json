@@ -1,0 +1,33 @@
+{
+  "sample": "all unique token IDs from baseline initial input",
+  "unique_token_ids": 161,
+  "tensor_count": 427,
+  "type_counts": {
+    "Q4_K": 1,
+    "F32": 225,
+    "Q3_K": 1,
+    "Q5_K": 12,
+    "IQ4_XS": 48,
+    "IQ2_S": 129,
+    "IQ3_S": 10,
+    "IQ3_XXS": 1
+  },
+  "tables": {
+    "token_embd.weight": {
+      "quant_type": "Q3_K",
+      "cosine_mean": 0.98830246925354,
+      "cosine_min": 0.9785115718841553,
+      "relative_rmse": 0.15472941100597382,
+      "row_id_alignment_passed": true
+    },
+    "output.weight": {
+      "quant_type": "Q4_K",
+      "cosine_mean": 0.9974852204322815,
+      "cosine_min": 0.9967858195304871,
+      "relative_rmse": 0.07110288739204407,
+      "row_id_alignment_passed": true
+    }
+  },
+  "cpu_only": true,
+  "passed": true
+}

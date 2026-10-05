@@ -1,0 +1,470 @@
+{
+  "passed": true,
+  "rounds": 75,
+  "paired_seed_units": 15,
+  "calls": 10747,
+  "rounds_by_model": {
+    "bf16": 15,
+    "q6-k-l": 15,
+    "q4-k-m": 15,
+    "iq2-m": 15,
+    "q2-k": 15
+  },
+  "exact_request_and_field_order_parity": true,
+  "all_trajectory_and_food_events_verified": true,
+  "all_head_argmax_and_provenance_verified": true,
+  "no_duplicate_or_competing_inference_ids": true,
+  "server_request_response_exact": true,
+  "episodes": [
+    {
+      "model": "bf16",
+      "seed_round": 1,
+      "calls": 211,
+      "score": 18
+    },
+    {
+      "model": "q6-k-l",
+      "seed_round": 1,
+      "calls": 211,
+      "score": 18
+    },
+    {
+      "model": "q4-k-m",
+      "seed_round": 1,
+      "calls": 211,
+      "score": 18
+    },
+    {
+      "model": "q6-k-l",
+      "seed_round": 2,
+      "calls": 71,
+      "score": 5
+    },
+    {
+      "model": "q4-k-m",
+      "seed_round": 2,
+      "calls": 71,
+      "score": 5
+    },
+    {
+      "model": "bf16",
+      "seed_round": 2,
+      "calls": 71,
+      "score": 5
+    },
+    {
+      "model": "q4-k-m",
+      "seed_round": 3,
+      "calls": 149,
+      "score": 19
+    },
+    {
+      "model": "bf16",
+      "seed_round": 3,
+      "calls": 258,
+      "score": 29
+    },
+    {
+      "model": "q6-k-l",
+      "seed_round": 3,
+      "calls": 258,
+      "score": 29
+    },
+    {
+      "model": "bf16",
+      "seed_round": 4,
+      "calls": 122,
+      "score": 13
+    },
+    {
+      "model": "q6-k-l",
+      "seed_round": 4,
+      "calls": 101,
+      "score": 12
+    },
+    {
+      "model": "q4-k-m",
+      "seed_round": 4,
+      "calls": 101,
+      "score": 12
+    },
+    {
+      "model": "q6-k-l",
+      "seed_round": 5,
+      "calls": 53,
+      "score": 7
+    },
+    {
+      "model": "q4-k-m",
+      "seed_round": 5,
+      "calls": 53,
+      "score": 7
+    },
+    {
+      "model": "bf16",
+      "seed_round": 5,
+      "calls": 53,
+      "score": 7
+    },
+    {
+      "model": "q4-k-m",
+      "seed_round": 6,
+      "calls": 323,
+      "score": 29
+    },
+    {
+      "model": "bf16",
+      "seed_round": 6,
+      "calls": 125,
+      "score": 14
+    },
+    {
+      "model": "q6-k-l",
+      "seed_round": 6,
+      "calls": 125,
+      "score": 14
+    },
+    {
+      "model": "bf16",
+      "seed_round": 7,
+      "calls": 146,
+      "score": 17
+    },
+    {
+      "model": "q6-k-l",
+      "seed_round": 7,
+      "calls": 189,
+      "score": 20
+    },
+    {
+      "model": "q4-k-m",
+      "seed_round": 7,
+      "calls": 189,
+      "score": 20
+    },
+    {
+      "model": "q6-k-l",
+      "seed_round": 8,
+      "calls": 86,
+      "score": 9
+    },
+    {
+      "model": "q4-k-m",
+      "seed_round": 8,
+      "calls": 133,
+      "score": 16
+    },
+    {
+      "model": "bf16",
+      "seed_round": 8,
+      "calls": 86,
+      "score": 9
+    },
+    {
+      "model": "q4-k-m",
+      "seed_round": 9,
+      "calls": 8,
+      "score": 1
+    },
+    {
+      "model": "bf16",
+      "seed_round": 9,
+      "calls": 8,
+      "score": 1
+    },
+    {
+      "model": "q6-k-l",
+      "seed_round": 9,
+      "calls": 8,
+      "score": 1
+    },
+    {
+      "model": "bf16",
+      "seed_round": 10,
+      "calls": 155,
+      "score": 15
+    },
+    {
+      "model": "q6-k-l",
+      "seed_round": 10,
+      "calls": 155,
+      "score": 15
+    },
+    {
+      "model": "q4-k-m",
+      "seed_round": 10,
+      "calls": 157,
+      "score": 15
+    },
+    {
+      "model": "q6-k-l",
+      "seed_round": 11,
+      "calls": 50,
+      "score": 7
+    },
+    {
+      "model": "q4-k-m",
+      "seed_round": 11,
+      "calls": 50,
+      "score": 7
+    },
+    {
+      "model": "bf16",
+      "seed_round": 11,
+      "calls": 50,
+      "score": 7
+    },
+    {
+      "model": "q4-k-m",
+      "seed_round": 12,
+      "calls": 20,
+      "score": 3
+    },
+    {
+      "model": "bf16",
+      "seed_round": 12,
+      "calls": 20,
+      "score": 3
+    },
+    {
+      "model": "q6-k-l",
+      "seed_round": 12,
+      "calls": 20,
+      "score": 3
+    },
+    {
+      "model": "bf16",
+      "seed_round": 13,
+      "calls": 181,
+      "score": 22
+    },
+    {
+      "model": "q6-k-l",
+      "seed_round": 13,
+      "calls": 181,
+      "score": 22
+    },
+    {
+      "model": "q4-k-m",
+      "seed_round": 13,
+      "calls": 149,
+      "score": 20
+    },
+    {
+      "model": "q6-k-l",
+      "seed_round": 14,
+      "calls": 65,
+      "score": 8
+    },
+    {
+      "model": "q4-k-m",
+      "seed_round": 14,
+      "calls": 65,
+      "score": 8
+    },
+    {
+      "model": "bf16",
+      "seed_round": 14,
+      "calls": 65,
+      "score": 8
+    },
+    {
+      "model": "q4-k-m",
+      "seed_round": 15,
+      "calls": 77,
+      "score": 11
+    },
+    {
+      "model": "bf16",
+      "seed_round": 15,
+      "calls": 117,
+      "score": 15
+    },
+    {
+      "model": "q6-k-l",
+      "seed_round": 15,
+      "calls": 117,
+      "score": 15
+    },
+    {
+      "model": "iq2-m",
+      "seed_round": 1,
+      "calls": 360,
+      "score": 24
+    },
+    {
+      "model": "iq2-m",
+      "seed_round": 2,
+      "calls": 80,
+      "score": 5
+    },
+    {
+      "model": "iq2-m",
+      "seed_round": 3,
+      "calls": 81,
+      "score": 10
+    },
+    {
+      "model": "iq2-m",
+      "seed_round": 4,
+      "calls": 312,
+      "score": 30
+    },
+    {
+      "model": "iq2-m",
+      "seed_round": 5,
+      "calls": 134,
+      "score": 15
+    },
+    {
+      "model": "iq2-m",
+      "seed_round": 6,
+      "calls": 226,
+      "score": 21
+    },
+    {
+      "model": "iq2-m",
+      "seed_round": 7,
+      "calls": 248,
+      "score": 24
+    },
+    {
+      "model": "iq2-m",
+      "seed_round": 8,
+      "calls": 126,
+      "score": 10
+    },
+    {
+      "model": "iq2-m",
+      "seed_round": 9,
+      "calls": 8,
+      "score": 1
+    },
+    {
+      "model": "iq2-m",
+      "seed_round": 10,
+      "calls": 438,
+      "score": 38
+    },
+    {
+      "model": "iq2-m",
+      "seed_round": 11,
+      "calls": 252,
+      "score": 23
+    },
+    {
+      "model": "iq2-m",
+      "seed_round": 12,
+      "calls": 184,
+      "score": 20
+    },
+    {
+      "model": "iq2-m",
+      "seed_round": 13,
+      "calls": 500,
+      "score": 36
+    },
+    {
+      "model": "iq2-m",
+      "seed_round": 14,
+      "calls": 19,
+      "score": 2
+    },
+    {
+      "model": "iq2-m",
+      "seed_round": 15,
+      "calls": 168,
+      "score": 19
+    },
+    {
+      "model": "q2-k",
+      "seed_round": 1,
+      "calls": 217,
+      "score": 19
+    },
+    {
+      "model": "q2-k",
+      "seed_round": 2,
+      "calls": 123,
+      "score": 10
+    },
+    {
+      "model": "q2-k",
+      "seed_round": 3,
+      "calls": 229,
+      "score": 23
+    },
+    {
+      "model": "q2-k",
+      "seed_round": 4,
+      "calls": 246,
+      "score": 24
+    },
+    {
+      "model": "q2-k",
+      "seed_round": 5,
+      "calls": 53,
+      "score": 7
+    },
+    {
+      "model": "q2-k",
+      "seed_round": 6,
+      "calls": 102,
+      "score": 14
+    },
+    {
+      "model": "q2-k",
+      "seed_round": 7,
+      "calls": 160,
+      "score": 18
+    },
+    {
+      "model": "q2-k",
+      "seed_round": 8,
+      "calls": 183,
+      "score": 23
+    },
+    {
+      "model": "q2-k",
+      "seed_round": 9,
+      "calls": 8,
+      "score": 1
+    },
+    {
+      "model": "q2-k",
+      "seed_round": 10,
+      "calls": 327,
+      "score": 29
+    },
+    {
+      "model": "q2-k",
+      "seed_round": 11,
+      "calls": 81,
+      "score": 8
+    },
+    {
+      "model": "q2-k",
+      "seed_round": 12,
+      "calls": 182,
+      "score": 20
+    },
+    {
+      "model": "q2-k",
+      "seed_round": 13,
+      "calls": 232,
+      "score": 24
+    },
+    {
+      "model": "q2-k",
+      "seed_round": 14,
+      "calls": 65,
+      "score": 8
+    },
+    {
+      "model": "q2-k",
+      "seed_round": 15,
+      "calls": 289,
+      "score": 29
+    }
+  ]
+}

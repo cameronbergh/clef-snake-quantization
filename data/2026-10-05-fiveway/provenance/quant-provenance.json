@@ -1,0 +1,20 @@
+{
+  "quant_checkpoint": {
+    "repo": "bartowski/Cloudflare_clef-flash-GGUF",
+    "revision": "d7f376ea88c05e7bb1014dd5351a93df9dd8029e",
+    "file": "Cloudflare_clef-flash-Q6_K_L.gguf",
+    "size": 8106583360,
+    "sha256": "0219eec52c7a82b1b5e8a679408ff5f28cae8d0327a0d84c028ef535e38cc049",
+    "verified_time": 1791228291.7192771,
+    "metadata_etag_match": true,
+    "full_file_hash_match": true
+  },
+  "official_revision": "17f0b0ad64efb65d273590632833508766b2aae6",
+  "official_head_sha256": "19cdcec8c81dc9212be320fff47462ab342fbc1278be4368fb3da71241cf5ba0",
+  "official_head_source_sha256": "0e304cf7c6500e8bb59bef7e2afd2c6373f82596dfb3b57d1aa93c175e2dc3a3",
+  "native_revision": "c25030496079fdad724609d94f68b859f25774ce",
+  "native_patch_sha256": "1e2961c2a9d2f9c2dde8930ba365a998d5ed1f927fb1144c01b34772fbe96013",
+  "bridge_library_sha256": "305382000f6e514b25db17b70eed62b5fafcee1b39f443e7427144326b1a01d3",
+  "quant_dependency_lock_sha256": "3755b149c6ab90051fe66233eb542c6f6fbb9c5c3ee34889657ac1031440bde4",
+  "same_game_policy_verified": true
+}

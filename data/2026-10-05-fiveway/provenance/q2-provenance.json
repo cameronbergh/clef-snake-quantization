@@ -1,0 +1,116 @@
+{
+  "quant_checkpoint": {
+    "repo": "bartowski/Cloudflare_clef-flash-GGUF",
+    "revision": "d7f376ea88c05e7bb1014dd5351a93df9dd8029e",
+    "file": "Cloudflare_clef-flash-Q2_K.gguf",
+    "size": 3644384576,
+    "sha256": "df3bf7f4f68651d900f6a55d1cfe68e153a39240a33ae165cfa9dfa048bb52e4",
+    "verified_time": 1791236556.246676,
+    "metadata_etag_match": true,
+    "full_file_hash_match": true
+  },
+  "official_revision": "17f0b0ad64efb65d273590632833508766b2aae6",
+  "official_head_sha256": "19cdcec8c81dc9212be320fff47462ab342fbc1278be4368fb3da71241cf5ba0",
+  "official_head_source_sha256": "0e304cf7c6500e8bb59bef7e2afd2c6373f82596dfb3b57d1aa93c175e2dc3a3",
+  "native_revision": "c25030496079fdad724609d94f68b859f25774ce",
+  "bridge_library_sha256": "305382000f6e514b25db17b70eed62b5fafcee1b39f443e7427144326b1a01d3",
+  "model_bridge_sha256": "0c6ba72a66a9a8b57dbc3c14bbfd16839831c1d1914948e347e3face01402b49",
+  "bridge_validation_reused": true,
+  "cpu_row_alignment": {
+    "sample": "all unique token IDs from baseline initial input",
+    "unique_token_ids": 161,
+    "tensor_count": 427,
+    "type_counts": {
+      "Q4_K": 56,
+      "F32": 225,
+      "Q3_K": 2,
+      "Q5_K": 12,
+      "Q2_K": 132
+    },
+    "tables": {
+      "token_embd.weight": {
+        "quant_type": "Q3_K",
+        "cosine_mean": 0.98830246925354,
+        "cosine_min": 0.9785115718841553,
+        "relative_rmse": 0.15472941100597382,
+        "row_id_alignment_passed": true
+      },
+      "output.weight": {
+        "quant_type": "Q4_K",
+        "cosine_mean": 0.9974852204322815,
+        "cosine_min": 0.9967858195304871,
+        "relative_rmse": 0.07110288739204407,
+        "row_id_alignment_passed": true
+      }
+    },
+    "cpu_only": true,
+    "passed": true
+  },
+  "warmup_requests_excluded": 3,
+  "execution_amendment": {
+    "created_utc": "2026-10-05T20:29:18.912496+00:00",
+    "added_model": "q2-k",
+    "label": "Q2_K",
+    "total_episodes": 75,
+    "rounds_per_model": 15,
+    "phase": "Q2_K loaded \u00b7 three excluded compatibility/warmup requests",
+    "seed_manifest": "benchmarks/randomized15-threeway-20261005T131900/seed-manifest.json",
+    "original_45_harness_unchanged": true,
+    "execution_order": "Original rotating BF16/Q6/Q4 45 retained, followed by IQ2_M 15, then Q2_K 15 saved seeds. No overlapping GPU inference."
+  },
+  "gguf_directory_and_metadata": {
+    "tensor_count": 427,
+    "tensor_names_shapes_match_iq2": true,
+    "architecture_token_metadata_match_iq2": true,
+    "head_tensor_names": [],
+    "type_counts": {
+      "Q4_K": 56,
+      "F32": 225,
+      "Q3_K": 2,
+      "Q5_K": 12,
+      "Q2_K": 132
+    },
+    "embedding_tables": {
+      "output.weight": {
+        "type": "Q4_K",
+        "shape": [
+          4096,
+          248320
+        ],
+        "sample_row_dequantized_shape": [
+          1,
+          4096
+        ]
+      },
+      "token_embd.weight": {
+        "type": "Q3_K",
+        "shape": [
+          4096,
+          248320
+        ],
+        "sample_row_dequantized_shape": [
+          1,
+          4096
+        ]
+      }
+    }
+  },
+  "setup_source_sha256": {
+    "q2/download_quant.py": "be0e6f469db1994ab40139768feccc0704016f0f1e12812e1bb83b20ab1c0a84",
+    "q2/check_alignment.py": "e6457cb65294e36eebe024c3eeddd917c7d28c6998570afe7d6bc41b5cde5644",
+    "q2/server.py": "7cba91ac9bb06e8b2783f843fb4fd74d0f2fbb2b75dd94bbe052c96fe9e12c56",
+    "q2/prepare_and_run.py": "0eab7b2a47630d226e027b955411875f8b199b68d7e55de4e5d149e89bb8e7ed",
+    "q2/start.sh": "dcfa507bfdf00c03b98add73c6d071c3e4d3b55f7f031495de91d744d470482a",
+    "q2/stop.sh": "d1cd531071ab53c265d35b49a8a82430a9357e2cc65f246554e7b11318131624",
+    "q2/snake-q2.html": "06f3f4811089a3e16301c0d38595244d7dc216038d353d81ec88133a1fd7bbe5",
+    "randomized_q2_benchmark.py": "e9c3ae6142a693b1c6ae807c8a156f2cfb4520fc747a8e87c74685cf652864e9",
+    "combine_randomized_fiveway.py": "28b76d28d5e0213902d176ca133f8a6536de043fd126e56e7263d2377a085318"
+  },
+  "download_directory_provenance": {
+    "download_script_archive_sha256": "7e31bb2ba7b11ae0d2728ea050b98fcad90363366cd9e560e320646711f63be0",
+    "initial_local_dir": "[local path omitted]",
+    "final_local_dir": "[local path omitted]",
+    "directory_renamed_after_full_size_and_sha_verification": true,
+    "note": "Initial adapter used the inherited -m suffix for download; the complete verified directory was renamed before alignment and server startup. Payload bytes unchanged. Setup hashes describe final checked-in setup sources; benchmark executed sources are separately archived and audited."
+  }
+}

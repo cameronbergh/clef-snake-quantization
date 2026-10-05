@@ -1,0 +1,28 @@
+{
+  "sample": "all unique token IDs from baseline first input",
+  "unique_token_ids": 161,
+  "tensor_count": 427,
+  "type_counts": {
+    "Q6_K": 31,
+    "F32": 225,
+    "Q4_K": 131,
+    "Q8_0": 40
+  },
+  "head_tensor_names": [],
+  "tables": {
+    "output.weight": {
+      "quant_type": "Q6_K",
+      "cosine_mean": 0.9998435974121094,
+      "cosine_min": 0.9997956156730652,
+      "relative_rmse": 0.017745591700077057,
+      "row_id_alignment_passed": true
+    },
+    "token_embd.weight": {
+      "quant_type": "Q4_K",
+      "cosine_mean": 0.9971315264701843,
+      "cosine_min": 0.9944981336593628,
+      "relative_rmse": 0.07519876211881638,
+      "row_id_alignment_passed": true
+    }
+  }
+}

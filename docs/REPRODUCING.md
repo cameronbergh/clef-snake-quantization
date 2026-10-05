@@ -12,7 +12,7 @@ brew install python@3.12 cmake
 python3.12 -m venv .venv
 . .venv/bin/activate
 python -m pip install -r requirements-inference.txt
-python -m clef_snake.download --root models --models bf16 q6-k-l q4-k-m iq2-m
+python -m clef_snake.download --root models --models bf16 q6-k-l q4-k-m iq2-m q2-k
 python scripts/build_bridge.py --work build
 ```
 
@@ -27,6 +27,7 @@ python -m clef_snake.server --model bf16 --official models/official --log runs/b
 python -m clef_snake.server --model q6-k-l --official models/official --gguf models/q6-k-l/Cloudflare_clef-flash-Q6_K_L.gguf --bridge build/libclef_bridge.dylib --log runs/q6-server.jsonl
 python -m clef_snake.server --model q4-k-m --official models/official --gguf models/q4-k-m/Cloudflare_clef-flash-Q4_K_M.gguf --bridge build/libclef_bridge.dylib --log runs/q4-server.jsonl
 python -m clef_snake.server --model iq2-m --official models/official --gguf models/iq2-m/Cloudflare_clef-flash-IQ2_M.gguf --bridge build/libclef_bridge.dylib --log runs/iq2-server.jsonl
+python -m clef_snake.server --model q2-k --official models/official --gguf models/q2-k/Cloudflare_clef-flash-Q2_K.gguf --bridge build/libclef_bridge.dylib --log runs/q2-server.jsonl
 ```
 
 Loading all servers simultaneously requires substantial unified memory. They are loaded separately, but benchmark calls are strictly serial. Each server checks official head/source hashes and the entire GGUF payload before loading. No model weights are silently rebuilt or changed.
@@ -34,10 +35,10 @@ Loading all servers simultaneously requires substantial unified memory. They are
 ## Replay the discovery schedule and seeds
 
 ```sh
-python -m clef_snake.benchmark --manifest data/2026-10-05/seed-manifest.json --schedule data/2026-10-05/schedule.json --models bf16 q6-k-l q4-k-m iq2-m --move-cap 500 --out runs/replication
+python -m clef_snake.benchmark --manifest data/2026-10-05-fiveway/seed-manifest.json --schedule data/2026-10-05-fiveway/schedule.json --models bf16 q6-k-l q4-k-m iq2-m q2-k --move-cap 500 --out runs/replication
 ```
 
-Output must be empty. `--manifest` is mandatory: seeds are never regenerated implicitly. The checked-in schedule preserves rotating BF16/Q6/Q4 followed by the later IQ2 phase. A replication can improve order control, but then it is a different schedule and must be labeled. Omit `--schedule` to rotate all selected models per seed. Endpoint overrides are a JSON file, e.g. `{"bf16":"http://127.0.0.1:9000"}`, passed with `--endpoints`.
+Output must be empty. `--manifest` is mandatory: seeds are never regenerated implicitly. The checked-in schedule preserves rotating BF16/Q6/Q4 followed by the later IQ2 and Q2 phases. To replicate the initial 60-execution snapshot instead, select only the first four models and use the original `data/2026-10-05` manifest/schedule. A replication can improve order control, but then it is a different schedule and must be labeled. Omit `--schedule` to rotate all selected models per seed. Endpoint overrides are a JSON file, e.g. `{"bf16":"http://127.0.0.1:9000"}`, passed with `--endpoints`.
 
 Each saved request receives a new forward pass. Every full response, inference ID, wall latency, applied move, board snapshot and food-selection event is logged. HTTP/model errors stop the run without fallback. The driver verifies model revision/hash provenance and head argmax; it never uses safe moves to override a decision. No precomputed answers are used for replication.
 
@@ -51,13 +52,13 @@ Replicas can differ across hardware, PyTorch/llama.cpp versions and floating-poi
 
 ## Recalculate the exploratory statistics and figures
 
-Use a separate analysis environment (initial figure: Python 3.9, NumPy 2.0.2, Matplotlib 3.9.4) and a new output directory so historical artifacts are preserved:
+Use a separate analysis environment (published figures: Python 3.9, NumPy 2.0.2, Matplotlib 3.9.4) and a new output directory so historical artifacts are preserved:
 
 ```sh
 python3 -m venv .venv-analysis
 . .venv-analysis/bin/activate
 python -m pip install -r requirements-analysis.txt
-python scripts/analyze.py data/2026-10-05/results.json runs/analysis
+python scripts/analyze.py data/2026-10-05-fiveway/results.json runs/analysis-fiveway
 ```
 
-The analysis is offline; it makes no model calls. The complete paired seed rows are resampled together, preserving cross-model pairing.
+The analysis is offline; it makes no model calls. The complete paired seed rows are resampled together, preserving cross-model pairing. To recalculate the initial four-model analysis, use `data/2026-10-05/results.json` and a different new output directory.
