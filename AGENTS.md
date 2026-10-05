@@ -9,6 +9,8 @@
 - `clef_snake/audit.py`: exhaustive offline evidence/hash/request/trajectory/server audit.
 - `native/`: minimal all-token-state C ABI and MIT-context llama.cpp patch.
 - `scripts/`: build, allowlisted archival export and exploratory statistical analysis.
+- `watcher/`: independently authored passive JSON viewer; never add model calls or inference controls.
+- `analysis/`: versioned derived statistics, figures and provenance; retain older snapshots.
 - `data/`: versioned public discovery evidence; `docs/`: methods/reproduction/limitations; `tests/`: lightweight protocol checks.
 
 ## Read first
@@ -19,11 +21,12 @@ Read `README.md`, `docs/METHODS.md`, `docs/REPRODUCING.md`, `NOTICE`, and the re
 
 ```sh
 python3 -m unittest discover -s tests -v
+node tests/test_watcher.js
 python3 -m compileall -q clef_snake scripts tests
 python3 -m clef_snake.audit data/2026-10-05 --verify-hashes
 ```
 
-These require no model weights, GPU, credentials or network. Audit each added complete dataset, too. The parity audit must continue checking every full request, field order, factual feature, transition, food event and independent server match; do not weaken checks to make changed behavior pass.
+These require no model weights, GPU, credentials or network (watcher tests use Node.js). Audit each added complete dataset, too. The parity audit must continue checking every full request, field order, factual feature, transition, food event and independent server match; do not weaken checks to make changed behavior pass.
 
 ## Write boundaries and research integrity
 

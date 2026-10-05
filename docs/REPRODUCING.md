@@ -62,3 +62,11 @@ python scripts/analyze.py data/2026-10-05-fiveway/results.json runs/analysis-fiv
 ```
 
 The analysis is offline; it makes no model calls. The complete paired seed rows are resampled together, preserving cross-model pairing. To recalculate the initial four-model analysis, use `data/2026-10-05/results.json` and a different new output directory.
+
+### Additional cap-marked and portrait exports
+
+```sh
+python scripts/analyze.py data/2026-10-05-fiveway/results.json runs/analysis-fiveway-publication --publication-figures
+```
+
+The checked-in [additional exports](../analysis/2026-10-05-fiveway/FIGURES.md) include source and output hashes and the analysis environment. The optional flag adds cap markers and a portrait layout; omitting it retains the historical layout. To explore saved data without inference, follow the [watcher instructions](../watcher/README.md).

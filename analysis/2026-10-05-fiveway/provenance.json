@@ -1,0 +1,144 @@
+{
+  "analysis_kind": "Exploratory five-way paired-seed discovery analysis; no new model calls",
+  "created_utc": "2026-10-05T22:28:42.528271+00:00",
+  "source_inputs": [
+    {
+      "path": "data/2026-10-05-fiveway/results.json",
+      "bytes": 882541,
+      "sha256": "39ce6f1d9fd02e0622bd9a096b8739cabb3f25d2662accfd43c3352297de4b39"
+    },
+    {
+      "path": "data/2026-10-05-fiveway/seed-manifest.json",
+      "bytes": 1032,
+      "sha256": "205edfc8bc8de47827d6b9147ad3f8cc3be590ebdfa5326747862d6e3deba8ae"
+    },
+    {
+      "path": "data/2026-10-05-fiveway/schedule.json",
+      "bytes": 8949,
+      "sha256": "e5ea128eb01be282a6775ba19924d2c84bde1d64d707a3c00f4afa87b53b95c0"
+    },
+    {
+      "path": "data/2026-10-05-fiveway/SHA256SUMS",
+      "bytes": 2598,
+      "sha256": "9ace655d44be514bc31fdf0dca12a5a28cb0331a3806efa40a2c44201d7446d6"
+    }
+  ],
+  "generator": {
+    "path": "scripts/analyze.py",
+    "bytes": 16735,
+    "sha256": "b41faf7d4a043e99b5c2bf2de95b2ddd23128d7b8ea7e0e405182e3e373312c8"
+  },
+  "command": "python scripts/analyze.py data/2026-10-05-fiveway/results.json analysis/2026-10-05-fiveway --publication-figures",
+  "environment": {
+    "python": "3.9.6",
+    "implementation": "CPython",
+    "numpy": "2.0.2",
+    "matplotlib": "3.9.4",
+    "rendering_backend": "Agg",
+    "platform": "Darwin",
+    "machine": "arm64",
+    "font": "DejaVu Sans"
+  },
+  "bootstrap": {
+    "unit": "complete paired environment seed row",
+    "n_units": 15,
+    "replicates": 100000,
+    "random_generator": "NumPy default_rng PCG64",
+    "seed": 20261005,
+    "interval_percentiles": [
+      2.5,
+      97.5
+    ],
+    "adjustment": "none; descriptive"
+  },
+  "test_family": {
+    "comparisons": [
+      "q6-k-l vs bf16",
+      "q4-k-m vs bf16",
+      "iq2-m vs bf16",
+      "q2-k vs bf16"
+    ],
+    "test": "exact two-sided sign-flip of nonzero paired score differences",
+    "correction": "Holm across these four comparisons only; adaptive model/analysis selection remains unadjusted"
+  },
+  "capped_alive": [
+    {
+      "model": "iq2-m",
+      "seed_round": 13,
+      "seed": "4a4af34fab25894939f1ec37802af6db",
+      "food_score": 36,
+      "successful_moves": 500
+    }
+  ],
+  "verification": {
+    "rounds_independently_recalculated": 75,
+    "paired_seed_records_verified": true,
+    "bootstrap_and_exact_tests_independently_recalculated": true,
+    "pngs_visually_inspected": true,
+    "regeneration_byte_identical": [
+      "uncertainty.json",
+      "UNCERTAINTY.md",
+      "quantization-snake-results.png",
+      "quantization-snake-results.svg",
+      "quantization-snake-results-mobile.png",
+      "quantization-snake-results-mobile.svg"
+    ],
+    "original_60_game_uncertainty_json_and_markdown_unchanged": true
+  },
+  "artifacts": [
+    {
+      "path": "analysis/2026-10-05-fiveway/FIGURES.md",
+      "bytes": 3222,
+      "sha256": "15a5af4753e1284fe6fb2c229b474af383ddde487012cdb2fe4923e0c629275d"
+    },
+    {
+      "path": "analysis/2026-10-05-fiveway/UNCERTAINTY.md",
+      "bytes": 2584,
+      "sha256": "ac3b79a7a96e6111cc583ff164ea3cc16772b3d75d4cc3d9073666abebdd9118"
+    },
+    {
+      "path": "analysis/2026-10-05-fiveway/quantization-snake-results-mobile.png",
+      "bytes": 315464,
+      "sha256": "c3ddd82468938ef980310991004071f7b1d0c4fa972a51341682848568bc051b",
+      "pixels": [
+        1544,
+        2134
+      ]
+    },
+    {
+      "path": "analysis/2026-10-05-fiveway/quantization-snake-results-mobile.svg",
+      "bytes": 115788,
+      "sha256": "2479b256486e0c7af99121cb96e6c71501a57beeb8cb3ba1c0aefbbc0a26ce01"
+    },
+    {
+      "path": "analysis/2026-10-05-fiveway/quantization-snake-results.png",
+      "bytes": 344856,
+      "sha256": "1bbb83d6e0a16763234c76651efb52d3fecbd035a0258652f9bcfeecf3a896db",
+      "pixels": [
+        2741,
+        1332
+      ]
+    },
+    {
+      "path": "analysis/2026-10-05-fiveway/quantization-snake-results.svg",
+      "bytes": 117021,
+      "sha256": "067ad86d0a33688befb948cf8ea4ec3652813083ee9d33e004b04bc65bad1c5f"
+    },
+    {
+      "path": "analysis/2026-10-05-fiveway/uncertainty.json",
+      "bytes": 5926,
+      "sha256": "ef7913f1a1cc21ef0ebe2be74999fbfac897913533443f9e088c5a080a65af2a"
+    }
+  ],
+  "limitations": [
+    "Adaptive discovery with 15 paired seeds, not a held-out confirmation.",
+    "The two snapshots overlap; do not pool them as independent observations.",
+    "BF16 versus GGUF comparisons change runtime as well as precision. IQ2 and Q2 ran later.",
+    "One IQ2 game is capped alive; observed score retained, ultimate score unknown.",
+    "Figure byte reproducibility depends on the recorded environment; no claim of identical rendering across platforms."
+  ],
+  "publication_integration": {
+    "baseline_commit": "5ee0d86772943401bcaa3aed0e82206ca4902478",
+    "note": "The evidence manifest reference was refreshed to the published five-way snapshot. Results, seeds and schedule inputs are byte-identical to those used for these exports; no original evidence or published figures were changed."
+  }
+}

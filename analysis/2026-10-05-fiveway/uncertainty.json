@@ -1,0 +1,227 @@
+{
+  "source_name": "results.json",
+  "total_executions": 75,
+  "independent_paired_seed_units": 15,
+  "resampling_replicates": 100000,
+  "resampling_seed": 20261005,
+  "models": {
+    "bf16": {
+      "n_seeds": 15,
+      "mean": 12.2,
+      "median": 13.0,
+      "range": [
+        1.0,
+        29.0
+      ],
+      "sample_sd": 7.551726387295254,
+      "bootstrap_95_ci_mean": [
+        8.666666666666666,
+        16.0
+      ],
+      "capped_alive": 0
+    },
+    "q6-k-l": {
+      "n_seeds": 15,
+      "mean": 12.333333333333334,
+      "median": 12.0,
+      "range": [
+        1.0,
+        29.0
+      ],
+      "sample_sd": 7.724420150837645,
+      "bootstrap_95_ci_mean": [
+        8.666666666666666,
+        16.2
+      ],
+      "capped_alive": 0,
+      "versus_bf16": {
+        "differences": [
+          0,
+          0,
+          0,
+          -1,
+          0,
+          0,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "mean_difference": 0.13333333333333333,
+        "relative_mean_change_percent": 1.0928961748633892,
+        "bootstrap_95_ci_mean_difference": [
+          -0.1999999999999993,
+          0.5999999999999996
+        ],
+        "wins": 1,
+        "ties": 13,
+        "losses": 1,
+        "sign_test_two_sided_p_uncorrected": 1.0,
+        "sign_flip_two_sided_p_uncorrected": 1.0,
+        "sign_flip_holm_adjusted_p": 1.0
+      }
+    },
+    "q4-k-m": {
+      "n_seeds": 15,
+      "mean": 12.733333333333333,
+      "median": 12.0,
+      "range": [
+        1.0,
+        29.0
+      ],
+      "sample_sd": 7.73181430072867,
+      "bootstrap_95_ci_mean": [
+        9.0,
+        16.6
+      ],
+      "capped_alive": 0,
+      "versus_bf16": {
+        "differences": [
+          0,
+          0,
+          -10,
+          -1,
+          0,
+          15,
+          3,
+          7,
+          0,
+          0,
+          0,
+          0,
+          -2,
+          0,
+          -4
+        ],
+        "mean_difference": 0.5333333333333333,
+        "relative_mean_change_percent": 4.371584699453557,
+        "bootstrap_95_ci_mean_difference": [
+          -1.9333333333333318,
+          3.2666666666666675
+        ],
+        "wins": 3,
+        "ties": 8,
+        "losses": 4,
+        "sign_test_two_sided_p_uncorrected": 1.0,
+        "sign_flip_two_sided_p_uncorrected": 0.765625,
+        "sign_flip_holm_adjusted_p": 1.0
+      }
+    },
+    "iq2-m": {
+      "n_seeds": 15,
+      "mean": 18.533333333333335,
+      "median": 20.0,
+      "range": [
+        1.0,
+        38.0
+      ],
+      "sample_sd": 11.41969893690389,
+      "bootstrap_95_ci_mean": [
+        12.933333333333334,
+        24.133333333333333
+      ],
+      "capped_alive": 1,
+      "versus_bf16": {
+        "differences": [
+          6,
+          0,
+          -19,
+          17,
+          8,
+          7,
+          7,
+          1,
+          0,
+          23,
+          16,
+          17,
+          14,
+          -6,
+          4
+        ],
+        "mean_difference": 6.333333333333333,
+        "relative_mean_change_percent": 51.91256830601094,
+        "bootstrap_95_ci_mean_difference": [
+          0.9333333333333336,
+          11.266666666666667
+        ],
+        "wins": 11,
+        "ties": 2,
+        "losses": 2,
+        "sign_test_two_sided_p_uncorrected": 0.0224609375,
+        "sign_flip_two_sided_p_uncorrected": 0.04052734375,
+        "sign_flip_holm_adjusted_p": 0.12158203125
+      }
+    },
+    "q2-k": {
+      "n_seeds": 15,
+      "mean": 17.133333333333333,
+      "median": 19.0,
+      "range": [
+        1.0,
+        29.0
+      ],
+      "sample_sd": 8.65090141188161,
+      "bootstrap_95_ci_mean": [
+        12.8,
+        21.266666666666666
+      ],
+      "capped_alive": 0,
+      "versus_bf16": {
+        "differences": [
+          1,
+          5,
+          -6,
+          11,
+          0,
+          0,
+          1,
+          14,
+          0,
+          14,
+          1,
+          17,
+          2,
+          0,
+          14
+        ],
+        "mean_difference": 4.933333333333334,
+        "relative_mean_change_percent": 40.43715846994536,
+        "bootstrap_95_ci_mean_difference": [
+          1.5999999999999996,
+          8.466666666666669
+        ],
+        "wins": 10,
+        "ties": 4,
+        "losses": 1,
+        "sign_test_two_sided_p_uncorrected": 0.01171875,
+        "sign_flip_two_sided_p_uncorrected": 0.0205078125,
+        "sign_flip_holm_adjusted_p": 0.08203125
+      }
+    }
+  },
+  "exploratory_iq2_vs_q6": {
+    "mean_difference": 6.2,
+    "bootstrap_95_ci_mean_difference": [
+      0.7999999999999989,
+      11.200000000000001
+    ],
+    "wins": 11,
+    "ties": 2,
+    "losses": 2
+  },
+  "methods_and_limitations": [
+    "Exploratory, post-observation analyses. Models were added adaptively; intervals are unadjusted, descriptive percentile-bootstrap intervals, not confirmatory evidence.",
+    "Independent sample size is 15 paired environment seeds, not 60/75 games or thousands of correlated move decisions.",
+    "100,000 nonparametric paired-seed bootstrap resamples; NumPy PCG64 default_rng seed 20261005; 2.5th/97.5th percentile intervals. Resample entire seed rows, retaining cross-model pairing.",
+    "Sign-flip p-values assume symmetry/exchangeability of paired differences under the null. Model labels were not randomized treatments; these are not causal randomization tests. Holm correction covers included quant-versus-BF16 tests only, not the whole adaptive analysis process.",
+    "Score is food collected by collision or the 500-successful-move cap. Capped runs remain in score summaries; no uncensored survival or ultimate-score claim is made.",
+    "BF16 versus GGUF variants changes both precision and runtime. IQ2 and Q2 ran later. Paired seed/event priorities may produce different food coordinates once bodies diverge.",
+    "Selected same-runtime IQ2-versus-Q6 comparison is also exploratory, with unadjusted interval."
+  ]
+}

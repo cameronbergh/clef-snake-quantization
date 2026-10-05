@@ -4,10 +4,10 @@ Usage: python analyze.py path/to/combined/results.json [output_directory]
 No model calls. All resampling units are complete, paired seed rows.
 """
 import itertools
+import argparse
 import json
 import math
 import pathlib
-import sys
 
 import matplotlib
 matplotlib.use("Agg")
@@ -43,7 +43,89 @@ def sign_test_p(differences):
     return min(1.0, 2 * sum(math.comb(n, k) for k in range(min(wins, losses) + 1)) / 2 ** n)
 
 
-def main(source, out):
+def publication_figures(raw, models, scores, means, statistics, out):
+    """Optional additive publication exports; historical default is unchanged."""
+    from matplotlib.lines import Line2D
+
+    plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 11,
+                         "axes.spines.top": False, "axes.spines.right": False,
+                         "svg.hashsalt": "clef-snake-fiveway-20261005"})
+    for mobile in (False, True):
+        fig, axes = plt.subplots(2 if mobile else 1, 1 if mobile else 2,
+                                 figsize=(7.2, 10) if mobile else (13, 6.2))
+        fig.subplots_adjust(left=.12 if mobile else .065, right=.97,
+                            bottom=.21 if mobile else .22, top=.77 if mobile else .78,
+                            hspace=.55, wspace=.3)
+        x = np.arange(len(models))
+        for row in scores:
+            axes[0].plot(x, row, color="#a1a1aa", alpha=.3, lw=.8, zorder=1)
+        for j, model in enumerate(models):
+            rounds = [r for r in raw["rounds"] if r["model"] == model]
+            collisions = [r["score"] for r in rounds if r["end_reason"] != "move_cap"]
+            capped = [r["score"] for r in rounds if r["end_reason"] == "move_cap"]
+            axes[0].scatter(np.repeat(j, len(collisions)), collisions,
+                            color=COLORS[j], alpha=.7, s=28, zorder=2)
+            if capped:
+                axes[0].scatter(np.repeat(j, len(capped)), capped, color=COLORS[j],
+                                marker="^", s=115, edgecolor="#18181b", lw=1, zorder=4)
+            axes[0].scatter(j, means[j], color=COLORS[j], marker="D", s=90,
+                            edgecolor="white", linewidth=1.3, zorder=3)
+            axes[0].annotate(f"{means[j]:.2f}", (j, means[j]), xytext=(6, 7),
+                             textcoords="offset points", color=COLORS[j], weight="bold",
+                             fontsize=10, bbox={"facecolor": "white", "edgecolor": "none", "alpha": .8, "pad": .5})
+        axes[0].set_xticks(x, [LABELS[m] for m in models], rotation=15)
+        axes[0].set_xlim(-.3, len(models)-.35)
+        axes[0].set_ylim(0, max(scores.max() + 4, 40))
+        axes[0].set_ylabel("Food collected")
+        axes[0].set_title("A · Scores across 15 shared seeds", loc="left", fontsize=12, pad=12)
+        axes[0].grid(axis="y", alpha=.17)
+        for j, model in enumerate(models[1:]):
+            d = statistics[model]["versus_bf16"]
+            lo, hi = d["bootstrap_95_ci_mean_difference"]
+            mean = d["mean_difference"]
+            axes[1].errorbar(mean, j, xerr=[[mean-lo], [hi-mean]], fmt="o",
+                             color=COLORS[j+1], capsize=5, markersize=7, lw=2)
+            axes[1].annotate(f"{mean:+.2f}  [{lo:+.2f}, {hi:+.2f}]", (mean, j),
+                             xytext=(0, 12), textcoords="offset points", ha="center",
+                             fontsize=10, color=COLORS[j+1])
+        axes[1].axvline(0, color="#71717a", linestyle="--", lw=1)
+        axes[1].set_yticks(np.arange(len(models)-1), [LABELS[m] for m in models[1:]])
+        axes[1].set_ylim(len(models)-1.5, -.6)
+        axes[1].set_xlim(-3.5, 12.5)
+        axes[1].set_xlabel("Mean food difference versus BF16", labelpad=9)
+        axes[1].set_title("B · Paired differences and 95% intervals", loc="left", fontsize=12, pad=12)
+        axes[1].grid(axis="x", alpha=.17)
+        scope = "Five-way" if len(models) == 5 else f"{len(models)}-way"
+        title = f"CLEF-Flash Snake\n{scope} discovery results" if mobile else f"CLEF-Flash Snake · {scope} discovery results"
+        fig.suptitle(title, y=.975 if mobile else .97,
+                     fontsize=16 if mobile else 18, weight="bold")
+        handles = [Line2D([], [], marker="o", color="#52525b", linestyle="none", label="Collision"),
+                   Line2D([], [], marker="D", color="#52525b", linestyle="none", label="Mean score"),
+                   Line2D([], [], marker="^", color="#a855f7", markeredgecolor="#18181b",
+                          linestyle="none", label="Alive at 500 moves")]
+        fig.legend(handles=handles, loc="upper center", bbox_to_anchor=(.5, .905 if mobile else .925),
+                   ncol=1 if mobile else 3, frameon=False, fontsize=10)
+        caption = (f"{raw['total_rounds']} games · 15 paired seed units. Lines connect the same seed; repeated scores overlap.\n"
+                   "Intervals: 100,000 paired-seed bootstrap resamples; unadjusted and descriptive.\n"
+                   "Adaptive discovery; BF16/runtime and later IQ2/Q2 order confounds remain.\n"
+                   "Capped score retained. No monotonic, causal or general reasoning claim.")
+        if mobile:
+            caption = (f"{raw['total_rounds']} games · 15 paired seed units. Lines pair the same seed.\n"
+                       "Repeated scores overlap; capped scores are retained.\n"
+                       "95% intervals: 100,000 paired-seed bootstrap resamples,\n"
+                       "unadjusted and descriptive. Adaptive discovery.\n"
+                       "BF16/runtime and later IQ2/Q2 order confounds remain.\n"
+                       "No monotonic, causal or general reasoning claim.")
+        fig.text(.5, .025, caption, ha="center", va="bottom", fontsize=9.3,
+                 color="#52525b", linespacing=1.5)
+        basename = "quantization-snake-results-mobile" if mobile else "quantization-snake-results"
+        for ext in ("png", "svg"):
+            metadata = {"Date": None} if ext == "svg" else None
+            fig.savefig(out / f"{basename}.{ext}", dpi=220, bbox_inches="tight", metadata=metadata)
+        plt.close(fig)
+
+
+def main(source, out, publication=False):
     raw = json.loads(source.read_text())
     paired = raw["paired_seed_differences"]
     models = [m for m in MODELS if m in paired[0]["scores"]]
@@ -60,7 +142,9 @@ def main(source, out):
     for index, model in enumerate(models):
         rounds = [r for r in raw["rounds"] if r["model"] == model]
         assert len(rounds) == 15
-        assert sorted(r["score"] for r in rounds) == sorted(scores[:, index])
+        rounds_by_seed = {r["seed"]: r for r in rounds}
+        assert len(rounds_by_seed) == len(seeds)
+        assert [rounds_by_seed[seed]["score"] for seed in seeds] == scores[:, index].tolist()
         summary = {"n_seeds": 15, "mean": float(means[index]),
                    "median": float(np.median(scores[:, index])),
                    "range": [float(scores[:, index].min()), float(scores[:, index].max())],
@@ -121,6 +205,11 @@ def main(source, out):
         d = statistics[m]["versus_bf16"]
         lines.append(f"| {LABELS[m]} | {d['sign_test_two_sided_p_uncorrected']:.4f} | {d['sign_flip_two_sided_p_uncorrected']:.4f} | {d['sign_flip_holm_adjusted_p']:.4f} |")
     (out / "UNCERTAINTY.md").write_text("\n".join(lines) + "\n")
+    if publication:
+        publication_figures(raw, models, scores, means, statistics, out)
+        print(json.dumps({"total_executions": raw["total_rounds"], "models": statistics,
+                          "exploratory_iq2_vs_q6": result["exploratory_iq2_vs_q6"]}, indent=2))
+        return
     plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 10, "axes.spines.top": False, "axes.spines.right": False})
     fig, axes = plt.subplots(1, 2, figsize=(11, 5), gridspec_kw={"width_ratios": [1.2, 1]}, layout="constrained")
     x = np.arange(len(models))
@@ -152,4 +241,10 @@ def main(source, out):
 
 
 if __name__ == "__main__":
-    main(pathlib.Path(sys.argv[1]), pathlib.Path(sys.argv[2]) if len(sys.argv) > 2 else pathlib.Path(__file__).parent)
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("source", type=pathlib.Path)
+    parser.add_argument("out", type=pathlib.Path, nargs="?", default=pathlib.Path(__file__).parent)
+    parser.add_argument("--publication-figures", action="store_true",
+                        help="mark capped-alive games and add a stacked mobile figure")
+    args = parser.parse_args()
+    main(args.source, args.out, publication=args.publication_figures)

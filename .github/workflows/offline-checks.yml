@@ -18,6 +18,11 @@ jobs:
           python-version: '3.12'
       - name: Protocol smoke tests
         run: python -m unittest discover -s tests -v
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Watcher data and rendering logic
+        run: node tests/test_watcher.js
       - name: Compile Python sources
         run: python -m compileall -q clef_snake scripts tests
       - name: Exhaustive offline dataset audits (no model download or GPU)

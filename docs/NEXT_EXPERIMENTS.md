@@ -2,9 +2,11 @@
 
 The initial 15 seeds are now discovery data. Do not reuse them as an independent confirmation set, discard unfavorable results, or adapt a stopping rule based on the latest scores.
 
-## First: finish and audit the already-running Q2_K extension
+## Completed discovery extension; next control
 
-Preserve all 15 original seeds and the existing cap. Publish its complete results with the four earlier variants. Do not confuse IQ2_M and Q2_K: GGUF names denote different quantization recipes, not an exact uniform bit width for every tensor. Both retain the official BF16 decision head.
+The [complete five-way snapshot](FIVE_WAY_RESULTS.md) contains all 75 games on the 15 original seeds, including Q2_K, with the original cap and full audits. The initial four-way release is preserved. IQ2_M and Q2_K are different mixed GGUF recipes; both retain the official BF16 decision head.
+
+**Next controlled experiment:** establish a high-precision GGUF backbone on the same llama.cpp/Metal bridge before making a precision-only claim. Start with the fixed identical-request compatibility/timing panel described below, then freeze a held-out game schedule. This is a proposal, not a running job; no model download or additional inference was performed for the five-way publication or watcher charts.
 
 ## Offline mechanism exploration: no extra inference needed
 

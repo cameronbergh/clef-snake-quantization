@@ -40,3 +40,7 @@ The executed Q2 harness had an aggregate-dictionary label typo, `iq2-k` instead 
 - Gameplay latency compares different states. Quant RSS is process-lifetime peak, not round-local, and original BF16 RSS is unavailable.
 
 See [METHODS.md](METHODS.md) for protocol reasoning and [NEXT_EXPERIMENTS.md](NEXT_EXPERIMENTS.md) for proposed held-out validation. No new confirmation rounds were run as part of packaging/publication.
+
+## Additional visualization exports
+
+[Cap-marked wide and portrait PNG/SVG figures](../analysis/2026-10-05-fiveway/FIGURES.md) reproduce the same paired statistics and explicitly identify the IQ2_M game capped alive at 36 food on seed 13. Source, generator and output hashes accompany these additive exports; the original published five-way figures and evidence remain unchanged. The [passive watcher](../watcher/README.md) also explores saved scores, paired outcomes, latency and final boards without inference.

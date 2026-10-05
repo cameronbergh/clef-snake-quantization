@@ -6,6 +6,8 @@ In **15 paired random environment seeds**, IQ2_M collected **18.53 food on avera
 
 ![All five models: per-seed scores and exploratory uncertainty](figures/2026-10-05-fiveway/quantization-snake-results.png)
 
+[Additional cap-marked and portrait figures, captions and provenance](analysis/2026-10-05-fiveway/FIGURES.md)
+
 ## Latest published snapshot
 
 | Backbone configuration | Mean food | Median | Range | Collisions / capped alive |
@@ -26,6 +28,7 @@ The original deterministic demo was first run five times per configuration. Thos
 - Structured state, not images: body, food, direction, factual collision checks, Manhattan distances and flood-fill open-space counts.
 - Every action is the **unchanged official BF16 JointSchemaHead's argmax**. Unsafe choices are executed. No solver, action mask, fallback, sampling or recommended-action feature.
 - Only food placement changes across rounds: SHA256-keyed per-event cell priorities; first unoccupied cell wins. The same seed/event gives the same priorities across models, **not necessarily the same later food coordinates** after bodies diverge.
+- Snake waits for each model response before applying one move. There is no gameplay clock penalty for slower inference. CLEF returns a direct four-way head decision (`output_tokens=0`), not generated move text.
 - Collision ends a game. A 500-successful-move cap is an **alive, censored run**, not a loss. Terminal collisions count as attempted, not successful, moves.
 - BF16/Q6/Q4 order rotates within seed. IQ2_M was added later and ran afterward, serially. Q2_K is another completed later extension.
 
@@ -49,6 +52,32 @@ python3 -m clef_snake.audit data/2026-10-05-fiveway --verify-hashes
 ```
 
 The audit verifies **every full request including JSON field order and factual features**, head argmax/provenance, exact applied moves, food events, scores/caps, contiguous inference IDs and exact request/response matching to independently captured server logs. Full compressed JSONL logs are included, not selected examples. [Evidence format and integrity](docs/DATA.md).
+
+## Explore the recorded results
+
+The [benchmark watcher](watcher/benchmark-watch.html) shows per-seed food scores, score distributions, wins/ties/losses against BF16 and descriptive latency. It reads existing JSON and makes no inference calls. The same page can mirror an ongoing local benchmark or display the complete published five-way snapshot.
+
+For a fresh checkout, serve the repository and open the watcher:
+
+```sh
+python3 -m http.server 8000 --bind 127.0.0.1
+# Open http://127.0.0.1:8000/watcher/benchmark-watch.html
+```
+
+[Watcher setup and data rules](watcher/README.md) explain the live-data layout. The page labels incomplete comparisons, pairs by saved seed, and marks the alive IQ2 cap. Gameplay latency is descriptive because runtime and encountered states differ.
+
+## Research progress and next work
+
+- [x] Complete and audit all 75 discovery games, with the original 60-game snapshot preserved.
+- [x] Publish the five-way dataset and uncertainty; remote commit `5ee0d86` and hosted checks verified.
+- [x] Add passive watcher charts for recorded scores, paired outcomes and latency.
+- [ ] Validate and publish first-divergence analysis on identical states.
+- [ ] Add a high-precision backbone on the same GGUF runtime to separate runtime effects from precision.
+- [ ] Freeze and run fresh held-out validation with counterbalanced model order.
+- [ ] Investigate smaller supported quantizations; independently reproduce results and extend to another task.
+- [ ] [Benchmark another local decision model beyond CLEF (#1)](https://github.com/cameronbergh/clef-snake-quantization/issues/1), using its supported action interface and a frozen, separately audited protocol.
+
+See the [full research TODO](TODO.md) for completion evidence and remaining chart work. The strongest next controlled experiment is a **same-runtime high-precision GGUF control** on saved identical requests, followed by a frozen held-out game protocol. No new model experiment was run to prepare these results or charts.
 
 ## Reproduce model-backed games
 
