@@ -11,7 +11,8 @@
 - `scripts/`: build, allowlisted archival export and exploratory statistical analysis.
 - `watcher/`: independently authored passive JSON viewer; never add model calls or inference controls.
 - `analysis/`: versioned derived statistics, figures and provenance; retain older snapshots.
-- `experiments/qwen3_snake_v1/`: frozen non-CLEF preparation, offline action adapter and external-volume gate; no enabled campaign runner. Preserve its pre-result freeze and create a new version for outcome-informed amendments.
+- `docs/DECISION_MODEL_CANDIDATES.md`: native typed-decision candidate assessment; no selection, acquisition or inference implied.
+- `experiments/qwen3_snake_v1/`: deferred general instruction-model comparator, outside the intended Jev-style model class. Read `STATUS.md` first. Preserve the offline adapter, external-volume gate and pre-result freeze; no enabled campaign runner. Create a new version for outcome-informed amendments.
 - `data/`: versioned public discovery evidence; `docs/`: methods/reproduction/limitations; `tests/`: lightweight protocol checks.
 
 ## Read first

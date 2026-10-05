@@ -18,10 +18,13 @@
 
 ## Additional model comparison
 
-- [x] Select Qwen3-4B-Instruct-2507 from primary-source metadata; prepare its strict structured-output adapter, 30 fresh paired seeds, balanced schedule, analysis plan and external-volume storage gate. [Frozen preparation; no model calls](experiments/qwen3_snake_v1/README.md).
-- [ ] After explicit acquisition authorization, verify the external Models mount, acquire only the pinned source and verify hashes; then separately validate conversion, BF16 tied I/O, native template and bounded preflight.
-- [ ] Implement and test the serial runner and independent new-schema auditor before any main campaign; retain all failures and preserve the original evidence.
-- [ ] [Issue #1: benchmark another local decision model beyond CLEF](https://github.com/cameronbergh/clef-snake-quantization/issues/1). First compare candidate interfaces, runtime support and resource needs. Preserve board/action rules; use each model's supported interface and label interface differences. Prefer a same-runtime high-precision/quantized sweep, fresh saved paired seeds, a frozen analysis plan, serial inference and an additive audited dataset. No new campaign is included in this publication/chart update.
+- [x] Assess native decision-model candidates from primary sources: [Laya, Kev, Jeff and CLEF-27B](docs/DECISION_MODEL_CANDIDATES.md). Availability is not runtime/parity validation or candidate selection.
+- [ ] Select a checkpoint that computes typed option probabilities directly. A grammar-constrained instruction model does not meet this requirement. CLEF-27B is a within-family extension; Laya, Kev and Jeff need their own interface and provenance checks.
+- [ ] Verify a matched high-precision/quantized pair, native head preservation, complete state/context handling, runtime compatibility and external Models storage before requesting acquisition or inference.
+- [ ] Freeze the selected model's adapter, fresh paired seeds, counterbalanced serial schedule and analysis; implement an independent new-schema auditor before any main campaign. Retain every failure and preserve original evidence.
+- [ ] [Issue #1: benchmark another local decision model beyond CLEF](https://github.com/cameronbergh/clef-snake-quantization/issues/1). Preserve board/action rules and factual features, label model-interface differences, use native argmax without safety overrides, and publish a separately audited additive dataset. No new campaign has run.
+
+**Deferred, outside the intended model class:** the [Qwen3 general instruction-model comparator](experiments/qwen3_snake_v1/STATUS.md). Its adapter, 30-seed schedule and analysis were prepared, but that work does not complete candidate selection for issue #1. Preserve the original freeze; do not acquire or run Qwen as an incidental next step.
 
 ## Charts, watcher and publication graphics
 
