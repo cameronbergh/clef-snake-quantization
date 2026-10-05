@@ -1,0 +1,43 @@
+{
+  "primary": {
+    "original_decisions_jsonl_sha256": "baf8130ddd70996bbe27502183d44932878f16cbb75edfd2d4e2c2fb348a5a85",
+    "original_results_json_sha256": "327df4fbc1dfd02eeec7958016cc3183dc708fb1222d69482d33e84c7553552b",
+    "executed_source_sha256": {
+      "randomized_benchmark.py": "ca2d84c726f058ae4c072835f1646ade75a07436cbb44f85099c4f56deada956",
+      "benchmark.py": "fe30fa51b79dd810605707d49b809a2092b0d3082796c87c03f19fdc92a8023d",
+      "snake.html": "0bc200323abd4fc9cf9c5b03c3ef42f5a12c99015bada2800ba2a2e3f48fd664",
+      "server.py": "51104349566b11359a2871c98dca414d92ea1f62b7cbc538630404a82e8b4ee0",
+      "quant/server.py": "1d20ec1f7cbb2526c4375025083b06555931ed6af4c83270f40e548173fd98c6",
+      "q4/server.py": "8a8a12a5b5d546844a2742ffdbb09a1fd57904a1b41d3c2e7546d18608755aa2",
+      "quant/model_bridge.py": "0c6ba72a66a9a8b57dbc3c14bbfd16839831c1d1914948e347e3face01402b49",
+      "quant/bridge.cpp": "6972029a2ed3dbc1bdb3d3b5e15380b60c367b849faf9dbbf4fd1b557e121fd8",
+      "quant/snake-q6.html": "e203f1da52ede5767445b30e013c6b694ed850b522a1fca5c4f6efefa387688a",
+      "q4/snake-q4.html": "2f3ea241c8eb450e97132418f8383ba260174b6d0792e2d85e911e72f9717745",
+      "quant/llama.cpp/src/models/qwen35.cpp": "1dbbf89f0da8ac5523532d4b898ae08aa39cc1b639825ddfa1186498111fb3e0"
+    },
+    "source_archive_locally_verified": true,
+    "source_note": "Original UI is not redistributed: upstream has no explicit license. Portable game parity is verified against every recorded request and transition."
+  },
+  "iq2": {
+    "original_decisions_jsonl_sha256": "f886a0b9c00aa6393e5bf1db2ba55e277e1d9ca5afb00e9bb86f847345c1f3cf",
+    "original_results_json_sha256": "a693bff5faf28e35acd5625b3a7a3e015a700310ea1856a36a00a04488d21858",
+    "executed_source_sha256": {
+      "randomized_iq2_benchmark.py": "ea374b1b641ead2b4eae5129c057dd0d4a70e4b5bb8d814802f2975fbd76dd8e",
+      "iq2/server.py": "201b573026cb3b504e156fc859d0520c10acb12d40796badd301ec811c456ec1",
+      "iq2/snake-iq2.html": "95877feec306c2e9f621d7e1ee6f82892239b042cdc7a84f781d22cf2cedd431",
+      "randomized_benchmark.py": "ca2d84c726f058ae4c072835f1646ade75a07436cbb44f85099c4f56deada956",
+      "benchmark.py": "fe30fa51b79dd810605707d49b809a2092b0d3082796c87c03f19fdc92a8023d",
+      "snake.html": "0bc200323abd4fc9cf9c5b03c3ef42f5a12c99015bada2800ba2a2e3f48fd664",
+      "server.py": "51104349566b11359a2871c98dca414d92ea1f62b7cbc538630404a82e8b4ee0",
+      "quant/server.py": "1d20ec1f7cbb2526c4375025083b06555931ed6af4c83270f40e548173fd98c6",
+      "q4/server.py": "8a8a12a5b5d546844a2742ffdbb09a1fd57904a1b41d3c2e7546d18608755aa2",
+      "quant/model_bridge.py": "0c6ba72a66a9a8b57dbc3c14bbfd16839831c1d1914948e347e3face01402b49",
+      "quant/bridge.cpp": "6972029a2ed3dbc1bdb3d3b5e15380b60c367b849faf9dbbf4fd1b557e121fd8",
+      "quant/snake-q6.html": "e203f1da52ede5767445b30e013c6b694ed850b522a1fca5c4f6efefa387688a",
+      "q4/snake-q4.html": "2f3ea241c8eb450e97132418f8383ba260174b6d0792e2d85e911e72f9717745",
+      "quant/llama.cpp/src/models/qwen35.cpp": "1dbbf89f0da8ac5523532d4b898ae08aa39cc1b639825ddfa1186498111fb3e0"
+    },
+    "source_archive_locally_verified": true,
+    "source_note": "Original UI is not redistributed: upstream has no explicit license. Portable game parity is verified against every recorded request and transition."
+  }
+}

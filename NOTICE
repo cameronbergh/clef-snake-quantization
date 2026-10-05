@@ -1,0 +1,31 @@
+Less Precision, Better Decisions?
+An exploratory study of CLEF-Flash backbone quantization on Snake.
+Copyright 2026 Cameron Bergh.
+
+New code, documentation and experimental records are offered under Apache-2.0.
+The portable implementation was prepared with AI coding assistance.
+
+Cloudflare/clef-flash, official release revision:
+17f0b0ad64efb65d273590632833508766b2aae6 (Apache-2.0).
+The official head implementation/weights are downloaded, not redistributed here.
+Cloudflare's CLEF model is based on Qwen/Qwen3.5-9B (Apache-2.0).
+
+GGUF quantizations by bartowski, repository revision:
+d7f376ea88c05e7bb1014dd5351a93df9dd8029e (model card: Apache-2.0).
+No model weights are bundled.
+
+llama.cpp by the ggml authors, MIT License.
+Pinned revision c25030496079fdad724609d94f68b859f25774ce.
+native/llama-patch.diff modifies embedding-mode Qwen3.5 graph behavior:
+omit the unused vocabulary-logit projection and return final-normalized states.
+The upstream context in that patch retains MIT, not a replacement license.
+Full MIT license is preserved in licenses/llama.cpp-MIT.txt.
+
+Snake protocol was motivated by taeold/djev-run at revision:
+2f6e6b9b455eec27dcdc0a4cb71a3fafdec6acc8.
+No explicit license was present in that repository / GitHub license endpoint
+when checked on 2026-10-05. Its HTML/UI/source is not redistributed.
+The independent Python driver implements documented behavior; published data
+verify exact parity with the observed original browser-run protocol.
+
+Third-party packages are installed separately under their own licenses.

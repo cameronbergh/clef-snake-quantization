@@ -1,0 +1,41 @@
+# Agentic development guide
+
+## Project map
+
+- `clef_snake/game.py`: independent Python game, feature/schema encoding and paired food protocol.
+- `clef_snake/benchmark.py`: serial real-model driver; saved seeds mandatory; no implicit regeneration.
+- `clef_snake/server.py`, `model_bridge.py`: official BF16 or GGUF backbone + unchanged official BF16 joint head.
+- `clef_snake/catalog.py`: pinned model, head/source and native revisions/hashes.
+- `clef_snake/audit.py`: exhaustive offline evidence/hash/request/trajectory/server audit.
+- `native/`: minimal all-token-state C ABI and MIT-context llama.cpp patch.
+- `scripts/`: build, allowlisted archival export and exploratory statistical analysis.
+- `data/`: versioned public discovery evidence; `docs/`: methods/reproduction/limitations; `tests/`: lightweight protocol checks.
+
+## Read first
+
+Read `README.md`, `docs/METHODS.md`, `docs/REPRODUCING.md`, `NOTICE`, and the relevant code before changing behavior. Existing observations are exploratory; do not turn them into a monotonic, causal or general-intelligence claim. The sample unit is an environment seed, not a move call.
+
+## Safe default commands
+
+```sh
+python3 -m unittest discover -s tests -v
+python3 -m compileall -q clef_snake scripts tests
+python3 -m clef_snake.audit data/2026-10-05 --verify-hashes
+```
+
+These require no model weights, GPU, credentials or network. Audit each added complete dataset, too. The parity audit must continue checking every full request, field order, factual feature, transition, food event and independent server match; do not weaken checks to make changed behavior pass.
+
+## Write boundaries and research integrity
+
+- **Published evidence is immutable.** Add new dated/phase dataset directories and new research notes for more trials; do not replace previously published seeds, traces, scores or hash manifests. If a derived calculation needs correction, explicitly document the correction and retain the original evidence. New pipeline versions get new provenance.
+- No hidden policy changes: preserve initial state, grid, question/schema/features, official head weights, raw all-token hidden states, output-row treatment, argmax, move/collision semantics and cap unless an experiment explicitly changes one and labels it as a new protocol.
+- Never mask unsafe actions, insert a solver/recommended action, silently retry a losing game, sample an action, enable CPU fallback or discard unfavorable seeds. Collision calls are attempts, not successful moves; alive caps are censored.
+- Preserve exact model/download/source hashes and serial inference. Record runtime and execution-order changes rather than attributing their effects only to precision.
+- **Model downloads, server loading and GPU experiments are opt-in tasks**, never part of CI or an incidental test run. Existing benchmark data can be audited offline. Do not start new experiments just because a development task changes code.
+- Keep checkpoints, build binaries, credentials, tokens, personal machine paths and unrelated workspace history out of Git. Use an explicit allowlist for evidence export and inspect compressed logs as well as plain text.
+- Respect third-party licenses. Do not copy the unlicensed original browser UI into this repo. Behavioral parity does not mean the standalone driver is the original executable.
+- New analysis must retain seed pairing, state exploratory versus prospective choices, disclose multiple comparisons and uncertainty, and report all seeds/caps.
+
+## Completing a change
+
+Run the relevant offline commands and dataset audits, inspect the diff, and report changes, verification and any numerical/reproducibility limits. Prefer small reviewable commits. Research-result updates should link code, exact dataset, seeds, analysis and provenance together. Remote publication and external communication need task authorization; local code work alone does not authorize posting a social thread.

@@ -1,0 +1,17 @@
+diff --git a/src/models/qwen35.cpp b/src/models/qwen35.cpp
+index ab98744..9277046 100644
+--- a/src/models/qwen35.cpp
++++ b/src/models/qwen35.cpp
+@@ -229,6 +229,12 @@ llama_model_qwen35::graph::graph(const llama_model & model, const llm_graph_para
+         ggml_build_forward_expand(gf, embd);
+     }
+ 
++    // CLEF bridge: return raw final-norm states, not unused vocabulary logits.
++    if (cparams.embeddings) {
++        ggml_build_forward_expand(gf, res->t_embd);
++        return;
++    }
++
+     // LM head
+     cur = build_lora_mm(model.output, cur, model.output_s);
+ 

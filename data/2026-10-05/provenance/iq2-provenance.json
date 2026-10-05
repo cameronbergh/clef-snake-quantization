@@ -1,0 +1,64 @@
+{
+  "quant_checkpoint": {
+    "repo": "bartowski/Cloudflare_clef-flash-GGUF",
+    "revision": "d7f376ea88c05e7bb1014dd5351a93df9dd8029e",
+    "file": "Cloudflare_clef-flash-IQ2_M.gguf",
+    "size": 3536905536,
+    "sha256": "c3ce8a0f1551ce9d267be47622e9d88fa9f08d458b6d4cec5796788d85dd41b6",
+    "verified_time": 1791232193.334495,
+    "metadata_etag_match": true,
+    "full_file_hash_match": true
+  },
+  "official_revision": "17f0b0ad64efb65d273590632833508766b2aae6",
+  "official_head_sha256": "19cdcec8c81dc9212be320fff47462ab342fbc1278be4368fb3da71241cf5ba0",
+  "official_head_source_sha256": "0e304cf7c6500e8bb59bef7e2afd2c6373f82596dfb3b57d1aa93c175e2dc3a3",
+  "native_revision": "c25030496079fdad724609d94f68b859f25774ce",
+  "bridge_library_sha256": "305382000f6e514b25db17b70eed62b5fafcee1b39f443e7427144326b1a01d3",
+  "model_bridge_sha256": "0c6ba72a66a9a8b57dbc3c14bbfd16839831c1d1914948e347e3face01402b49",
+  "bridge_validation_reused": true,
+  "cpu_row_alignment": {
+    "sample": "all unique token IDs from baseline initial input",
+    "unique_token_ids": 161,
+    "tensor_count": 427,
+    "type_counts": {
+      "Q4_K": 1,
+      "F32": 225,
+      "Q3_K": 1,
+      "Q5_K": 12,
+      "IQ4_XS": 48,
+      "IQ2_S": 129,
+      "IQ3_S": 10,
+      "IQ3_XXS": 1
+    },
+    "tables": {
+      "token_embd.weight": {
+        "quant_type": "Q3_K",
+        "cosine_mean": 0.98830246925354,
+        "cosine_min": 0.9785115718841553,
+        "relative_rmse": 0.15472941100597382,
+        "row_id_alignment_passed": true
+      },
+      "output.weight": {
+        "quant_type": "Q4_K",
+        "cosine_mean": 0.9974852204322815,
+        "cosine_min": 0.9967858195304871,
+        "relative_rmse": 0.07110288739204407,
+        "row_id_alignment_passed": true
+      }
+    },
+    "cpu_only": true,
+    "passed": true
+  },
+  "warmup_requests_excluded": 3,
+  "execution_amendment": {
+    "created_utc": "2026-10-05T20:29:18.912496+00:00",
+    "added_model": "iq2-m",
+    "label": "IQ2_M",
+    "total_episodes": 60,
+    "rounds_per_model": 15,
+    "phase": "IQ2_M loaded \u00b7 three excluded compatibility/warmup requests",
+    "seed_manifest": "benchmarks/randomized15-threeway-20261005T131900/seed-manifest.json",
+    "original_45_harness_unchanged": true,
+    "execution_order": "Original rotating three-model 45 episodes retained; IQ2_M 15-seed extension follows without simultaneous GPU inference."
+  }
+}

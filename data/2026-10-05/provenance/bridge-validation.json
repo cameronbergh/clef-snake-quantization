@@ -1,0 +1,264 @@
+{
+  "method": "Same official encoding/token IDs and BF16 source weights; HF MPS final_norm states vs llama.cpp Metal unpooled raw final_norm states; same official head with bitwise-equal BF16 output rows.",
+  "samples": [
+    {
+      "attempt": 1,
+      "input_tokens": 420,
+      "input_ids_sha256": "92afb66a4c740da1886681140c5c67e1ebee18e92b33f6381e5f1839ac947594",
+      "hidden_shape": [
+        420,
+        4096
+      ],
+      "all_token_cosine": {
+        "mean": 0.9998838305473328,
+        "median": 0.9999305009841919,
+        "min": 0.9940648674964905
+      },
+      "hidden_relative_rmse": 0.015736758708953857,
+      "raw_hidden_norm_median": 105.11431884765625,
+      "hf_hidden_norm_median": 105.49824523925781,
+      "raw_not_unit_normalized": true,
+      "no_pooling": true,
+      "bf16_output_lexical_rows_bitwise_equal": true,
+      "hf_answer": {
+        "move": {
+          "type": "choice",
+          "choice": "up",
+          "confidence": 0.5684,
+          "probabilities": {
+            "up": 0.5684,
+            "down": 0.0435,
+            "left": 0.0212,
+            "right": 0.367
+          }
+        }
+      },
+      "gguf_bf16_answer": {
+        "move": {
+          "type": "choice",
+          "choice": "up",
+          "confidence": 0.5754,
+          "probabilities": {
+            "up": 0.5754,
+            "down": 0.0433,
+            "left": 0.0211,
+            "right": 0.3601
+          }
+        }
+      },
+      "hf_answer_exactly_matches_saved_baseline": true,
+      "choice_agrees": true,
+      "max_probability_absolute_delta": 0.007000000000000006,
+      "hf_backbone_ms": 4004.1791249532253,
+      "gguf_bf16_backbone_ms": 547.9092919267714
+    },
+    {
+      "attempt": 51,
+      "input_tokens": 456,
+      "input_ids_sha256": "5495a99389eb737639dfc92bfd6020212b4d6e8d5c739d97b654c203c19ead04",
+      "hidden_shape": [
+        456,
+        4096
+      ],
+      "all_token_cosine": {
+        "mean": 0.9998461008071899,
+        "median": 0.9999315738677979,
+        "min": 0.9887228012084961
+      },
+      "hidden_relative_rmse": 0.01868046633899212,
+      "raw_hidden_norm_median": 103.24134826660156,
+      "hf_hidden_norm_median": 103.36572265625,
+      "raw_not_unit_normalized": true,
+      "no_pooling": true,
+      "bf16_output_lexical_rows_bitwise_equal": true,
+      "hf_answer": {
+        "move": {
+          "type": "choice",
+          "choice": "right",
+          "confidence": 0.6522,
+          "probabilities": {
+            "up": 0.1255,
+            "down": 0.1825,
+            "left": 0.0398,
+            "right": 0.6522
+          }
+        }
+      },
+      "gguf_bf16_answer": {
+        "move": {
+          "type": "choice",
+          "choice": "right",
+          "confidence": 0.6491,
+          "probabilities": {
+            "up": 0.1278,
+            "down": 0.1816,
+            "left": 0.0415,
+            "right": 0.6491
+          }
+        }
+      },
+      "hf_answer_exactly_matches_saved_baseline": true,
+      "choice_agrees": true,
+      "max_probability_absolute_delta": 0.0030999999999999917,
+      "hf_backbone_ms": 1036.676666000858,
+      "gguf_bf16_backbone_ms": 632.8172920038924
+    },
+    {
+      "attempt": 101,
+      "input_tokens": 475,
+      "input_ids_sha256": "97b42dc221c1e189891bf94065ed64783b2dce13e62b20d450842155327280ed",
+      "hidden_shape": [
+        475,
+        4096
+      ],
+      "all_token_cosine": {
+        "mean": 0.9998921751976013,
+        "median": 0.9999381899833679,
+        "min": 0.9968646764755249
+      },
+      "hidden_relative_rmse": 0.015438014641404152,
+      "raw_hidden_norm_median": 103.87378692626953,
+      "hf_hidden_norm_median": 103.92109680175781,
+      "raw_not_unit_normalized": true,
+      "no_pooling": true,
+      "bf16_output_lexical_rows_bitwise_equal": true,
+      "hf_answer": {
+        "move": {
+          "type": "choice",
+          "choice": "right",
+          "confidence": 0.8199,
+          "probabilities": {
+            "up": 0.1026,
+            "down": 0.0485,
+            "left": 0.0289,
+            "right": 0.8199
+          }
+        }
+      },
+      "gguf_bf16_answer": {
+        "move": {
+          "type": "choice",
+          "choice": "right",
+          "confidence": 0.8232,
+          "probabilities": {
+            "up": 0.0999,
+            "down": 0.0479,
+            "left": 0.0291,
+            "right": 0.8232
+          }
+        }
+      },
+      "hf_answer_exactly_matches_saved_baseline": true,
+      "choice_agrees": true,
+      "max_probability_absolute_delta": 0.0033000000000000806,
+      "hf_backbone_ms": 1007.2844999376684,
+      "gguf_bf16_backbone_ms": 569.440208026208
+    },
+    {
+      "attempt": 151,
+      "input_tokens": 507,
+      "input_ids_sha256": "e825ae75168334d0da8637bc7fd0f89c0287b872d990876b6571b9c82c542db9",
+      "hidden_shape": [
+        507,
+        4096
+      ],
+      "all_token_cosine": {
+        "mean": 0.999875009059906,
+        "median": 0.999940037727356,
+        "min": 0.995727002620697
+      },
+      "hidden_relative_rmse": 0.016232090070843697,
+      "raw_hidden_norm_median": 102.77099609375,
+      "hf_hidden_norm_median": 102.76606750488281,
+      "raw_not_unit_normalized": true,
+      "no_pooling": true,
+      "bf16_output_lexical_rows_bitwise_equal": true,
+      "hf_answer": {
+        "move": {
+          "type": "choice",
+          "choice": "up",
+          "confidence": 0.9117,
+          "probabilities": {
+            "up": 0.9117,
+            "down": 0.0319,
+            "left": 0.0286,
+            "right": 0.0277
+          }
+        }
+      },
+      "gguf_bf16_answer": {
+        "move": {
+          "type": "choice",
+          "choice": "up",
+          "confidence": 0.9068,
+          "probabilities": {
+            "up": 0.9068,
+            "down": 0.033,
+            "left": 0.0305,
+            "right": 0.0296
+          }
+        }
+      },
+      "hf_answer_exactly_matches_saved_baseline": true,
+      "choice_agrees": true,
+      "max_probability_absolute_delta": 0.004899999999999904,
+      "hf_backbone_ms": 876.7574579687789,
+      "gguf_bf16_backbone_ms": 624.0306250983849
+    },
+    {
+      "attempt": 201,
+      "input_tokens": 512,
+      "input_ids_sha256": "36309ca8ddbe5f202e4570f8fe686226680bfcbe5e92ab8105779471fa1e2ac0",
+      "hidden_shape": [
+        512,
+        4096
+      ],
+      "all_token_cosine": {
+        "mean": 0.999851644039154,
+        "median": 0.9999332427978516,
+        "min": 0.9911096096038818
+      },
+      "hidden_relative_rmse": 0.01813943311572075,
+      "raw_hidden_norm_median": 104.92964935302734,
+      "hf_hidden_norm_median": 104.7791748046875,
+      "raw_not_unit_normalized": true,
+      "no_pooling": true,
+      "bf16_output_lexical_rows_bitwise_equal": true,
+      "hf_answer": {
+        "move": {
+          "type": "choice",
+          "choice": "up",
+          "confidence": 0.3867,
+          "probabilities": {
+            "up": 0.3867,
+            "down": 0.2345,
+            "left": 0.369,
+            "right": 0.0098
+          }
+        }
+      },
+      "gguf_bf16_answer": {
+        "move": {
+          "type": "choice",
+          "choice": "up",
+          "confidence": 0.38,
+          "probabilities": {
+            "up": 0.38,
+            "down": 0.2359,
+            "left": 0.3741,
+            "right": 0.01
+          }
+        }
+      },
+      "hf_answer_exactly_matches_saved_baseline": true,
+      "choice_agrees": true,
+      "max_probability_absolute_delta": 0.006699999999999984,
+      "hf_backbone_ms": 944.8587910737842,
+      "gguf_bf16_backbone_ms": 630.9936250327155
+    }
+  ],
+  "all_choices_agree": true,
+  "hf_saved_baseline_all_exact": true,
+  "passed": true,
+  "notes": "Cross-runtime BF16 arithmetic is not bit-identical. Candidate changes both weight quantization and runtime; later same-input replay measures combined differences. No text-generation path is used."
+}

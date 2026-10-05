@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "episodes": 60,
+  "total_model_calls": 8250,
+  "models": {
+    "bf16": {
+      "calls": 1668,
+      "first_id": 1129,
+      "last_id": 2796,
+      "all_server_request_responses_exact": true,
+      "head_argmax_and_provenance_passed": true,
+      "no_competing_id_gaps": true
+    },
+    "q6-k-l": {
+      "calls": 1690,
+      "first_id": 1370,
+      "last_id": 3059,
+      "all_server_request_responses_exact": true,
+      "head_argmax_and_provenance_passed": true,
+      "no_competing_id_gaps": true
+    },
+    "q4-k-m": {
+      "calls": 1756,
+      "first_id": 855,
+      "last_id": 2610,
+      "all_server_request_responses_exact": true,
+      "head_argmax_and_provenance_passed": true,
+      "no_competing_id_gaps": true
+    },
+    "iq2-m": {
+      "calls": 3136,
+      "first_id": 4,
+      "last_id": 3139,
+      "all_server_request_responses_exact": true,
+      "head_argmax_and_provenance_passed": true,
+      "no_competing_id_gaps": true
+    }
+  },
+  "same_15_seed_manifest": true,
+  "all_food_and_trajectories_verified": true,
+  "all_executed_source_hashes_preserved": true,
+  "no_browser_errors": true
+}

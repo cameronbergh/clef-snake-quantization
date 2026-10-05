@@ -1,0 +1,30 @@
+{
+  "quant_checkpoint": {
+    "repo": "bartowski/Cloudflare_clef-flash-GGUF",
+    "revision": "d7f376ea88c05e7bb1014dd5351a93df9dd8029e",
+    "file": "Cloudflare_clef-flash-Q4_K_M.gguf",
+    "size": 5841052992,
+    "sha256": "45f803cbcb6144784653bc31cde957e0d184d963a5198d423dc589a79e178d45",
+    "verified_time": 1791229922.106022,
+    "metadata_etag_match": true,
+    "full_file_hash_match": true
+  },
+  "official_revision": "17f0b0ad64efb65d273590632833508766b2aae6",
+  "official_head_sha256": "19cdcec8c81dc9212be320fff47462ab342fbc1278be4368fb3da71241cf5ba0",
+  "official_head_source_sha256": "0e304cf7c6500e8bb59bef7e2afd2c6373f82596dfb3b57d1aa93c175e2dc3a3",
+  "native_revision": "c25030496079fdad724609d94f68b859f25774ce",
+  "native_patch_sha256": "1e2961c2a9d2f9c2dde8930ba365a998d5ed1f927fb1144c01b34772fbe96013",
+  "bridge_library_sha256": "305382000f6e514b25db17b70eed62b5fafcee1b39f443e7427144326b1a01d3",
+  "quant_dependency_lock_sha256": "3755b149c6ab90051fe66233eb542c6f6fbb9c5c3ee34889657ac1031440bde4",
+  "same_game_policy_verified": true,
+  "shared_runtime": "Unchanged model_bridge.py, C ABI library and native Metal build from Q6_K_L; same official BF16 head.",
+  "q6_harness_archive_sha256": "3ed985eceaaa58d5556971477c236750e66cbb9b55d3e24235662c1f97b98514",
+  "q4_source_sha256": {
+    "q4/server.py": "8a8a12a5b5d546844a2742ffdbb09a1fd57904a1b41d3c2e7546d18608755aa2",
+    "q4/snake-q4.html": "2f3ea241c8eb450e97132418f8383ba260174b6d0792e2d85e911e72f9717745",
+    "q4/replay.py": "a34a01a0aacda2c3f9f10b4b574fafc067a0467e10d4edb23befcdae0944d440",
+    "benchmark.py": "fe30fa51b79dd810605707d49b809a2092b0d3082796c87c03f19fdc92a8023d",
+    "quant/model_bridge.py": "0c6ba72a66a9a8b57dbc3c14bbfd16839831c1d1914948e347e3face01402b49",
+    "quant/libclef_bridge.dylib": "305382000f6e514b25db17b70eed62b5fafcee1b39f443e7427144326b1a01d3"
+  }
+}
