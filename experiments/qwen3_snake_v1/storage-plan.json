@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "observed_utc": "2026-10-05T22:58:39.906469+00:00",
+  "mount_name": "Models",
+  "required_mount_path": "/Volumes/Models",
+  "internal": false,
+  "filesystem": "apfs",
+  "planned_experiment_root": "/Volumes/Models/clef-snake-experiments/qwen3-v1",
+  "policy": "All weights, caches, downloads, temporary conversion files and outputs must stay on this mounted dedicated external volume; no internal or X9 fallback. No existing files will be moved or deleted.",
+  "available_bytes_observed": 238862585856,
+  "allocations_bytes": {
+    "source_snapshot_exact": 8060917568,
+    "bf16_gguf_reservation": 8589934592,
+    "q4_k_m_bf16_io_reservation": 4294967296,
+    "q2_k_bf16_io_reservation": 3221225472,
+    "logs_dataset_reservation": 8589934592,
+    "task_metadata_workspace_reservation": 268435456,
+    "untouched_free_margin": 6442450944
+  },
+  "persistent_phase_required_free_bytes": 39467865920,
+  "download_phase_required_free_bytes": 18759254488,
+  "download_largest_shard_transient_allowance": 3987450520,
+  "launch_gate_free_bytes": 42949672960,
+  "available_after_persistent_reservations_bytes": 199394719936,
+  "generated_payload_sizes_measured": false,
+  "interpretation": "Source payload sizes are exact metadata values. GGUF/log sizes are unmeasured conservative allocations, never claimed exact; exceeding a reservation requires a new reviewed budget before further writes.",
+  "existing_verified_source_cache_reuse_bytes": 0,
+  "cache_search": {
+    "internal_model_cache": "refs/main only (40 bytes), no matching snapshot",
+    "external_roots_inspected": [
+      "huggingface",
+      "lmstudio",
+      "mlx-community",
+      "unsloth",
+      "orcarouter"
+    ],
+    "depth_limit": 7,
+    "matched_selected_checkpoint_names": [],
+    "note": "Bounded filename inventory found no selected checkpoint; no payload is credited without hash verification. This is not a full-volume content hash search."
+  },
+  "runtime_storage_environment": {
+    "HF_HOME": "/Volumes/Models/clef-snake-experiments/qwen3-v1/hf",
+    "HF_HUB_CACHE": "/Volumes/Models/clef-snake-experiments/qwen3-v1/hf/hub",
+    "XDG_CACHE_HOME": "/Volumes/Models/clef-snake-experiments/qwen3-v1/cache",
+    "TMPDIR": "/Volumes/Models/clef-snake-experiments/qwen3-v1/tmp"
+  },
+  "single_source_copy_required": true,
+  "fresh_mount_and_free_space_check_required": true,
+  "execution_authorized": false,
+  "log_reservation_note": "8 GiB reserves space for full driver and independent server evidence. Actual schema/record size remains unmeasured; the future runner must record incremental food events and fail explicitly before exceeding reserved space, never silently truncate or discard records."
+}

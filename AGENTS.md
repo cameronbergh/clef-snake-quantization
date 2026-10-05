@@ -11,6 +11,7 @@
 - `scripts/`: build, allowlisted archival export and exploratory statistical analysis.
 - `watcher/`: independently authored passive JSON viewer; never add model calls or inference controls.
 - `analysis/`: versioned derived statistics, figures and provenance; retain older snapshots.
+- `experiments/qwen3_snake_v1/`: frozen non-CLEF preparation, offline action adapter and external-volume gate; no enabled campaign runner. Preserve its pre-result freeze and create a new version for outcome-informed amendments.
 - `data/`: versioned public discovery evidence; `docs/`: methods/reproduction/limitations; `tests/`: lightweight protocol checks.
 
 ## Read first
@@ -23,6 +24,7 @@ Read `README.md`, `docs/METHODS.md`, `docs/REPRODUCING.md`, `NOTICE`, and the re
 python3 -m unittest discover -s tests -v
 node tests/test_watcher.js
 python3 -m compileall -q clef_snake scripts tests
+python3 -m experiments.qwen3_snake_v1.verify
 python3 -m clef_snake.audit data/2026-10-05 --verify-hashes
 ```
 
@@ -36,6 +38,7 @@ These require no model weights, GPU, credentials or network (watcher tests use N
 - Preserve exact model/download/source hashes and serial inference. Record runtime and execution-order changes rather than attributing their effects only to precision.
 - **Model downloads, server loading and GPU experiments are opt-in tasks**, never part of CI or an incidental test run. Existing benchmark data can be audited offline. Do not start new experiments just because a development task changes code.
 - Keep checkpoints, build binaries, credentials, tokens, personal machine paths and unrelated workspace history out of Git. Use an explicit allowlist for evidence export and inspect compressed logs as well as plain text.
+- On this Mac, future model acquisition, caches, conversion temporaries and output belong on the verified external **Models** partition. Never fall back to the internal disk or assume detachable X9 is the destination. Check the frozen experiment storage plan and active mount before any write; do not move or delete existing files as incidental cleanup.
 - Respect third-party licenses. Do not copy the unlicensed original browser UI into this repo. Behavioral parity does not mean the standalone driver is the original executable.
 - New analysis must retain seed pairing, state exploratory versus prospective choices, disclose multiple comparisons and uncertainty, and report all seeds/caps.
 

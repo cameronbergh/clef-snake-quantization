@@ -1,0 +1,286 @@
+{
+  "protocol_id": "qwen3_snake_v1",
+  "status": "prepared_unexecuted",
+  "execution_authorized": false,
+  "results_collected": false,
+  "scope": "Prospective capped Snake food-score comparison within one model and one runtime; additive and separate from CLEF discovery evidence",
+  "source": {
+    "repository": "Qwen/Qwen3-4B-Instruct-2507",
+    "revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+    "url": "https://huggingface.co/Qwen/Qwen3-4B-Instruct-2507/tree/cdbee75f17c01a7cc42f958dc650907174af0554",
+    "license": "Apache-2.0",
+    "official_weight_bytes": 8044982000,
+    "model_mode": "Native non-thinking text generation; no CLEF head",
+    "tie_word_embeddings": true,
+    "artifact_gate": "Exact source files, tokenizer/template, converter revision, generated GGUF hashes, tensor inventory and quantizer commands must be recorded before use.",
+    "converter_gate": "Converter revision c25030496079fdad724609d94f68b859f25774ce, entry and observed dependencies are pinned in artifact-plan.json. Conversion and dependency compatibility remain unexecuted; verify generated BF16 GGUF and tied I/O before use."
+  },
+  "runtime": {
+    "implementation": "standard upstream llama.cpp, not the CLEF patched bridge",
+    "revision": "f532be8facd5fb8bd292a35d6dc994277c33fcc5",
+    "local_version_label": "9610 (f532be8fa)",
+    "endpoint_path": "/v1/chat/completions",
+    "hardware_backend": "Apple Silicon Metal, same machine and binary for all variants",
+    "concurrency": 1,
+    "loaded_variants": 1,
+    "template": "Exact native template from the pinned official model; no handwritten or substituted template",
+    "configuration_gate": "Before any request, verify exact binary SHA256, server arguments and effective properties against expected_configuration; record template hash and converter provenance. Unsupported configuration or BF16 generation stops this version before main scores; no silent defaults, CPU fallback, automatic fit, context shift, or variant-specific changes.",
+    "expected_configuration": {
+      "context_tokens": 8192,
+      "batch_tokens": 512,
+      "ubatch_tokens": 512,
+      "threads": 8,
+      "threads_batch": 8,
+      "parallel_slots": 1,
+      "gpu_layers": "all",
+      "flash_attention": "on",
+      "kv_cache_type_k": "f16",
+      "kv_cache_type_v": "f16",
+      "fit": "off",
+      "cache_ram_mib": 0,
+      "context_shift": false,
+      "automatic_warmup": false,
+      "jinja": true,
+      "host": "127.0.0.1",
+      "port": 8781,
+      "alias": "snake-qwen3-v1",
+      "request_timeout_seconds": 120
+    },
+    "configuration_status": "Frozen prospective settings; option availability checked from installed binary help, but actual model compatibility and execution are unverified.",
+    "timeout_semantics": "120 seconds per request is an operational technical-stop threshold. It is not a gameplay clock budget, a collision, zero-food score, or permission to retry."
+  },
+  "variants": [
+    {
+      "id": "bf16",
+      "display_label": "BF16",
+      "derivation": "Convert the pinned official checkpoint directly to BF16 GGUF; no intermediate lower precision",
+      "backbone_recipe": "BF16",
+      "input_output_recipe": "BF16 tied token-embedding/output weights"
+    },
+    {
+      "id": "q4-k-m",
+      "display_label": "Q4_K_M backbone + BF16 tied I/O",
+      "derivation": "Quantize directly from the verified BF16 GGUF, retaining the shared input/output tensor in BF16",
+      "backbone_recipe": "Q4_K_M",
+      "input_output_recipe": "BF16 tied token-embedding/output weights"
+    },
+    {
+      "id": "q2-k",
+      "display_label": "Q2_K backbone + BF16 tied I/O",
+      "derivation": "Quantize directly from the verified BF16 GGUF, retaining the shared input/output tensor in BF16",
+      "backbone_recipe": "Q2_K",
+      "input_output_recipe": "BF16 tied token-embedding/output weights"
+    }
+  ],
+  "variant_verification": {
+    "all_derived_from_one_baseline": true,
+    "require_token_embd_weight_bf16_and_equal": true,
+    "require_any_materialized_output_weight_bf16_and_equal": true,
+    "bf16_compatibility": "Unverified. Stop if BF16 GGUF conversion, loading or generation is unsupported; F16 substitution requires a new version before any scored games.",
+    "quantization_scope": "Controlled mixed backbone recipes retaining BF16 native tied I/O, not uniformly 4-bit/2-bit whole-model or off-the-shelf quantized files",
+    "no_custom_decision_head": true
+  },
+  "game": {
+    "implementation": "clef_snake/game.py:Game",
+    "reference_commit": "7cf41cf5ed89627d5fa9b43f9f1297ec0b581650",
+    "grid": {
+      "width": 12,
+      "height": 12
+    },
+    "initial_body": [
+      [
+        5,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        2,
+        6
+      ]
+    ],
+    "initial_direction": "right",
+    "actions": [
+      "up",
+      "down",
+      "left",
+      "right"
+    ],
+    "question_and_factual_features": "Unchanged Game.request().state and .questions, including unsafe-action information",
+    "food_protocol": "clef-snake-food-v1 SHA256-keyed event priorities; same priorities per seed/event, coordinates may diverge with bodies",
+    "safety_override": false,
+    "action_mask": false,
+    "solver": false,
+    "successful_move_cap": 500,
+    "gameplay_wall_clock_limit": null,
+    "turn_semantics": "Wait for one complete model response, validate it, persist evidence, then apply its action once. Invalid responses are technical stops. Collision calls count as attempts, not successful moves.",
+    "terminal_states": [
+      "collision",
+      "capped_alive"
+    ]
+  },
+  "request": {
+    "model_alias": "snake-qwen3-v1",
+    "system_prompt": "You control Snake using the supplied factual state and move question. Select exactly one of the four actions, including an unsafe action if that is your choice. Return only a JSON object with the single key \"action\" and one of \"up\", \"down\", \"left\", or \"right\". Do not include explanation, reasoning, Markdown, or text outside that JSON object.",
+    "user_content": "JSON object in insertion order {state:Game.request().state,questions:Game.request().questions}; no CLEF model selector",
+    "serialization": {
+      "ensure_ascii": false,
+      "separators": [
+        ",",
+        ":"
+      ],
+      "allow_nan": false,
+      "sort_keys": false,
+      "encoding": "UTF-8"
+    },
+    "history": "Fresh system and user messages only on every turn; no prior completion or hidden game history",
+    "response_format": {
+      "type": "json_schema",
+      "json_schema": {
+        "name": "snake_action_v1",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "action": {
+              "type": "string",
+              "enum": [
+                "up",
+                "down",
+                "left",
+                "right"
+              ]
+            }
+          },
+          "required": [
+            "action"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "decoding": {
+      "temperature": 0,
+      "top_p": 1,
+      "top_k": 0,
+      "min_p": 0,
+      "seed": 0,
+      "max_tokens": 32,
+      "stream": false,
+      "cache_prompt": false,
+      "frequency_penalty": 0,
+      "presence_penalty": 0,
+      "repeat_penalty": 1
+    },
+    "parser_contract": {
+      "choices": 1,
+      "choice_index": 0,
+      "finish_reason": "stop",
+      "role": "assistant",
+      "content": "Strict JSON object containing only action, exactly one of up/down/left/right; no duplicate keys, extra fields, nonfinite values, Markdown, explanations or other text",
+      "forbidden": [
+        "tool_calls",
+        "function_call",
+        "refusal",
+        "nonempty reasoning output",
+        "length termination",
+        "incomplete JSON",
+        "multiple choices"
+      ],
+      "usage": "Nonnegative integer prompt/completion/total counts, total equals prompt+completion, completion <=32",
+      "raw_retention": "Retain complete raw text; bytes retained losslessly as base64, including invalid UTF-8. No trimming, extraction, repair, retry, fallback, or action override."
+    }
+  },
+  "design": {
+    "seed_manifest": "seed-manifest.json",
+    "schedule": "schedule.json",
+    "main_seeds": 30,
+    "preflight_seeds": 6,
+    "variants_per_seed": 3,
+    "planned_main_games": 90,
+    "maximum_main_requests": 45000,
+    "planned_preflight_initial_state_requests": 18,
+    "sample_unit": "Distinct saved environment seed, paired across all three variants",
+    "schedule_rule": "All six permutations repeated five times in saved order; ten games per within-seed position per variant",
+    "run_rule": "Strict execution_order; reload one model at a time between games as needed; setup timed separately; no parallel or interactive inference",
+    "preflight_rule": "Separate six saved seeds; exactly one initial-state-only request per seed/variant; no scored rollout, tuning, outcome selection or main-seed calls; all execution requires separate authorization",
+    "optional_stopping": false,
+    "seed_replacement": false,
+    "prompt_tuning_on_scores": false
+  },
+  "outcome": {
+    "primary": "Food collected by collision or the 500-successful-move cap",
+    "baseline": "bf16",
+    "comparison_order": [
+      "q4-k-m",
+      "q2-k"
+    ],
+    "contrast": "Mean of paired per-seed food differences against BF16",
+    "caps": "Retain capped food scores in defined capped-score estimand and report capped_alive separately; no uncapped-score claim",
+    "failures": "Technical failures have outcome null/NA, never collision or zero; partial score diagnostic only",
+    "failure_policy": "Stop at first technical issue; retain raw failure and all planned rows, remaining games not_started; no retry or implicit resume. Repair requires separately identified frozen version/phase, preserving failed evidence. Incomplete campaign has descriptive complete-pair summaries only, not planned confirmatory inference."
+  },
+  "analysis": {
+    "plan": "ANALYSIS_PLAN.md",
+    "required_complete_games": 90,
+    "bootstrap": {
+      "paired_rows": 30,
+      "replicates": 100000,
+      "rng": "NumPy Generator(PCG64(20261006))",
+      "same_indices_for_both_contrasts": true,
+      "interval_percentiles": [
+        2.5,
+        97.5
+      ],
+      "quantile_method": "linear",
+      "multiplicity_adjusted_intervals": false
+    },
+    "sign_flip": {
+      "sidedness": 2,
+      "statistic": "absolute sum of integer paired differences",
+      "omit_zero_differences": true,
+      "exact_maximum_nonzero": 20,
+      "monte_carlo_replicates": 1000000,
+      "rng": "One NumPy Generator(PCG64(20261007)), comparison order q4-k-m then q2-k, exact branches consume no draws",
+      "draw_rule": "Per replicate rng.integers(0,2,size=n,dtype=np.int64), zero -> -1, one -> +1; batching preserves flat sequence",
+      "extreme_rule": "random absolute sum >= observed absolute sum",
+      "monte_carlo_p": "(extreme+1)/(1000000+1)",
+      "all_zero_p": 1,
+      "assumption": "Exchangeable signs or symmetric paired differences under null; deterministic balanced schedule is not randomized treatment assignment"
+    },
+    "multiplicity": {
+      "method": "Holm",
+      "comparisons": 2,
+      "familywise_alpha": 0.05,
+      "ties": "fixed comparison order"
+    },
+    "no_power_guarantee": true,
+    "required_reporting": [
+      "all planned seed/variant rows",
+      "paired scores/differences",
+      "means/medians/ranges",
+      "wins/ties/losses",
+      "caps",
+      "technical failures and not-started rows",
+      "unadjusted intervals and raw/adjusted p-values",
+      "Monte Carlo extreme counts and uncertainty",
+      "latency descriptive only",
+      "exact provenance and limitations"
+    ]
+  },
+  "gates_before_execution": [
+    "Explicit authorization for any downloads, loading, preflight or campaign; this preparation alone authorizes none",
+    "Published pre-result freeze binding protocol, seeds, schedule, analysis plan, source, adapter and tests",
+    "Storage budget and exact artifact acquisition/conversion plan approved on the external Models storage partition identified in the resource plan, without deleting existing evidence; verify exact mount identity, destination and free space and forbid fallback to the internal volume",
+    "One pinned official source, BF16 baseline and BF16 tied I/O tensor equality verified; no silent F16 fallback",
+    "One pinned standard runtime plus the exact frozen expected_configuration, binary SHA256, server arguments, effective properties and template hash recorded",
+    "A bounded authorized preflight validates context fit, grammar/parser, native BF16 generation and evidence capture",
+    "A serial runner with strict schedule/failure handling and an independent new-schema evidence auditor are implemented and tested before main games"
+  ]
+}

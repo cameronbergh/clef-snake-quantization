@@ -76,6 +76,7 @@ python3 -m http.server 8000 --bind 127.0.0.1
 - [ ] Freeze and run fresh held-out validation with counterbalanced model order.
 - [ ] Investigate smaller supported quantizations; independently reproduce results and extend to another task.
 - [ ] [Benchmark another local decision model beyond CLEF (#1)](https://github.com/cameronbergh/clef-snake-quantization/issues/1), using its supported action interface and a frozen, separately audited protocol.
+- [x] Prepare the [Qwen3 offline adapter and frozen 30-seed protocol](experiments/qwen3_snake_v1/README.md), with external-only storage planning. Model acquisition, preflight and the 90-game campaign remain unexecuted.
 
 See the [full research TODO](TODO.md) for completion evidence and remaining chart work. The strongest next controlled experiment is a **same-runtime high-precision GGUF control** on saved identical requests, followed by a frozen held-out game protocol. No new model experiment was run to prepare these results or charts.
 

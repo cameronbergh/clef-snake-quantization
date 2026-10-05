@@ -18,6 +18,9 @@
 
 ## Additional model comparison
 
+- [x] Select Qwen3-4B-Instruct-2507 from primary-source metadata; prepare its strict structured-output adapter, 30 fresh paired seeds, balanced schedule, analysis plan and external-volume storage gate. [Frozen preparation; no model calls](experiments/qwen3_snake_v1/README.md).
+- [ ] After explicit acquisition authorization, verify the external Models mount, acquire only the pinned source and verify hashes; then separately validate conversion, BF16 tied I/O, native template and bounded preflight.
+- [ ] Implement and test the serial runner and independent new-schema auditor before any main campaign; retain all failures and preserve the original evidence.
 - [ ] [Issue #1: benchmark another local decision model beyond CLEF](https://github.com/cameronbergh/clef-snake-quantization/issues/1). First compare candidate interfaces, runtime support and resource needs. Preserve board/action rules; use each model's supported interface and label interface differences. Prefer a same-runtime high-precision/quantized sweep, fresh saved paired seeds, a frozen analysis plan, serial inference and an additive audited dataset. No new campaign is included in this publication/chart update.
 
 ## Charts, watcher and publication graphics

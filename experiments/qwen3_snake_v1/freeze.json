@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "protocol_id": "qwen3_snake_v1",
+  "frozen_utc": "2026-10-05T23:03:29.390645+00:00",
+  "status": "prepared_unexecuted",
+  "source_repository_baseline": "7cf41cf5ed89627d5fa9b43f9f1297ec0b581650",
+  "publication_binding": "Publishing commit containing this manifest; preserve Git history and this directory, create a new version for future amendments. No external timestamp/notarization claim.",
+  "files": {
+    "clef_snake/game.py": "f9dba4b830850f9eba36efcc73f2d2992e484c26e419cfc0921dc43079720f08",
+    "experiments/__init__.py": "948c5d80a5f85eede099afa2036774d41a9c33b3362fe5b71e5161a6b46f7d25",
+    "experiments/qwen3_snake_v1/ANALYSIS_PLAN.md": "f2989edff936c6974a97827c6392bcc561612983a1fc83e7478c2c969efc3696",
+    "experiments/qwen3_snake_v1/CANDIDATES.md": "affb5f9ac5fd80f18d224ac7bf314b19083fb1160581406bc3093f87843500e1",
+    "experiments/qwen3_snake_v1/README.md": "7b2d653422eab1c842f8465a7813db1b2ca65c973d82a6ff8430304d2607bdbf",
+    "experiments/qwen3_snake_v1/__init__.py": "589f8fec78b207e6a8c5c6a14e3e7f5626abe71c7d4434f70d70de63c1b98032",
+    "experiments/qwen3_snake_v1/adapter.py": "fa0587f8569c115c55cfaaee21243396cd2075b8ee051e15c68cc2ca09a2eb82",
+    "experiments/qwen3_snake_v1/artifact-plan.json": "147a29f7545e880feb81535182fac6860e086cedcc29bbd391e747a1e25ddced",
+    "experiments/qwen3_snake_v1/protocol.json": "aa667c6fbf9acb0e14b96a0546f1229fc1b54e2b1b25b21fe540686489bdc800",
+    "experiments/qwen3_snake_v1/schedule.json": "0522bb04a86b815a235b537f7478f5f8f5cc1bf6b91427c53a7e68a7a6e91b07",
+    "experiments/qwen3_snake_v1/seed-manifest.json": "ad9b9f589a809977bf082dfaaed23b0c8a8bcd5513ceedc9d54440915b36d0ca",
+    "experiments/qwen3_snake_v1/storage-plan.json": "4df717ed4dc2e60a99a00f68712281a99ccc94161ae27d8a7042d5929770555d",
+    "experiments/qwen3_snake_v1/storage.py": "8354f700a187edfac4208a1ade2c15e7fd3c631631f8dd10fa03ede157a90c62",
+    "experiments/qwen3_snake_v1/verify.py": "667f51e76164a7993bd3d8afe2f706dc693a5d4d266437f72451205d98371f96",
+    "tests/test_qwen_adapter.py": "e5789679126f8ecf65dc5f1014ded60f4f7001763dd62055ddc3df92b707dca0",
+    "tests/test_qwen_preparation.py": "1098f94f40ac0527e5eeb81cb61d6fa2ae7e36e9c910305f68c445ca84d034a4",
+    "tests/test_qwen_storage.py": "3aa4270d5f756802ad5edce1828906313f56faba0dab4c1dbfbc6cf0768cae8e"
+  }
+}

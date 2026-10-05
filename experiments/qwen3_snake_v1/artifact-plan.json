@@ -1,0 +1,278 @@
+{
+  "schema_version": 1,
+  "experiment_id": "qwen3_snake_v1",
+  "status": "prepared_unexecuted",
+  "selected_model": "Qwen/Qwen3-4B-Instruct-2507",
+  "selected_source_commit": "cdbee75f17c01a7cc42f958dc650907174af0554",
+  "license": "apache-2.0",
+  "source_metadata_url": "https://huggingface.co/api/models/Qwen/Qwen3-4B-Instruct-2507/revision/cdbee75f17c01a7cc42f958dc650907174af0554?blobs=true",
+  "source_snapshot_bytes_exact": 8060917568,
+  "source_weight_files_bytes_exact": 8044982000,
+  "artifacts": [
+    {
+      "path": ".gitattributes",
+      "bytes": 1570,
+      "git_blob_sha1": "52373fe24473b1aa44333d318f578ae6bf04b49b"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 11343,
+      "git_blob_sha1": "6634c8cc3133b3848ec74b9f275acaaa1ea618ab"
+    },
+    {
+      "path": "README.md",
+      "bytes": 8168,
+      "git_blob_sha1": "b85879f8e465b5b02bd7ea13dd7ffaf22816bf59"
+    },
+    {
+      "path": "config.json",
+      "bytes": 727,
+      "git_blob_sha1": "6988f134db143052042f2bd6e0c897bc6a605189",
+      "sha256": "5beea1a4a34c62782bfb2f911c606741a3bab8f92d80a118fa053c28af12e8ba"
+    },
+    {
+      "path": "generation_config.json",
+      "bytes": 238,
+      "git_blob_sha1": "432531a002c181a19de338313d2375e9d7494d7e",
+      "sha256": "835fffe355c9438e7a25be099b3fccaa98350b83451f9fd2d99512e74f1ade48"
+    },
+    {
+      "path": "merges.txt",
+      "bytes": 1671839,
+      "git_blob_sha1": "20024bfe7c83998e9aeaf98a0cd6a2ce6306c2f0"
+    },
+    {
+      "path": "model-00001-of-00003.safetensors",
+      "bytes": 3957900840,
+      "git_blob_sha1": "764efb4175828b8bd28f879958c49b1ac23ad1f9",
+      "sha256": "75311d91bb08cf0b882913da464a1e722a31fb44db35208663487efb7a3d8ed6"
+    },
+    {
+      "path": "model-00002-of-00003.safetensors",
+      "bytes": 3987450520,
+      "git_blob_sha1": "3a3ba0f35dfed0f3500d80564496a11a1d19de18",
+      "sha256": "0b48adbb1f60e901153d91907ba11ce63bd4b8b584482e730f48808d055dfba1"
+    },
+    {
+      "path": "model-00003-of-00003.safetensors",
+      "bytes": 99630640,
+      "git_blob_sha1": "a1d2a67eb5cb179e09df3e9cd5d0690e57434fc3",
+      "sha256": "7dd39ccca5e4de123c74c14af44c9bf2eb75df33b4614382af0134528e060d5d"
+    },
+    {
+      "path": "model.safetensors.index.json",
+      "bytes": 32819,
+      "git_blob_sha1": "4747b0297d3109f14db49886972e3369c9a00b2a",
+      "sha256": "d6c42883a895dfef5b0080ed2116a1bcd764f558406b98923d675978a1abf29c"
+    },
+    {
+      "path": "tokenizer.json",
+      "bytes": 11422654,
+      "git_blob_sha1": "cd71f61a15a522601badb3dc960d800d9cb3766c",
+      "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4"
+    },
+    {
+      "path": "tokenizer_config.json",
+      "bytes": 9377,
+      "git_blob_sha1": "51c1be0d9192e7f6e6596de71d0f07d58fbc32ac",
+      "sha256": "a62ff0a2472a0fa1b8eaabcb57c59b58afa42a22831dc141400b6e0cf2b65ce3"
+    },
+    {
+      "path": "vocab.json",
+      "bytes": 2776833,
+      "git_blob_sha1": "4783fe10ac3adce15ac8f358ef5462739852c569"
+    }
+  ],
+  "verified_model_config": {
+    "architecture": "Qwen3ForCausalLM",
+    "dtype": "bfloat16",
+    "tie_word_embeddings": true,
+    "vocab_size": 151936,
+    "hidden_size": 2560,
+    "num_hidden_layers": 36,
+    "num_attention_heads": 32,
+    "num_key_value_heads": 8,
+    "max_position_embeddings": 262144,
+    "has_source_lm_head_weight": false
+  },
+  "chat_template": {
+    "location": "tokenizer_config.json#/chat_template",
+    "utf8_bytes": 2630,
+    "sha256": "64f85b198065d0fba2a81f37e10ed68161ce2c19a754c7100e67e0ca2ee9c326",
+    "hash_definition": "SHA256 of exact UTF-8 chat_template string after JSON decoding"
+  },
+  "precision_plan": {
+    "baseline": "BF16 GGUF",
+    "variant_ids": [
+      "bf16",
+      "q4-k-m",
+      "q2-k"
+    ],
+    "fixed_projection": "Shared token embedding/output projection remains BF16 in every variant",
+    "embedding_raw_bf16_bytes": 777912320,
+    "quantizer_options": [
+      "--token-embedding-type",
+      "bf16",
+      "--leave-output-tensor"
+    ],
+    "flags_verified_in_installed_help": true,
+    "recipes": [
+      "Q4_K_M",
+      "Q2_K"
+    ],
+    "importance_matrix": null,
+    "derive_from": "Same pinned BF16 GGUF, never requantize",
+    "required_tensor_checks": [
+      "BF16 token_embd.weight across every variant",
+      "Any materialized output.weight remains BF16",
+      "Equal input/output projection values across variants",
+      "Record every tensor type and payload SHA256"
+    ],
+    "fallback": "No implicit F16 or unsupported-flag fallback; amend a new protocol version before any scored outcomes"
+  },
+  "runtime": {
+    "version": 9610,
+    "commit_short": "f532be8fa",
+    "architecture": "Darwin arm64",
+    "binaries": [
+      {
+        "name": "llama-server",
+        "resolved_install_version": "9610",
+        "bytes": 51424,
+        "sha256": "af631f0c78bc70a01ffc67d92710b38efaeacabdd4c15c911910fe4c70b56a23"
+      },
+      {
+        "name": "llama-cli",
+        "resolved_install_version": "9610",
+        "bytes": 51408,
+        "sha256": "4a5a10284c5c87146ff8ccc0ff71efae090c89fa468610d5b0a76174709e617a"
+      },
+      {
+        "name": "llama-quantize",
+        "resolved_install_version": "9610",
+        "bytes": 51424,
+        "sha256": "e89db3bd876d7181dc737d33af4947de6fabb194244ddef214f9f5b3e247622a"
+      }
+    ],
+    "commit": "f532be8facd5fb8bd292a35d6dc994277c33fcc5",
+    "libraries": [
+      {
+        "family": "llama.cpp",
+        "name": "libllama-batched-bench-impl.dylib",
+        "bytes": 77904,
+        "sha256": "1f59bda3be2aa778383876e2fb46cb37f38aa0538e4444f7a5e58d0c4def782b"
+      },
+      {
+        "family": "llama.cpp",
+        "name": "libllama-bench-impl.dylib",
+        "bytes": 313344,
+        "sha256": "bc72744c8a59db5f6f5cdf5e10ec7bbad6098420721800a6d3a2e61fc61e7fc4"
+      },
+      {
+        "family": "llama.cpp",
+        "name": "libllama-cli-impl.dylib",
+        "bytes": 1416400,
+        "sha256": "7ef3fe74823466d34051da18be9cf4cd80bba29b4e49576a9e73ee68663d23cd"
+      },
+      {
+        "family": "llama.cpp",
+        "name": "libllama-common.0.0.9610.dylib",
+        "bytes": 4694976,
+        "sha256": "5a7a28c58fd36cb86e0b27a4bae853123c12111f4f27e2c42463bfd15f6b61d8"
+      },
+      {
+        "family": "llama.cpp",
+        "name": "libllama-completion-impl.dylib",
+        "bytes": 128624,
+        "sha256": "54e75c7aea4c64ca1006745738b15548edf7a60d2a8e28064f35dc479077892a"
+      },
+      {
+        "family": "llama.cpp",
+        "name": "libllama-fit-params-impl.dylib",
+        "bytes": 76448,
+        "sha256": "1b1888a492d9c07e636cf9a2bbfabf0c208b6ebcb053189a8733714ba3685bd9"
+      },
+      {
+        "family": "llama.cpp",
+        "name": "libllama-perplexity-impl.dylib",
+        "bytes": 149888,
+        "sha256": "7de33544b6e26f3c15615f1e56735a0bc47c309831db9e9c0a79a93be95b76e2"
+      },
+      {
+        "family": "llama.cpp",
+        "name": "libllama-quantize-impl.dylib",
+        "bytes": 106176,
+        "sha256": "ed5c335870f4824f379a9cc62abb1fc84f78cfc3fc2ec04daa86086b3f888f13"
+      },
+      {
+        "family": "llama.cpp",
+        "name": "libllama-server-impl.dylib",
+        "bytes": 11804528,
+        "sha256": "b2c10ad40cb7d4c813d996db746b4161649a2f04f6e28386c5d80984aa381cf2"
+      },
+      {
+        "family": "llama.cpp",
+        "name": "libllama.0.0.9610.dylib",
+        "bytes": 2339968,
+        "sha256": "32a37a5b0b0d264324737237151cbf1e5c0483feea00035660dd6a59f3ade431"
+      },
+      {
+        "family": "llama.cpp",
+        "name": "libmtmd.0.0.9610.dylib",
+        "bytes": 875632,
+        "sha256": "2a1455bf738b68f5c5284064c2522030bea4d4d239f446a83fba5521440800de"
+      },
+      {
+        "family": "ggml",
+        "name": "libggml-base.0.19.0.dylib",
+        "bytes": 506096,
+        "sha256": "86358866c389dabbf8de9624c1eeb5cc48314883a2872704f9e4ed143c0c7339"
+      },
+      {
+        "family": "ggml",
+        "name": "libggml.0.19.0.dylib",
+        "bytes": 60272,
+        "sha256": "0753508ce99815ef8cb41c1613c85cd36a27026febb3411e61fa64686dc1ff23"
+      }
+    ],
+    "converter": {
+      "repository": "https://github.com/ggml-org/llama.cpp",
+      "commit": "c25030496079fdad724609d94f68b859f25774ce",
+      "entry_point": "convert_hf_to_gguf.py",
+      "entry_sha256": "e9a1da876330bbce9687541ab31736542a01b4ac43c6686126514a50f122fb7f",
+      "support_paths": [
+        "conversion/",
+        "gguf-py/"
+      ],
+      "tracked_converter_paths_clean": true,
+      "outtype": "bf16",
+      "dependencies_observed": {
+        "torch": "2.11.0",
+        "transformers": "5.10.2",
+        "numpy": "2.5.3",
+        "safetensors": "0.8.0"
+      },
+      "compatibility_status": "Qwen3 class and BF16 flag present; conversion/import/model compatibility unexecuted; missing dependencies stop rather than install"
+    }
+  },
+  "alternative": {
+    "model": "HuggingFaceTB/SmolLM3-3B",
+    "source_commit": "a07cc9a04f16550a088caea529712d1d335b0ac1",
+    "license": "apache-2.0",
+    "source_snapshot_bytes_exact": 6167865576,
+    "source_weight_files_bytes_exact": 6150235008,
+    "model_card": "https://huggingface.co/HuggingFaceTB/SmolLM3-3B",
+    "status": "not selected; no artifacts requested"
+  },
+  "metadata_access": {
+    "weight_bodies_requested": false,
+    "small_bodies_read": [
+      "config.json",
+      "generation_config.json",
+      "tokenizer_config.json",
+      "model.safetensors.index.json"
+    ],
+    "inference_run": false,
+    "packages_installed": false
+  }
+}

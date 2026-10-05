@@ -1,0 +1,922 @@
+{
+  "protocol_id": "qwen3_snake_v1",
+  "status": "prepared_unexecuted",
+  "models": [
+    "bf16",
+    "q4-k-m",
+    "q2-k"
+  ],
+  "planned_games": 90,
+  "construction": "Lexicographic permutations relative to models list, cycled in the written order five times; each of six orders occurs five times. No outcome-dependent reorder.",
+  "serial_policy": "Execute execution_order strictly. One loaded variant and one request at a time, unload/reload between consecutive games as needed. No background or interactive model calls. Setup outside gameplay timing.",
+  "rounds": [
+    {
+      "round": 1,
+      "seed": "62402c89ba8597566d00bf7ca928ef71",
+      "order": [
+        "bf16",
+        "q4-k-m",
+        "q2-k"
+      ]
+    },
+    {
+      "round": 2,
+      "seed": "289661d19e0d4ae9808a367542ae7420",
+      "order": [
+        "bf16",
+        "q2-k",
+        "q4-k-m"
+      ]
+    },
+    {
+      "round": 3,
+      "seed": "6725eddf0a1186548dd7aab3018afdbe",
+      "order": [
+        "q4-k-m",
+        "bf16",
+        "q2-k"
+      ]
+    },
+    {
+      "round": 4,
+      "seed": "3cf77a903817c3503fb381f49b6af00a",
+      "order": [
+        "q4-k-m",
+        "q2-k",
+        "bf16"
+      ]
+    },
+    {
+      "round": 5,
+      "seed": "5a3274c2c1b980000917eba30844fb7c",
+      "order": [
+        "q2-k",
+        "bf16",
+        "q4-k-m"
+      ]
+    },
+    {
+      "round": 6,
+      "seed": "dba96dc515da7d75917c802c12102973",
+      "order": [
+        "q2-k",
+        "q4-k-m",
+        "bf16"
+      ]
+    },
+    {
+      "round": 7,
+      "seed": "731737d2760237ccb0a89276238d220c",
+      "order": [
+        "bf16",
+        "q4-k-m",
+        "q2-k"
+      ]
+    },
+    {
+      "round": 8,
+      "seed": "70c85ab6e0035846b0688c63ced275eb",
+      "order": [
+        "bf16",
+        "q2-k",
+        "q4-k-m"
+      ]
+    },
+    {
+      "round": 9,
+      "seed": "7e5c8e0437ff8a8ba28f08816795fe57",
+      "order": [
+        "q4-k-m",
+        "bf16",
+        "q2-k"
+      ]
+    },
+    {
+      "round": 10,
+      "seed": "88be26494dc80643b821d806888554a1",
+      "order": [
+        "q4-k-m",
+        "q2-k",
+        "bf16"
+      ]
+    },
+    {
+      "round": 11,
+      "seed": "c783b7869a95052e00dc59acfad81c44",
+      "order": [
+        "q2-k",
+        "bf16",
+        "q4-k-m"
+      ]
+    },
+    {
+      "round": 12,
+      "seed": "a67b1c48e08571837d00b59021e37e2e",
+      "order": [
+        "q2-k",
+        "q4-k-m",
+        "bf16"
+      ]
+    },
+    {
+      "round": 13,
+      "seed": "79a4e7b729aa2d17037a7d7ba8f85bf8",
+      "order": [
+        "bf16",
+        "q4-k-m",
+        "q2-k"
+      ]
+    },
+    {
+      "round": 14,
+      "seed": "53275ee0561269f34ba620a506e831db",
+      "order": [
+        "bf16",
+        "q2-k",
+        "q4-k-m"
+      ]
+    },
+    {
+      "round": 15,
+      "seed": "54827f8a37315d07393f0e353cc7e8e7",
+      "order": [
+        "q4-k-m",
+        "bf16",
+        "q2-k"
+      ]
+    },
+    {
+      "round": 16,
+      "seed": "d2f4cc5ba582d1c627021deed43c57d0",
+      "order": [
+        "q4-k-m",
+        "q2-k",
+        "bf16"
+      ]
+    },
+    {
+      "round": 17,
+      "seed": "ae40b90a196bd2f6286dc7f2cb9a6402",
+      "order": [
+        "q2-k",
+        "bf16",
+        "q4-k-m"
+      ]
+    },
+    {
+      "round": 18,
+      "seed": "457b940583507a8891bd6b07df2ab64a",
+      "order": [
+        "q2-k",
+        "q4-k-m",
+        "bf16"
+      ]
+    },
+    {
+      "round": 19,
+      "seed": "ef1b96225832fefd12c06ace49c84743",
+      "order": [
+        "bf16",
+        "q4-k-m",
+        "q2-k"
+      ]
+    },
+    {
+      "round": 20,
+      "seed": "67a2edb5c6754008d928a0dfcdd82767",
+      "order": [
+        "bf16",
+        "q2-k",
+        "q4-k-m"
+      ]
+    },
+    {
+      "round": 21,
+      "seed": "7ed23485f6d33298b78bf221bb17c822",
+      "order": [
+        "q4-k-m",
+        "bf16",
+        "q2-k"
+      ]
+    },
+    {
+      "round": 22,
+      "seed": "6827a2cd71b259071c6f143ebcf09d00",
+      "order": [
+        "q4-k-m",
+        "q2-k",
+        "bf16"
+      ]
+    },
+    {
+      "round": 23,
+      "seed": "24e8c16a1d7a31d214d4b29e5593c37b",
+      "order": [
+        "q2-k",
+        "bf16",
+        "q4-k-m"
+      ]
+    },
+    {
+      "round": 24,
+      "seed": "c57c8bc3641ec47bb41ecc6167fc67fe",
+      "order": [
+        "q2-k",
+        "q4-k-m",
+        "bf16"
+      ]
+    },
+    {
+      "round": 25,
+      "seed": "0bf324d008631787ead49c07ce403432",
+      "order": [
+        "bf16",
+        "q4-k-m",
+        "q2-k"
+      ]
+    },
+    {
+      "round": 26,
+      "seed": "5e0597707432efc101a49f56959e5525",
+      "order": [
+        "bf16",
+        "q2-k",
+        "q4-k-m"
+      ]
+    },
+    {
+      "round": 27,
+      "seed": "06d557eaec06d94e8168afc85a9eb80c",
+      "order": [
+        "q4-k-m",
+        "bf16",
+        "q2-k"
+      ]
+    },
+    {
+      "round": 28,
+      "seed": "cc0e6affa3df6bb7a31ca267a86fd1f1",
+      "order": [
+        "q4-k-m",
+        "q2-k",
+        "bf16"
+      ]
+    },
+    {
+      "round": 29,
+      "seed": "a16f8300725f03182d643f9ae9a05fe6",
+      "order": [
+        "q2-k",
+        "bf16",
+        "q4-k-m"
+      ]
+    },
+    {
+      "round": 30,
+      "seed": "b84ad8d9e6d71c2a7d2ecb1dc3ac4799",
+      "order": [
+        "q2-k",
+        "q4-k-m",
+        "bf16"
+      ]
+    }
+  ],
+  "execution_order": [
+    {
+      "position": 1,
+      "round": 1,
+      "seed": "62402c89ba8597566d00bf7ca928ef71",
+      "model": "bf16"
+    },
+    {
+      "position": 2,
+      "round": 1,
+      "seed": "62402c89ba8597566d00bf7ca928ef71",
+      "model": "q4-k-m"
+    },
+    {
+      "position": 3,
+      "round": 1,
+      "seed": "62402c89ba8597566d00bf7ca928ef71",
+      "model": "q2-k"
+    },
+    {
+      "position": 4,
+      "round": 2,
+      "seed": "289661d19e0d4ae9808a367542ae7420",
+      "model": "bf16"
+    },
+    {
+      "position": 5,
+      "round": 2,
+      "seed": "289661d19e0d4ae9808a367542ae7420",
+      "model": "q2-k"
+    },
+    {
+      "position": 6,
+      "round": 2,
+      "seed": "289661d19e0d4ae9808a367542ae7420",
+      "model": "q4-k-m"
+    },
+    {
+      "position": 7,
+      "round": 3,
+      "seed": "6725eddf0a1186548dd7aab3018afdbe",
+      "model": "q4-k-m"
+    },
+    {
+      "position": 8,
+      "round": 3,
+      "seed": "6725eddf0a1186548dd7aab3018afdbe",
+      "model": "bf16"
+    },
+    {
+      "position": 9,
+      "round": 3,
+      "seed": "6725eddf0a1186548dd7aab3018afdbe",
+      "model": "q2-k"
+    },
+    {
+      "position": 10,
+      "round": 4,
+      "seed": "3cf77a903817c3503fb381f49b6af00a",
+      "model": "q4-k-m"
+    },
+    {
+      "position": 11,
+      "round": 4,
+      "seed": "3cf77a903817c3503fb381f49b6af00a",
+      "model": "q2-k"
+    },
+    {
+      "position": 12,
+      "round": 4,
+      "seed": "3cf77a903817c3503fb381f49b6af00a",
+      "model": "bf16"
+    },
+    {
+      "position": 13,
+      "round": 5,
+      "seed": "5a3274c2c1b980000917eba30844fb7c",
+      "model": "q2-k"
+    },
+    {
+      "position": 14,
+      "round": 5,
+      "seed": "5a3274c2c1b980000917eba30844fb7c",
+      "model": "bf16"
+    },
+    {
+      "position": 15,
+      "round": 5,
+      "seed": "5a3274c2c1b980000917eba30844fb7c",
+      "model": "q4-k-m"
+    },
+    {
+      "position": 16,
+      "round": 6,
+      "seed": "dba96dc515da7d75917c802c12102973",
+      "model": "q2-k"
+    },
+    {
+      "position": 17,
+      "round": 6,
+      "seed": "dba96dc515da7d75917c802c12102973",
+      "model": "q4-k-m"
+    },
+    {
+      "position": 18,
+      "round": 6,
+      "seed": "dba96dc515da7d75917c802c12102973",
+      "model": "bf16"
+    },
+    {
+      "position": 19,
+      "round": 7,
+      "seed": "731737d2760237ccb0a89276238d220c",
+      "model": "bf16"
+    },
+    {
+      "position": 20,
+      "round": 7,
+      "seed": "731737d2760237ccb0a89276238d220c",
+      "model": "q4-k-m"
+    },
+    {
+      "position": 21,
+      "round": 7,
+      "seed": "731737d2760237ccb0a89276238d220c",
+      "model": "q2-k"
+    },
+    {
+      "position": 22,
+      "round": 8,
+      "seed": "70c85ab6e0035846b0688c63ced275eb",
+      "model": "bf16"
+    },
+    {
+      "position": 23,
+      "round": 8,
+      "seed": "70c85ab6e0035846b0688c63ced275eb",
+      "model": "q2-k"
+    },
+    {
+      "position": 24,
+      "round": 8,
+      "seed": "70c85ab6e0035846b0688c63ced275eb",
+      "model": "q4-k-m"
+    },
+    {
+      "position": 25,
+      "round": 9,
+      "seed": "7e5c8e0437ff8a8ba28f08816795fe57",
+      "model": "q4-k-m"
+    },
+    {
+      "position": 26,
+      "round": 9,
+      "seed": "7e5c8e0437ff8a8ba28f08816795fe57",
+      "model": "bf16"
+    },
+    {
+      "position": 27,
+      "round": 9,
+      "seed": "7e5c8e0437ff8a8ba28f08816795fe57",
+      "model": "q2-k"
+    },
+    {
+      "position": 28,
+      "round": 10,
+      "seed": "88be26494dc80643b821d806888554a1",
+      "model": "q4-k-m"
+    },
+    {
+      "position": 29,
+      "round": 10,
+      "seed": "88be26494dc80643b821d806888554a1",
+      "model": "q2-k"
+    },
+    {
+      "position": 30,
+      "round": 10,
+      "seed": "88be26494dc80643b821d806888554a1",
+      "model": "bf16"
+    },
+    {
+      "position": 31,
+      "round": 11,
+      "seed": "c783b7869a95052e00dc59acfad81c44",
+      "model": "q2-k"
+    },
+    {
+      "position": 32,
+      "round": 11,
+      "seed": "c783b7869a95052e00dc59acfad81c44",
+      "model": "bf16"
+    },
+    {
+      "position": 33,
+      "round": 11,
+      "seed": "c783b7869a95052e00dc59acfad81c44",
+      "model": "q4-k-m"
+    },
+    {
+      "position": 34,
+      "round": 12,
+      "seed": "a67b1c48e08571837d00b59021e37e2e",
+      "model": "q2-k"
+    },
+    {
+      "position": 35,
+      "round": 12,
+      "seed": "a67b1c48e08571837d00b59021e37e2e",
+      "model": "q4-k-m"
+    },
+    {
+      "position": 36,
+      "round": 12,
+      "seed": "a67b1c48e08571837d00b59021e37e2e",
+      "model": "bf16"
+    },
+    {
+      "position": 37,
+      "round": 13,
+      "seed": "79a4e7b729aa2d17037a7d7ba8f85bf8",
+      "model": "bf16"
+    },
+    {
+      "position": 38,
+      "round": 13,
+      "seed": "79a4e7b729aa2d17037a7d7ba8f85bf8",
+      "model": "q4-k-m"
+    },
+    {
+      "position": 39,
+      "round": 13,
+      "seed": "79a4e7b729aa2d17037a7d7ba8f85bf8",
+      "model": "q2-k"
+    },
+    {
+      "position": 40,
+      "round": 14,
+      "seed": "53275ee0561269f34ba620a506e831db",
+      "model": "bf16"
+    },
+    {
+      "position": 41,
+      "round": 14,
+      "seed": "53275ee0561269f34ba620a506e831db",
+      "model": "q2-k"
+    },
+    {
+      "position": 42,
+      "round": 14,
+      "seed": "53275ee0561269f34ba620a506e831db",
+      "model": "q4-k-m"
+    },
+    {
+      "position": 43,
+      "round": 15,
+      "seed": "54827f8a37315d07393f0e353cc7e8e7",
+      "model": "q4-k-m"
+    },
+    {
+      "position": 44,
+      "round": 15,
+      "seed": "54827f8a37315d07393f0e353cc7e8e7",
+      "model": "bf16"
+    },
+    {
+      "position": 45,
+      "round": 15,
+      "seed": "54827f8a37315d07393f0e353cc7e8e7",
+      "model": "q2-k"
+    },
+    {
+      "position": 46,
+      "round": 16,
+      "seed": "d2f4cc5ba582d1c627021deed43c57d0",
+      "model": "q4-k-m"
+    },
+    {
+      "position": 47,
+      "round": 16,
+      "seed": "d2f4cc5ba582d1c627021deed43c57d0",
+      "model": "q2-k"
+    },
+    {
+      "position": 48,
+      "round": 16,
+      "seed": "d2f4cc5ba582d1c627021deed43c57d0",
+      "model": "bf16"
+    },
+    {
+      "position": 49,
+      "round": 17,
+      "seed": "ae40b90a196bd2f6286dc7f2cb9a6402",
+      "model": "q2-k"
+    },
+    {
+      "position": 50,
+      "round": 17,
+      "seed": "ae40b90a196bd2f6286dc7f2cb9a6402",
+      "model": "bf16"
+    },
+    {
+      "position": 51,
+      "round": 17,
+      "seed": "ae40b90a196bd2f6286dc7f2cb9a6402",
+      "model": "q4-k-m"
+    },
+    {
+      "position": 52,
+      "round": 18,
+      "seed": "457b940583507a8891bd6b07df2ab64a",
+      "model": "q2-k"
+    },
+    {
+      "position": 53,
+      "round": 18,
+      "seed": "457b940583507a8891bd6b07df2ab64a",
+      "model": "q4-k-m"
+    },
+    {
+      "position": 54,
+      "round": 18,
+      "seed": "457b940583507a8891bd6b07df2ab64a",
+      "model": "bf16"
+    },
+    {
+      "position": 55,
+      "round": 19,
+      "seed": "ef1b96225832fefd12c06ace49c84743",
+      "model": "bf16"
+    },
+    {
+      "position": 56,
+      "round": 19,
+      "seed": "ef1b96225832fefd12c06ace49c84743",
+      "model": "q4-k-m"
+    },
+    {
+      "position": 57,
+      "round": 19,
+      "seed": "ef1b96225832fefd12c06ace49c84743",
+      "model": "q2-k"
+    },
+    {
+      "position": 58,
+      "round": 20,
+      "seed": "67a2edb5c6754008d928a0dfcdd82767",
+      "model": "bf16"
+    },
+    {
+      "position": 59,
+      "round": 20,
+      "seed": "67a2edb5c6754008d928a0dfcdd82767",
+      "model": "q2-k"
+    },
+    {
+      "position": 60,
+      "round": 20,
+      "seed": "67a2edb5c6754008d928a0dfcdd82767",
+      "model": "q4-k-m"
+    },
+    {
+      "position": 61,
+      "round": 21,
+      "seed": "7ed23485f6d33298b78bf221bb17c822",
+      "model": "q4-k-m"
+    },
+    {
+      "position": 62,
+      "round": 21,
+      "seed": "7ed23485f6d33298b78bf221bb17c822",
+      "model": "bf16"
+    },
+    {
+      "position": 63,
+      "round": 21,
+      "seed": "7ed23485f6d33298b78bf221bb17c822",
+      "model": "q2-k"
+    },
+    {
+      "position": 64,
+      "round": 22,
+      "seed": "6827a2cd71b259071c6f143ebcf09d00",
+      "model": "q4-k-m"
+    },
+    {
+      "position": 65,
+      "round": 22,
+      "seed": "6827a2cd71b259071c6f143ebcf09d00",
+      "model": "q2-k"
+    },
+    {
+      "position": 66,
+      "round": 22,
+      "seed": "6827a2cd71b259071c6f143ebcf09d00",
+      "model": "bf16"
+    },
+    {
+      "position": 67,
+      "round": 23,
+      "seed": "24e8c16a1d7a31d214d4b29e5593c37b",
+      "model": "q2-k"
+    },
+    {
+      "position": 68,
+      "round": 23,
+      "seed": "24e8c16a1d7a31d214d4b29e5593c37b",
+      "model": "bf16"
+    },
+    {
+      "position": 69,
+      "round": 23,
+      "seed": "24e8c16a1d7a31d214d4b29e5593c37b",
+      "model": "q4-k-m"
+    },
+    {
+      "position": 70,
+      "round": 24,
+      "seed": "c57c8bc3641ec47bb41ecc6167fc67fe",
+      "model": "q2-k"
+    },
+    {
+      "position": 71,
+      "round": 24,
+      "seed": "c57c8bc3641ec47bb41ecc6167fc67fe",
+      "model": "q4-k-m"
+    },
+    {
+      "position": 72,
+      "round": 24,
+      "seed": "c57c8bc3641ec47bb41ecc6167fc67fe",
+      "model": "bf16"
+    },
+    {
+      "position": 73,
+      "round": 25,
+      "seed": "0bf324d008631787ead49c07ce403432",
+      "model": "bf16"
+    },
+    {
+      "position": 74,
+      "round": 25,
+      "seed": "0bf324d008631787ead49c07ce403432",
+      "model": "q4-k-m"
+    },
+    {
+      "position": 75,
+      "round": 25,
+      "seed": "0bf324d008631787ead49c07ce403432",
+      "model": "q2-k"
+    },
+    {
+      "position": 76,
+      "round": 26,
+      "seed": "5e0597707432efc101a49f56959e5525",
+      "model": "bf16"
+    },
+    {
+      "position": 77,
+      "round": 26,
+      "seed": "5e0597707432efc101a49f56959e5525",
+      "model": "q2-k"
+    },
+    {
+      "position": 78,
+      "round": 26,
+      "seed": "5e0597707432efc101a49f56959e5525",
+      "model": "q4-k-m"
+    },
+    {
+      "position": 79,
+      "round": 27,
+      "seed": "06d557eaec06d94e8168afc85a9eb80c",
+      "model": "q4-k-m"
+    },
+    {
+      "position": 80,
+      "round": 27,
+      "seed": "06d557eaec06d94e8168afc85a9eb80c",
+      "model": "bf16"
+    },
+    {
+      "position": 81,
+      "round": 27,
+      "seed": "06d557eaec06d94e8168afc85a9eb80c",
+      "model": "q2-k"
+    },
+    {
+      "position": 82,
+      "round": 28,
+      "seed": "cc0e6affa3df6bb7a31ca267a86fd1f1",
+      "model": "q4-k-m"
+    },
+    {
+      "position": 83,
+      "round": 28,
+      "seed": "cc0e6affa3df6bb7a31ca267a86fd1f1",
+      "model": "q2-k"
+    },
+    {
+      "position": 84,
+      "round": 28,
+      "seed": "cc0e6affa3df6bb7a31ca267a86fd1f1",
+      "model": "bf16"
+    },
+    {
+      "position": 85,
+      "round": 29,
+      "seed": "a16f8300725f03182d643f9ae9a05fe6",
+      "model": "q2-k"
+    },
+    {
+      "position": 86,
+      "round": 29,
+      "seed": "a16f8300725f03182d643f9ae9a05fe6",
+      "model": "bf16"
+    },
+    {
+      "position": 87,
+      "round": 29,
+      "seed": "a16f8300725f03182d643f9ae9a05fe6",
+      "model": "q4-k-m"
+    },
+    {
+      "position": 88,
+      "round": 30,
+      "seed": "b84ad8d9e6d71c2a7d2ecb1dc3ac4799",
+      "model": "q2-k"
+    },
+    {
+      "position": 89,
+      "round": 30,
+      "seed": "b84ad8d9e6d71c2a7d2ecb1dc3ac4799",
+      "model": "q4-k-m"
+    },
+    {
+      "position": 90,
+      "round": 30,
+      "seed": "b84ad8d9e6d71c2a7d2ecb1dc3ac4799",
+      "model": "bf16"
+    }
+  ],
+  "preflight": {
+    "planned_initial_state_requests": 18,
+    "order": [
+      {
+        "position": 1,
+        "seed": "7046a356a0542a954fb673b26389cd56",
+        "model": "bf16"
+      },
+      {
+        "position": 2,
+        "seed": "7046a356a0542a954fb673b26389cd56",
+        "model": "q4-k-m"
+      },
+      {
+        "position": 3,
+        "seed": "7046a356a0542a954fb673b26389cd56",
+        "model": "q2-k"
+      },
+      {
+        "position": 4,
+        "seed": "62eab52078746f24cc4fd6b847ee1df9",
+        "model": "bf16"
+      },
+      {
+        "position": 5,
+        "seed": "62eab52078746f24cc4fd6b847ee1df9",
+        "model": "q4-k-m"
+      },
+      {
+        "position": 6,
+        "seed": "62eab52078746f24cc4fd6b847ee1df9",
+        "model": "q2-k"
+      },
+      {
+        "position": 7,
+        "seed": "e4fa41e612aeee904b88230787a17fb5",
+        "model": "bf16"
+      },
+      {
+        "position": 8,
+        "seed": "e4fa41e612aeee904b88230787a17fb5",
+        "model": "q4-k-m"
+      },
+      {
+        "position": 9,
+        "seed": "e4fa41e612aeee904b88230787a17fb5",
+        "model": "q2-k"
+      },
+      {
+        "position": 10,
+        "seed": "137b15a030ab7e6ee49ceb627663b7df",
+        "model": "bf16"
+      },
+      {
+        "position": 11,
+        "seed": "137b15a030ab7e6ee49ceb627663b7df",
+        "model": "q4-k-m"
+      },
+      {
+        "position": 12,
+        "seed": "137b15a030ab7e6ee49ceb627663b7df",
+        "model": "q2-k"
+      },
+      {
+        "position": 13,
+        "seed": "89c897000a0bd0ea21e0c3b03552174e",
+        "model": "bf16"
+      },
+      {
+        "position": 14,
+        "seed": "89c897000a0bd0ea21e0c3b03552174e",
+        "model": "q4-k-m"
+      },
+      {
+        "position": 15,
+        "seed": "89c897000a0bd0ea21e0c3b03552174e",
+        "model": "q2-k"
+      },
+      {
+        "position": 16,
+        "seed": "f42d23509466036d54f6844421ccb8ed",
+        "model": "bf16"
+      },
+      {
+        "position": 17,
+        "seed": "f42d23509466036d54f6844421ccb8ed",
+        "model": "q4-k-m"
+      },
+      {
+        "position": 18,
+        "seed": "f42d23509466036d54f6844421ccb8ed",
+        "model": "q2-k"
+      }
+    ],
+    "policy": "Initial-state requests only; validate loading, payload, template, grammar, parser, context budget and evidence logging. No game rollout, scoring, prompt tuning or main-seed requests. All execution requires separate authorization."
+  }
+}

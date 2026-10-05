@@ -32,4 +32,6 @@ Also record which tensors are quantized versus BF16/F16, and which output rows a
 
 ## Beyond this task
 
+[Qwen3 Snake v1](../experiments/qwen3_snake_v1/README.md) is now prepared for issue #1: an offline native-generation adapter, 30 fresh paired main seeds plus six separate preflight seeds, a balanced 90-game schedule, prospective analysis and a verified external-only storage plan. It preserves the existing board/features but uses Qwen's own chat/action interface and BF16 tied input/output weights across its planned precision sweep. No Qwen weights were downloaded and no model calls or scored games were run. The serial runner, new-schema auditor, artifact conversion and separately authorized preflight remain gates before a campaign. This does not replace the proposed CLEF runtime control or pool with CLEF discovery seeds.
+
 If the held-out effect persists, repeat with different initial positions, board sizes, and another decision task. Changing any feature/schema/grid turns it into a new protocol; retain the discovery benchmark rather than silently rewriting it. General claims require breadth, not just more repeats on one task.
