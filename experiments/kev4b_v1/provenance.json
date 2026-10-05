@@ -1,0 +1,242 @@
+{
+  "schema_version": 1,
+  "experiment_id": "kev4b_v1",
+  "status": "proposed_unexecuted",
+  "authorization": {
+    "acquisition": true,
+    "installation": true,
+    "model_loading": true,
+    "inference": true,
+    "resource_approval": "approved_bounded_preflight",
+    "scope": {
+      "max_decision_evaluations": 64,
+      "max_preflight_wall_seconds": 900,
+      "scored_games": 0,
+      "storage_budget_bytes": 60129542144,
+      "destination": "/Volumes/Models/clef-snake-experiments/kev4b-v1"
+    },
+    "does_not_authorize_main_campaign": true
+  },
+  "model": {
+    "name": "Kev-4B",
+    "model_class": "Native trained candidate-scoring decision model; prefill-only backbone plus Kev pointer head",
+    "model_card_url": "https://huggingface.co/jaredpalmer/kev-4b/blob/6cfce5c2fa4b4bd64026336ab649c5ca78857d52/README.md",
+    "checkpoint_repository": "jaredpalmer/kev-4b",
+    "checkpoint_revision": "6cfce5c2fa4b4bd64026336ab649c5ca78857d52",
+    "model_card_weight_revision_label": "139fdd94",
+    "base_repository": "Qwen/Qwen3.5-4B-Base",
+    "base_revision": "1001bb4d826a52d1f399e183466143f4da7b741b",
+    "license": "Apache-2.0",
+    "license_scope": "Kev source, adapter/head and Qwen base; verify accompanying upstream notices when acquiring",
+    "trained_native_head_required": true,
+    "clef_head_reuse": false,
+    "autoregressive_text_generation": false,
+    "reported_calibration_temperature": 2.41,
+    "reported_calibration_temperature_scope": "Author model card; head.pt contents have not been locally loaded or inspected"
+  },
+  "upstream_code": {
+    "repository": "https://github.com/jaredpalmer/kev",
+    "revision": "5e42a7a03f28134853dd3ff77461457e921e5ec1",
+    "files": [
+      {
+        "path": "kev/model.py",
+        "url": "https://raw.githubusercontent.com/jaredpalmer/kev/5e42a7a03f28134853dd3ff77461457e921e5ec1/kev/model.py",
+        "bytes": 35153,
+        "sha256": "2ff3b2e67c048e3bc5a0d1a32aafe50804ed315a5564fce06bb4b95697c5271c",
+        "evidence_scope": "Small source file read; not installed or executed"
+      },
+      {
+        "path": "kev/checkpoint.py",
+        "url": "https://raw.githubusercontent.com/jaredpalmer/kev/5e42a7a03f28134853dd3ff77461457e921e5ec1/kev/checkpoint.py",
+        "bytes": 23232,
+        "sha256": "02062399977ee0da316dd52e03a79fa5e10134aa49c0b5ed801598c52042dc32",
+        "evidence_scope": "Small source file read; not installed or executed"
+      },
+      {
+        "path": "kev/mlx_model.py",
+        "url": "https://raw.githubusercontent.com/jaredpalmer/kev/5e42a7a03f28134853dd3ff77461457e921e5ec1/kev/mlx_model.py",
+        "bytes": 15050,
+        "sha256": "49c4a3de3952429e8a4b3945c33b0697a1cd84c41c945709ce6619af2c15842c",
+        "evidence_scope": "Small source file read; not installed or executed"
+      },
+      {
+        "path": "kev/api.py",
+        "url": "https://raw.githubusercontent.com/jaredpalmer/kev/5e42a7a03f28134853dd3ff77461457e921e5ec1/kev/api.py",
+        "bytes": 7526,
+        "sha256": "a6f53af5354f8ea17915abc78360fdf291a5108ce39a53a2d9135d48c603ae58",
+        "evidence_scope": "Small source file read; not installed or executed"
+      },
+      {
+        "path": "pyproject.toml",
+        "url": "https://raw.githubusercontent.com/jaredpalmer/kev/5e42a7a03f28134853dd3ff77461457e921e5ec1/pyproject.toml",
+        "bytes": 1721,
+        "sha256": "7c17fbe9efcadda3eb488b59adf1b6db5938cd33af4d3bd389ce4359b73fcc7d",
+        "evidence_scope": "Small source file read; not installed or executed"
+      },
+      {
+        "path": "uv.lock",
+        "url": "https://raw.githubusercontent.com/jaredpalmer/kev/5e42a7a03f28134853dd3ff77461457e921e5ec1/uv.lock",
+        "bytes": 335387,
+        "sha256": "a9922dbb89acdef78299fd2b4a8c3f7f0fa1b2bc08b55595b6926fa785a9c466",
+        "evidence_scope": "Small source file read; not installed or executed"
+      },
+      {
+        "path": "LICENSE",
+        "url": "https://raw.githubusercontent.com/jaredpalmer/kev/5e42a7a03f28134853dd3ff77461457e921e5ec1/LICENSE",
+        "bytes": 11343,
+        "sha256": "6b08bb37982c233aa12bcbdf19106da12f3f4fcf800773ea42e28ebeddd34fb8",
+        "evidence_scope": "Small source file read; not installed or executed"
+      }
+    ]
+  },
+  "author_training_provenance": {
+    "url": "https://huggingface.co/jaredpalmer/kev-4b/resolve/6cfce5c2fa4b4bd64026336ab649c5ca78857d52/provenance.json",
+    "sha256": "7aa999a629f25d93713950d6fb39d0b4c37fe8a9f43d2673a79c4c455d42b26a",
+    "reported_training_code_revision": "6d02f5d066cd34958dfd15ffa5d2f6f0f4c21a63",
+    "reported_configuration_sha256": "08aa7634eef0409340edd9df72b4b347bdda02e87b25c920e205dc727911525d",
+    "reported_training_dtype": "bf16",
+    "reported_saved_weights_dtype": "fp32",
+    "reported_base_revision": "1001bb4d826a52d1f399e183466143f4da7b741b",
+    "scope": "Selected public provenance fields; distinct from the later serving-code pin. Author training was not independently reproduced."
+  },
+  "small_configuration_evidence": [
+    {
+      "url": "https://huggingface.co/Qwen/Qwen3.5-4B-Base/resolve/1001bb4d826a52d1f399e183466143f4da7b741b/config.json",
+      "bytes": 3161,
+      "sha256": "ddc63e1c717afa86c865bb5e01313d89d72bb53b97ad4a8a03ba8510c0621670"
+    },
+    {
+      "url": "https://huggingface.co/jaredpalmer/kev-4b/resolve/6cfce5c2fa4b4bd64026336ab649c5ca78857d52/training_config.json",
+      "bytes": 1845,
+      "sha256": "005f939bef00274f49f15282dfa60543f5f82e781268f3c12d8ceeacb9f61f30"
+    }
+  ],
+  "native_architecture": {
+    "base_config_dtype": "bfloat16",
+    "hidden_size": 2560,
+    "intermediate_size": 9216,
+    "layers": 32,
+    "full_attention_layers": 8,
+    "linear_attention_layers": 24,
+    "tie_word_embeddings": true,
+    "input_embedding_parameters_predicted": 635699200,
+    "vocabulary_projection_used_for_decision": false,
+    "head": "Two learned linear projections into 256 dimensions; scaled dot product over supplied candidates; softmax with stored temperature",
+    "head_dtype": "float32",
+    "head_execution": "Original PyTorch PointerHead outside the MLX backbone; selected hidden states cast to float32 before head call",
+    "lora_merge": "Official MLX merge computes W + (B @ A) * alpha/r in FP32 on the CPU stream, then rounds once to stored BF16; lora_scale=1.0",
+    "baseline": "Official merged native MLX BF16 backbone and unchanged native FP32 head",
+    "dtype_selection_caveat": "Explicit MLX ignores LoadOptions.dtype and uses stored values. auto plus explicit FP32 chooses PyTorch, so it is not the same-runtime baseline."
+  },
+  "runtime_plan": {
+    "status": "not_installed_or_verified",
+    "python_requirement": ">=3.12,<3.14",
+    "upstream_requirements": {
+      "torch": ">=2.6,<2.9",
+      "transformers": ">=5.17,<6",
+      "peft": ">=0.21",
+      "mlx-lm": ">=0.31.3,<0.32"
+    },
+    "author_lock_versions": {
+      "mlx": "0.32.2",
+      "mlx-lm": "0.31.3",
+      "mlx-metal": "0.32.2",
+      "numpy": "2.5.3",
+      "peft": "0.21.0",
+      "torch": "2.8.0",
+      "transformers": "5.17.0"
+    },
+    "dedicated_environment_required": true,
+    "reuse_existing_environments": false,
+    "installed_runtime_parity_verified": false,
+    "automatic_downloads_forbidden": true,
+    "loader_caveat": "The upstream loader resolves the base/tokenizer by Hugging Face identifier. Future loading must use verified external caches and offline-only operation; missing snapshots are a stop, not permission to download."
+  },
+  "quantization_plan": {
+    "document": "QUANTIZATION_PLAN.md",
+    "status": "proposed_unexecuted",
+    "mode": "affine",
+    "group_size": 64,
+    "weight_only": true,
+    "primary_bits": [
+      8,
+      4
+    ],
+    "deferred_bits": [
+      2
+    ],
+    "scope": "Merged native text-backbone nn.Linear projections only",
+    "fixed": [
+      "BF16 token embeddings",
+      "Original dtype convolution, recurrent and normalization parameters",
+      "Original FP32 Kev pointer-head parameters",
+      "Native encoding and option order",
+      "Native calibration temperature"
+    ],
+    "eligible_linear_modules_predicted": 248,
+    "eligible_linear_weights_predicted": 3569090560,
+    "eligibility_verified_against_loaded_tensors": false,
+    "quantization_api_supported_by_upstream_source": true,
+    "kev_quantization_loader_or_export_supported": false,
+    "runtime_or_output_parity_verified": false,
+    "precision_description": "Mixed precision: quantized linear projection weights with retained floating-point embeddings, non-linear parameters and native head; not uniformly low-bit whole-model weights"
+  },
+  "api_semantics": {
+    "request_type": "One native choice question with ordered criteria",
+    "action_selection": "Native argmax of unrounded candidate probabilities, with first-in-option-order tie behavior",
+    "json_probability_rounding_decimals": 4,
+    "audit_caveat": "Do not reconstruct argmax from rounded HTTP probabilities. Future evidence wrapper must preserve unrounded probabilities/logits and the native choice.",
+    "no_action_mask_solver_sampling_or_fallback": true
+  },
+  "supporting_quantization_sources": [
+    {
+      "repository": "https://github.com/ml-explore/mlx",
+      "revision_tag": "v0.32.2",
+      "path": "python/mlx/nn/layers/quantized.py",
+      "url": "https://raw.githubusercontent.com/ml-explore/mlx/v0.32.2/python/mlx/nn/layers/quantized.py",
+      "bytes": 14991,
+      "sha256": "1797a3571484ad3134224354b7f130c0931f495691aa8e54eb55329d674bb00b",
+      "evidence_scope": "Pinned-tag source read only; package not installed or executed"
+    },
+    {
+      "repository": "https://github.com/ml-explore/mlx",
+      "revision_tag": "v0.32.2",
+      "path": "python/tests/test_quantized.py",
+      "url": "https://raw.githubusercontent.com/ml-explore/mlx/v0.32.2/python/tests/test_quantized.py",
+      "bytes": 68744,
+      "sha256": "2d23411ac3c4844fd54a34a8d063e79771dc04e54dab4ac2ac66be5986c3a89d",
+      "evidence_scope": "Pinned-tag source read only; package not installed or executed"
+    },
+    {
+      "repository": "https://github.com/ml-explore/mlx-lm",
+      "revision_tag": "v0.31.3",
+      "path": "mlx_lm/models/qwen3_5.py",
+      "url": "https://raw.githubusercontent.com/ml-explore/mlx-lm/v0.31.3/mlx_lm/models/qwen3_5.py",
+      "bytes": 18500,
+      "sha256": "f0daa30bba5cb521c8bdfa7093101a544c6a37bbba09bca582288219cb04ae3a",
+      "evidence_scope": "Pinned-tag source read only; package not installed or executed"
+    },
+    {
+      "repository": "https://github.com/ml-explore/mlx-lm",
+      "revision_tag": "v0.31.3",
+      "path": "mlx_lm/models/qwen3_next.py",
+      "url": "https://raw.githubusercontent.com/ml-explore/mlx-lm/v0.31.3/mlx_lm/models/qwen3_next.py",
+      "bytes": 16320,
+      "sha256": "3c572fe3fbb36721efab4d80d1bb6af11beb4ad1caae18deefc9fc84cbcd9b79",
+      "evidence_scope": "Pinned-tag source read only; package not installed or executed"
+    },
+    {
+      "repository": "https://github.com/ml-explore/mlx-lm",
+      "revision_tag": "v0.31.3",
+      "path": "mlx_lm/utils.py",
+      "url": "https://raw.githubusercontent.com/ml-explore/mlx-lm/v0.31.3/mlx_lm/utils.py",
+      "bytes": 32417,
+      "sha256": "ba0371e9c88d52b34d71271945c2394005fbcb2bfb2ee9f6f82d627a33b72422",
+      "evidence_scope": "Pinned-tag source read only; package not installed or executed"
+    }
+  ],
+  "source_artifact_manifest": "artifact-plan.json",
+  "local_source_weights_verified": false,
+  "inference_executed": false,
+  "generated_variant_artifacts": []
+}

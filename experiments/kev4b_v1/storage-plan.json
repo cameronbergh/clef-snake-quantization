@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "status": "proposed_unexecuted",
+  "authorization": {
+    "acquisition": true,
+    "installation": true,
+    "inference": true,
+    "resource_approval": "approved_bounded_preflight",
+    "model_loading": true,
+    "scope": {
+      "max_decision_evaluations": 64,
+      "max_preflight_wall_seconds": 900,
+      "scored_games": 0,
+      "storage_budget_bytes": 60129542144,
+      "destination": "/Volumes/Models/clef-snake-experiments/kev4b-v1"
+    },
+    "does_not_authorize_main_campaign": true
+  },
+  "required_mount_path": "/Volumes/Models",
+  "volume_name": "Models",
+  "internal": false,
+  "planned_root": "/Volumes/Models/clef-snake-experiments/kev4b-v1",
+  "allocations_bytes": {
+    "source_snapshot_exact": 9502566604,
+    "isolated_environment": 4294967296,
+    "temporary_download_and_conversion": 6442450944,
+    "preflight_logs": 1073741824,
+    "untouched_free_margin": 8589934592
+  },
+  "optional_variant_allocations_bytes": {
+    "merged_bf16": 10737418240,
+    "affine8": 6442450944,
+    "affine4": 4294967296,
+    "optional_affine2_deferred": 3221225472
+  },
+  "initial_phase_required_bytes": 29903661260,
+  "initial_gate_free_bytes": 34359738368,
+  "persisted_phase_required_bytes": 54599723212,
+  "persisted_gate_free_bytes": 60129542144,
+  "generated_sizes_measured": false,
+  "available_bytes_observed": 238862585856,
+  "observation_date": "2026-10-05",
+  "reuse_bytes_credited": 0,
+  "environment": {
+    "HF_HOME": "/Volumes/Models/clef-snake-experiments/kev4b-v1/hf",
+    "HF_HUB_CACHE": "/Volumes/Models/clef-snake-experiments/kev4b-v1/hf/hub",
+    "XDG_CACHE_HOME": "/Volumes/Models/clef-snake-experiments/kev4b-v1/cache",
+    "TMPDIR": "/Volumes/Models/clef-snake-experiments/kev4b-v1/tmp",
+    "UV_CACHE_DIR": "/Volumes/Models/clef-snake-experiments/kev4b-v1/cache/uv",
+    "PIP_CACHE_DIR": "/Volumes/Models/clef-snake-experiments/kev4b-v1/cache/pip",
+    "TORCH_HOME": "/Volumes/Models/clef-snake-experiments/kev4b-v1/cache/torch"
+  },
+  "requirements": [
+    "Verify external Models identity, current mount, destination ancestors and available bytes before any write.",
+    "No symlink escape, internal or X9 fallback; fail closed.",
+    "Use one verified source copy, an isolated environment and explicit offline paths; no modifications to existing environments.",
+    "All model payloads, environments, caches, temporary files and logs remain on the external Models partition.",
+    "Generated size reservations are estimates, not measured artifacts. Stop before any allocation exceeds its budget.",
+    "Recheck free space after acquisition and before each conversion.",
+    "Do not move or delete existing files.",
+    "Memory use is unmeasured; load one model at a time, measure resident and MLX memory, and stop at the recorded conservative thresholds."
+  ],
+  "guard_implementation_status": "plan only; no acquisition or storage-writing command included",
+  "memory_stop_thresholds_bytes": {
+    "process_rss": 51539607552,
+    "mlx_active": 51539607552
+  },
+  "memory_threshold_scope": "Conservative engineering stop thresholds, measured independently without double-counting. Not observed peak usage; never raise automatically."
+}

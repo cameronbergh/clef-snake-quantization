@@ -19,9 +19,11 @@
 ## Additional model comparison
 
 - [x] Assess native decision-model candidates from primary sources: [Laya, Kev, Jeff and CLEF-27B](docs/DECISION_MODEL_CANDIDATES.md). Availability is not runtime/parity validation or candidate selection.
-- [ ] Select a checkpoint that computes typed option probabilities directly. A grammar-constrained instruction model does not meet this requirement. CLEF-27B is a within-family extension; Laya, Kev and Jeff need their own interface and provenance checks.
-- [ ] Verify a matched high-precision/quantized pair, native head preservation, complete state/context handling, runtime compatibility and external Models storage before requesting acquisition or inference.
-- [ ] Freeze the selected model's adapter, fresh paired seeds, counterbalanced serial schedule and analysis; implement an independent new-schema auditor before any main campaign. Retain every failure and preserve original evidence.
+- [x] Select Kev-4B for bounded preparation and implement its [offline native-choice adapter](experiments/kev4b_v1/README.md), saved compatibility fixtures, provenance and resource plans. Qwen remains outside the intended model class.
+- [x] Obtain approval for pinned acquisition, isolated setup and a [bounded zero-game preflight](experiments/kev4b_v1/PREFLIGHT_PLAN.md): at most 64 decision evaluations, 900 seconds from first load through final unload, and a 56 GiB external Models budget. Approval is not a completed execution.
+- [ ] Acquire and hash-verify the pinned sources on external Models, create the isolated environment and implement storage, identity, deadline, call-count and evidence guards; preserve existing files and environments.
+- [ ] Run the planned 60-decision preflight on twelve saved discovery states. Verify real complete-row tokenization, native/wrapped BF16 parity, unchanged FP32 head, proposed affine8/affine4 scope and deterministic behavior. Retain every error and unexecuted phase; no games or hidden retries.
+- [ ] After preflight, separately design and freeze fresh paired main seeds, counterbalanced serial execution and analysis; implement an independent Kev evidence auditor before any main campaign. The main campaign remains undesigned, unfrozen and unauthorized.
 - [ ] [Issue #1: benchmark another local decision model beyond CLEF](https://github.com/cameronbergh/clef-snake-quantization/issues/1). Preserve board/action rules and factual features, label model-interface differences, use native argmax without safety overrides, and publish a separately audited additive dataset. No new campaign has run.
 
 **Deferred, outside the intended model class:** the [Qwen3 general instruction-model comparator](experiments/qwen3_snake_v1/STATUS.md). Its adapter, 30-seed schedule and analysis were prepared, but that work does not complete candidate selection for issue #1. Preserve the original freeze; do not acquire or run Qwen as an incidental next step.

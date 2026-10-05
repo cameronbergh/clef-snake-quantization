@@ -76,7 +76,10 @@ python3 -m http.server 8000 --bind 127.0.0.1
 - [ ] Freeze and run fresh held-out validation with counterbalanced model order.
 - [ ] Investigate smaller supported quantizations; independently reproduce results and extend to another task.
 - [ ] [Benchmark another local decision model beyond CLEF (#1)](https://github.com/cameronbergh/clef-snake-quantization/issues/1), using its supported action interface and a frozen, separately audited protocol.
-- [ ] Select a native typed-decision checkpoint for that comparison; see the [decision-model candidate assessment](docs/DECISION_MODEL_CANDIDATES.md).
+- [x] Select Kev-4B for a bounded native decision-model preflight and prepare its [offline adapter and plans](experiments/kev4b_v1/README.md). Acquisition, isolated setup and at most 64 decision evaluations over 15 minutes are authorized; no Kev inference or games have run in this preparation.
+- [ ] Implement the execution guards and complete the [Kev compatibility preflight](experiments/kev4b_v1/PREFLIGHT_PLAN.md); then separately design and freeze any main campaign.
+
+Kev's planned 60 evaluations use twelve saved discovery states, the native BF16 MLX path and proposed affine 8-bit/4-bit projection variants with its unchanged FP32 pointer head. This is a zero-game compatibility check, not evidence of gameplay performance. The approved storage destination is the external Models partition, under a 56 GiB overall budget. See the [candidate assessment](docs/DECISION_MODEL_CANDIDATES.md) for the selection context and alternatives.
 
 The earlier [Qwen3 preparation is deferred](experiments/qwen3_snake_v1/STATUS.md). Qwen3-4B-Instruct generates constrained JSON text and does not satisfy the intended Jev-style decision-model comparison. Its offline adapter and frozen protocol remain preserved as an optional general instruction-model comparator; no weights, preflight or campaign were run.
 
@@ -101,7 +104,7 @@ The new standalone driver is an independent Python implementation of the documen
 
 ## Agentic development and contributing
 
-[AGENTS.md](AGENTS.md) maps the repo, verification commands and research-integrity boundaries. [CONTRIBUTING.md](CONTRIBUTING.md) explains independent replication and review. GitHub Actions runs only stdlib tests, Python compilation and every published dataset's full offline integrity/parity audit—no weights, secrets or GPU inference. Published evidence is preserved; new experiments get additive dataset directories.
+[AGENTS.md](AGENTS.md) maps the repo, verification commands and research-integrity boundaries. [CONTRIBUTING.md](CONTRIBUTING.md) explains independent replication and review. GitHub Actions runs offline protocol/preparation tests, watcher checks, Python compilation and every published dataset's full integrity/parity audit—no weights, secrets or GPU inference. Published evidence is preserved; new experiments get additive dataset directories.
 
 ## Credits and licensing
 

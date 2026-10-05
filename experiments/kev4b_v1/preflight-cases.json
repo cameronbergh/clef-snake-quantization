@@ -1,0 +1,1516 @@
+{
+  "schema_version": 1,
+  "status": "draft_preflight_fixtures_not_campaign",
+  "purpose": "Fixed-state compatibility only; discovery requests are not held-out gameplay evidence. Selection is deterministic and uses no Kev outcomes.",
+  "selection": "BF16 discovery rounds 1,5,10,15; first, floor(n/2)+1, and final attempt, preserving that order.",
+  "source_path": "data/2026-10-05-fiveway/decisions/primary.jsonl.gz",
+  "source_sha256": "cfcb6c0803263aebb3444523284bd94f6ba496406ff101e0faff66f5e7f98818",
+  "cases": [
+    {
+      "id": "bf16-round-01-first",
+      "source_line_1_based": 1,
+      "seed_round": 1,
+      "attempt": 1,
+      "seed": "b145b41017ce4bce48bf75df6719f853",
+      "request": {
+        "model": "clef-flash",
+        "state": {
+          "grid": {
+            "width": 12,
+            "height": 12,
+            "coordinates": "x increases right, y increases down"
+          },
+          "body": [
+            [
+              5,
+              6
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "direction": "right",
+          "head": [
+            5,
+            6
+          ],
+          "food": [
+            0,
+            3
+          ],
+          "food_delta": {
+            "dx": -5,
+            "dy": -3,
+            "preferred_horizontal": "left",
+            "preferred_vertical": "up"
+          },
+          "safe_moves": [
+            "up",
+            "down",
+            "right"
+          ],
+          "move_analysis": {
+            "up": {
+              "safe": true,
+              "reason": "safe",
+              "manhattan_to_food": 7,
+              "open_space": 141,
+              "reduces_distance": true
+            },
+            "down": {
+              "safe": true,
+              "reason": "safe",
+              "manhattan_to_food": 9,
+              "open_space": 141,
+              "reduces_distance": false
+            },
+            "left": {
+              "safe": false,
+              "reason": "neck",
+              "manhattan_to_food": 7,
+              "open_space": 0,
+              "reduces_distance": true
+            },
+            "right": {
+              "safe": true,
+              "reason": "safe",
+              "manhattan_to_food": 9,
+              "open_space": 141,
+              "reduces_distance": false
+            }
+          }
+        },
+        "questions": {
+          "move": {
+            "type": "choice",
+            "instructions": "Select the next move for the snake head. Avoid collisions and try to reach the food while preserving open space. No program selects or overrides your answer.",
+            "criteria": {
+              "up": "Move north (y - 1)",
+              "down": "Move south (y + 1)",
+              "left": "Move west (x - 1)",
+              "right": "Move east (x + 1)"
+            }
+          }
+        }
+      },
+      "request_sha256": "36b560b5811dc4206aa20451de76cf9361610c5832e0f47336ab1cd4c8bd313e"
+    },
+    {
+      "id": "bf16-round-01-middle",
+      "source_line_1_based": 106,
+      "seed_round": 1,
+      "attempt": 106,
+      "seed": "b145b41017ce4bce48bf75df6719f853",
+      "request": {
+        "model": "clef-flash",
+        "state": {
+          "grid": {
+            "width": 12,
+            "height": 12,
+            "coordinates": "x increases right, y increases down"
+          },
+          "body": [
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              4,
+              0
+            ],
+            [
+              5,
+              0
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "direction": "down",
+          "head": [
+            1,
+            5
+          ],
+          "food": [
+            3,
+            8
+          ],
+          "food_delta": {
+            "dx": 2,
+            "dy": 3,
+            "preferred_horizontal": "right",
+            "preferred_vertical": "down"
+          },
+          "safe_moves": [
+            "down",
+            "left",
+            "right"
+          ],
+          "move_analysis": {
+            "up": {
+              "safe": false,
+              "reason": "neck",
+              "manhattan_to_food": 6,
+              "open_space": 0,
+              "reduces_distance": false
+            },
+            "down": {
+              "safe": true,
+              "reason": "safe",
+              "manhattan_to_food": 4,
+              "open_space": 133,
+              "reduces_distance": true
+            },
+            "left": {
+              "safe": true,
+              "reason": "safe",
+              "manhattan_to_food": 6,
+              "open_space": 133,
+              "reduces_distance": false
+            },
+            "right": {
+              "safe": true,
+              "reason": "safe",
+              "manhattan_to_food": 4,
+              "open_space": 133,
+              "reduces_distance": true
+            }
+          }
+        },
+        "questions": {
+          "move": {
+            "type": "choice",
+            "instructions": "Select the next move for the snake head. Avoid collisions and try to reach the food while preserving open space. No program selects or overrides your answer.",
+            "criteria": {
+              "up": "Move north (y - 1)",
+              "down": "Move south (y + 1)",
+              "left": "Move west (x - 1)",
+              "right": "Move east (x + 1)"
+            }
+          }
+        }
+      },
+      "request_sha256": "a617589e6cd68544c5e71b5c96d6fda639dd2fd042c1a239d019d0ff2a28a5f5"
+    },
+    {
+      "id": "bf16-round-01-last",
+      "source_line_1_based": 211,
+      "seed_round": 1,
+      "attempt": 211,
+      "seed": "b145b41017ce4bce48bf75df6719f853",
+      "request": {
+        "model": "clef-flash",
+        "state": {
+          "grid": {
+            "width": 12,
+            "height": 12,
+            "coordinates": "x increases right, y increases down"
+          },
+          "body": [
+            [
+              3,
+              8
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              7,
+              4
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              8,
+              5
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              5
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              5,
+              7
+            ]
+          ],
+          "direction": "down",
+          "head": [
+            3,
+            8
+          ],
+          "food": [
+            3,
+            0
+          ],
+          "food_delta": {
+            "dx": 0,
+            "dy": -8,
+            "preferred_horizontal": "aligned",
+            "preferred_vertical": "up"
+          },
+          "safe_moves": [
+            "down",
+            "left",
+            "right"
+          ],
+          "move_analysis": {
+            "up": {
+              "safe": false,
+              "reason": "neck",
+              "manhattan_to_food": 7,
+              "open_space": 0,
+              "reduces_distance": true
+            },
+            "down": {
+              "safe": true,
+              "reason": "safe",
+              "manhattan_to_food": 9,
+              "open_space": 123,
+              "reduces_distance": false
+            },
+            "left": {
+              "safe": true,
+              "reason": "safe",
+              "manhattan_to_food": 9,
+              "open_space": 123,
+              "reduces_distance": false
+            },
+            "right": {
+              "safe": true,
+              "reason": "safe",
+              "manhattan_to_food": 9,
+              "open_space": 123,
+              "reduces_distance": false
+            }
+          }
+        },
+        "questions": {
+          "move": {
+            "type": "choice",
+            "instructions": "Select the next move for the snake head. Avoid collisions and try to reach the food while preserving open space. No program selects or overrides your answer.",
+            "criteria": {
+              "up": "Move north (y - 1)",
+              "down": "Move south (y + 1)",
+              "left": "Move west (x - 1)",
+              "right": "Move east (x + 1)"
+            }
+          }
+        }
+      },
+      "request_sha256": "54d06b2a7da3b979d85a9a9ac092d7036eaac795e6decf8b65f91081e629fa49"
+    },
+    {
+      "id": "bf16-round-05-first",
+      "source_line_1_based": 1942,
+      "seed_round": 5,
+      "attempt": 1,
+      "seed": "b3a781a1047b360a5866a65d8aa8f4af",
+      "request": {
+        "model": "clef-flash",
+        "state": {
+          "grid": {
+            "width": 12,
+            "height": 12,
+            "coordinates": "x increases right, y increases down"
+          },
+          "body": [
+            [
+              5,
+              6
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "direction": "right",
+          "head": [
+            5,
+            6
+          ],
+          "food": [
+            7,
+            11
+          ],
+          "food_delta": {
+            "dx": 2,
+            "dy": 5,
+            "preferred_horizontal": "right",
+            "preferred_vertical": "down"
+          },
+          "safe_moves": [
+            "up",
+            "down",
+            "right"
+          ],
+          "move_analysis": {
+            "up": {
+              "safe": true,
+              "reason": "safe",
+              "manhattan_to_food": 8,
+              "open_space": 141,
+              "reduces_distance": false
+            },
+            "down": {
+              "safe": true,
+              "reason": "safe",
+              "manhattan_to_food": 6,
+              "open_space": 141,
+              "reduces_distance": true
+            },
+            "left": {
+              "safe": false,
+              "reason": "neck",
+              "manhattan_to_food": 8,
+              "open_space": 0,
+              "reduces_distance": false
+            },
+            "right": {
+              "safe": true,
+              "reason": "safe",
+              "manhattan_to_food": 6,
+              "open_space": 141,
+              "reduces_distance": true
+            }
+          }
+        },
+        "questions": {
+          "move": {
+            "type": "choice",
+            "instructions": "Select the next move for the snake head. Avoid collisions and try to reach the food while preserving open space. No program selects or overrides your answer.",
+            "criteria": {
+              "up": "Move north (y - 1)",
+              "down": "Move south (y + 1)",
+              "left": "Move west (x - 1)",
+              "right": "Move east (x + 1)"
+            }
+          }
+        }
+      },
+      "request_sha256": "26563010f4ba1482f887afe896884d2d7373c2c1b1104761bf5457aad27076da"
+    },
+    {
+      "id": "bf16-round-05-middle",
+      "source_line_1_based": 1968,
+      "seed_round": 5,
+      "attempt": 27,
+      "seed": "b3a781a1047b360a5866a65d8aa8f4af",
+      "request": {
+        "model": "clef-flash",
+        "state": {
+          "grid": {
+            "width": 12,
+            "height": 12,
+            "coordinates": "x increases right, y increases down"
+          },
+          "body": [
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              8
+            ],
+            [
+              8,
+              9
+            ],
+            [
+              7,
+              9
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              6
+            ]
+          ],
+          "direction": "up",
+          "head": [
+            8,
+            7
+          ],
+          "food": [
+            4,
+            4
+          ],
+          "food_delta": {
+            "dx": -4,
+            "dy": -3,
+            "preferred_horizontal": "left",
+            "preferred_vertical": "up"
+          },
+          "safe_moves": [
+            "up",
+            "right"
+          ],
+          "move_analysis": {
+            "up": {
+              "safe": true,
+              "reason": "safe",
+              "manhattan_to_food": 6,
+              "open_space": 138,
+              "reduces_distance": true
+            },
+            "down": {
+              "safe": false,
+              "reason": "neck",
+              "manhattan_to_food": 8,
+              "open_space": 0,
+              "reduces_distance": false
+            },
+            "left": {
+              "safe": false,
+              "reason": "body",
+              "manhattan_to_food": 6,
+              "open_space": 0,
+              "reduces_distance": true
+            },
+            "right": {
+              "safe": true,
+              "reason": "safe",
+              "manhattan_to_food": 8,
+              "open_space": 138,
+              "reduces_distance": false
+            }
+          }
+        },
+        "questions": {
+          "move": {
+            "type": "choice",
+            "instructions": "Select the next move for the snake head. Avoid collisions and try to reach the food while preserving open space. No program selects or overrides your answer.",
+            "criteria": {
+              "up": "Move north (y - 1)",
+              "down": "Move south (y + 1)",
+              "left": "Move west (x - 1)",
+              "right": "Move east (x + 1)"
+            }
+          }
+        }
+      },
+      "request_sha256": "2d4fd413733d5330e2200d8ce139a24a1698d953d958d970c1612cc04ef5d996"
+    },
+    {
+      "id": "bf16-round-05-last",
+      "source_line_1_based": 1994,
+      "seed_round": 5,
+      "attempt": 53,
+      "seed": "b3a781a1047b360a5866a65d8aa8f4af",
+      "request": {
+        "model": "clef-flash",
+        "state": {
+          "grid": {
+            "width": 12,
+            "height": 12,
+            "coordinates": "x increases right, y increases down"
+          },
+          "body": [
+            [
+              8,
+              1
+            ],
+            [
+              8,
+              2
+            ],
+            [
+              8,
+              3
+            ],
+            [
+              9,
+              3
+            ],
+            [
+              9,
+              4
+            ],
+            [
+              9,
+              5
+            ],
+            [
+              9,
+              6
+            ],
+            [
+              9,
+              7
+            ],
+            [
+              9,
+              8
+            ],
+            [
+              9,
+              9
+            ],
+            [
+              8,
+              9
+            ]
+          ],
+          "direction": "up",
+          "head": [
+            8,
+            1
+          ],
+          "food": [
+            8,
+            11
+          ],
+          "food_delta": {
+            "dx": 0,
+            "dy": 10,
+            "preferred_horizontal": "aligned",
+            "preferred_vertical": "down"
+          },
+          "safe_moves": [
+            "up",
+            "left",
+            "right"
+          ],
+          "move_analysis": {
+            "up": {
+              "safe": true,
+              "reason": "safe",
+              "manhattan_to_food": 11,
+              "open_space": 134,
+              "reduces_distance": false
+            },
+            "down": {
+              "safe": false,
+              "reason": "neck",
+              "manhattan_to_food": 9,
+              "open_space": 0,
+              "reduces_distance": true
+            },
+            "left": {
+              "safe": true,
+              "reason": "safe",
+              "manhattan_to_food": 11,
+              "open_space": 134,
+              "reduces_distance": false
+            },
+            "right": {
+              "safe": true,
+              "reason": "safe",
+              "manhattan_to_food": 11,
+              "open_space": 134,
+              "reduces_distance": false
+            }
+          }
+        },
+        "questions": {
+          "move": {
+            "type": "choice",
+            "instructions": "Select the next move for the snake head. Avoid collisions and try to reach the food while preserving open space. No program selects or overrides your answer.",
+            "criteria": {
+              "up": "Move north (y - 1)",
+              "down": "Move south (y + 1)",
+              "left": "Move west (x - 1)",
+              "right": "Move east (x + 1)"
+            }
+          }
+        }
+      },
+      "request_sha256": "99e0b88566380e361a2ff24350eac32ea081eb2c929737c914f0f1800cdbe6f9"
+    },
+    {
+      "id": "bf16-round-10-first",
+      "source_line_1_based": 3421,
+      "seed_round": 10,
+      "attempt": 1,
+      "seed": "fafeaaf3298e87e8883d6e29daa652f0",
+      "request": {
+        "model": "clef-flash",
+        "state": {
+          "grid": {
+            "width": 12,
+            "height": 12,
+            "coordinates": "x increases right, y increases down"
+          },
+          "body": [
+            [
+              5,
+              6
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "direction": "right",
+          "head": [
+            5,
+            6
+          ],
+          "food": [
+            2,
+            3
+          ],
+          "food_delta": {
+            "dx": -3,
+            "dy": -3,
+            "preferred_horizontal": "left",
+            "preferred_vertical": "up"
+          },
+          "safe_moves": [
+            "up",
+            "down",
+            "right"
+          ],
+          "move_analysis": {
+            "up": {
+              "safe": true,
+              "reason": "safe",
+              "manhattan_to_food": 5,
+              "open_space": 141,
+              "reduces_distance": true
+            },
+            "down": {
+              "safe": true,
+              "reason": "safe",
+              "manhattan_to_food": 7,
+              "open_space": 141,
+              "reduces_distance": false
+            },
+            "left": {
+              "safe": false,
+              "reason": "neck",
+              "manhattan_to_food": 5,
+              "open_space": 0,
+              "reduces_distance": true
+            },
+            "right": {
+              "safe": true,
+              "reason": "safe",
+              "manhattan_to_food": 7,
+              "open_space": 141,
+              "reduces_distance": false
+            }
+          }
+        },
+        "questions": {
+          "move": {
+            "type": "choice",
+            "instructions": "Select the next move for the snake head. Avoid collisions and try to reach the food while preserving open space. No program selects or overrides your answer.",
+            "criteria": {
+              "up": "Move north (y - 1)",
+              "down": "Move south (y + 1)",
+              "left": "Move west (x - 1)",
+              "right": "Move east (x + 1)"
+            }
+          }
+        }
+      },
+      "request_sha256": "95e2785d6ca5ca375363d490fed5c6953630a564a634caf90aa172335745a7ed"
+    },
+    {
+      "id": "bf16-round-10-middle",
+      "source_line_1_based": 3498,
+      "seed_round": 10,
+      "attempt": 78,
+      "seed": "fafeaaf3298e87e8883d6e29daa652f0",
+      "request": {
+        "model": "clef-flash",
+        "state": {
+          "grid": {
+            "width": 12,
+            "height": 12,
+            "coordinates": "x increases right, y increases down"
+          },
+          "body": [
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              7
+            ]
+          ],
+          "direction": "left",
+          "head": [
+            2,
+            2
+          ],
+          "food": [
+            2,
+            1
+          ],
+          "food_delta": {
+            "dx": 0,
+            "dy": -1,
+            "preferred_horizontal": "aligned",
+            "preferred_vertical": "up"
+          },
+          "safe_moves": [
+            "up",
+            "down",
+            "left"
+          ],
+          "move_analysis": {
+            "up": {
+              "safe": true,
+              "reason": "safe",
+              "manhattan_to_food": 0,
+              "open_space": 132,
+              "reduces_distance": true
+            },
+            "down": {
+              "safe": true,
+              "reason": "safe",
+              "manhattan_to_food": 2,
+              "open_space": 132,
+              "reduces_distance": false
+            },
+            "left": {
+              "safe": true,
+              "reason": "safe",
+              "manhattan_to_food": 2,
+              "open_space": 132,
+              "reduces_distance": false
+            },
+            "right": {
+              "safe": false,
+              "reason": "neck",
+              "manhattan_to_food": 2,
+              "open_space": 0,
+              "reduces_distance": false
+            }
+          }
+        },
+        "questions": {
+          "move": {
+            "type": "choice",
+            "instructions": "Select the next move for the snake head. Avoid collisions and try to reach the food while preserving open space. No program selects or overrides your answer.",
+            "criteria": {
+              "up": "Move north (y - 1)",
+              "down": "Move south (y + 1)",
+              "left": "Move west (x - 1)",
+              "right": "Move east (x + 1)"
+            }
+          }
+        }
+      },
+      "request_sha256": "5fd0db290fc3700f5a045cfa64d29a7fa816d5e7225785b8038042d7fc8395bc"
+    },
+    {
+      "id": "bf16-round-10-last",
+      "source_line_1_based": 3575,
+      "seed_round": 10,
+      "attempt": 155,
+      "seed": "fafeaaf3298e87e8883d6e29daa652f0",
+      "request": {
+        "model": "clef-flash",
+        "state": {
+          "grid": {
+            "width": 12,
+            "height": 12,
+            "coordinates": "x increases right, y increases down"
+          },
+          "body": [
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              9,
+              6
+            ],
+            [
+              10,
+              6
+            ],
+            [
+              11,
+              6
+            ],
+            [
+              11,
+              5
+            ],
+            [
+              11,
+              4
+            ],
+            [
+              11,
+              3
+            ],
+            [
+              10,
+              3
+            ]
+          ],
+          "direction": "up",
+          "head": [
+            1,
+            2
+          ],
+          "food": [
+            1,
+            8
+          ],
+          "food_delta": {
+            "dx": 0,
+            "dy": 6,
+            "preferred_horizontal": "aligned",
+            "preferred_vertical": "down"
+          },
+          "safe_moves": [
+            "up",
+            "left",
+            "right"
+          ],
+          "move_analysis": {
+            "up": {
+              "safe": true,
+              "reason": "safe",
+              "manhattan_to_food": 7,
+              "open_space": 126,
+              "reduces_distance": false
+            },
+            "down": {
+              "safe": false,
+              "reason": "neck",
+              "manhattan_to_food": 5,
+              "open_space": 0,
+              "reduces_distance": true
+            },
+            "left": {
+              "safe": true,
+              "reason": "safe",
+              "manhattan_to_food": 7,
+              "open_space": 126,
+              "reduces_distance": false
+            },
+            "right": {
+              "safe": true,
+              "reason": "safe",
+              "manhattan_to_food": 7,
+              "open_space": 126,
+              "reduces_distance": false
+            }
+          }
+        },
+        "questions": {
+          "move": {
+            "type": "choice",
+            "instructions": "Select the next move for the snake head. Avoid collisions and try to reach the food while preserving open space. No program selects or overrides your answer.",
+            "criteria": {
+              "up": "Move north (y - 1)",
+              "down": "Move south (y + 1)",
+              "left": "Move west (x - 1)",
+              "right": "Move east (x + 1)"
+            }
+          }
+        }
+      },
+      "request_sha256": "8e51e79c26688509c528a3b362737804cb95ec77bc8f0b0f70621891de8d5aa9"
+    },
+    {
+      "id": "bf16-round-15-first",
+      "source_line_1_based": 4881,
+      "seed_round": 15,
+      "attempt": 1,
+      "seed": "cdc04ef09b6e80657fa3507da98ad135",
+      "request": {
+        "model": "clef-flash",
+        "state": {
+          "grid": {
+            "width": 12,
+            "height": 12,
+            "coordinates": "x increases right, y increases down"
+          },
+          "body": [
+            [
+              5,
+              6
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "direction": "right",
+          "head": [
+            5,
+            6
+          ],
+          "food": [
+            4,
+            9
+          ],
+          "food_delta": {
+            "dx": -1,
+            "dy": 3,
+            "preferred_horizontal": "left",
+            "preferred_vertical": "down"
+          },
+          "safe_moves": [
+            "up",
+            "down",
+            "right"
+          ],
+          "move_analysis": {
+            "up": {
+              "safe": true,
+              "reason": "safe",
+              "manhattan_to_food": 5,
+              "open_space": 141,
+              "reduces_distance": false
+            },
+            "down": {
+              "safe": true,
+              "reason": "safe",
+              "manhattan_to_food": 3,
+              "open_space": 141,
+              "reduces_distance": true
+            },
+            "left": {
+              "safe": false,
+              "reason": "neck",
+              "manhattan_to_food": 3,
+              "open_space": 0,
+              "reduces_distance": true
+            },
+            "right": {
+              "safe": true,
+              "reason": "safe",
+              "manhattan_to_food": 5,
+              "open_space": 141,
+              "reduces_distance": false
+            }
+          }
+        },
+        "questions": {
+          "move": {
+            "type": "choice",
+            "instructions": "Select the next move for the snake head. Avoid collisions and try to reach the food while preserving open space. No program selects or overrides your answer.",
+            "criteria": {
+              "up": "Move north (y - 1)",
+              "down": "Move south (y + 1)",
+              "left": "Move west (x - 1)",
+              "right": "Move east (x + 1)"
+            }
+          }
+        }
+      },
+      "request_sha256": "8100a6a92a43d9e33a95d8d3772dcf626c20b4fe7c93134775386bfc5d4beee5"
+    },
+    {
+      "id": "bf16-round-15-middle",
+      "source_line_1_based": 4939,
+      "seed_round": 15,
+      "attempt": 59,
+      "seed": "cdc04ef09b6e80657fa3507da98ad135",
+      "request": {
+        "model": "clef-flash",
+        "state": {
+          "grid": {
+            "width": 12,
+            "height": 12,
+            "coordinates": "x increases right, y increases down"
+          },
+          "body": [
+            [
+              11,
+              6
+            ],
+            [
+              11,
+              7
+            ],
+            [
+              11,
+              8
+            ],
+            [
+              11,
+              9
+            ],
+            [
+              10,
+              9
+            ],
+            [
+              9,
+              9
+            ],
+            [
+              8,
+              9
+            ],
+            [
+              7,
+              9
+            ],
+            [
+              6,
+              9
+            ],
+            [
+              5,
+              9
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              5,
+              7
+            ]
+          ],
+          "direction": "up",
+          "head": [
+            11,
+            6
+          ],
+          "food": [
+            11,
+            1
+          ],
+          "food_delta": {
+            "dx": 0,
+            "dy": -5,
+            "preferred_horizontal": "aligned",
+            "preferred_vertical": "up"
+          },
+          "safe_moves": [
+            "up",
+            "left"
+          ],
+          "move_analysis": {
+            "up": {
+              "safe": true,
+              "reason": "safe",
+              "manhattan_to_food": 4,
+              "open_space": 133,
+              "reduces_distance": true
+            },
+            "down": {
+              "safe": false,
+              "reason": "neck",
+              "manhattan_to_food": 6,
+              "open_space": 0,
+              "reduces_distance": false
+            },
+            "left": {
+              "safe": true,
+              "reason": "safe",
+              "manhattan_to_food": 6,
+              "open_space": 133,
+              "reduces_distance": false
+            },
+            "right": {
+              "safe": false,
+              "reason": "wall",
+              "manhattan_to_food": 6,
+              "open_space": 0,
+              "reduces_distance": false
+            }
+          }
+        },
+        "questions": {
+          "move": {
+            "type": "choice",
+            "instructions": "Select the next move for the snake head. Avoid collisions and try to reach the food while preserving open space. No program selects or overrides your answer.",
+            "criteria": {
+              "up": "Move north (y - 1)",
+              "down": "Move south (y + 1)",
+              "left": "Move west (x - 1)",
+              "right": "Move east (x + 1)"
+            }
+          }
+        }
+      },
+      "request_sha256": "0621ae850434658551be1a0c9756127c3575a2bd586d2713ccae7d010bbbf1ce"
+    },
+    {
+      "id": "bf16-round-15-last",
+      "source_line_1_based": 4997,
+      "seed_round": 15,
+      "attempt": 117,
+      "seed": "cdc04ef09b6e80657fa3507da98ad135",
+      "request": {
+        "model": "clef-flash",
+        "state": {
+          "grid": {
+            "width": 12,
+            "height": 12,
+            "coordinates": "x increases right, y increases down"
+          },
+          "body": [
+            [
+              6,
+              9
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              5
+            ],
+            [
+              6,
+              6
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              6
+            ],
+            [
+              8,
+              5
+            ],
+            [
+              8,
+              4
+            ],
+            [
+              7,
+              4
+            ]
+          ],
+          "direction": "down",
+          "head": [
+            6,
+            9
+          ],
+          "food": [
+            6,
+            1
+          ],
+          "food_delta": {
+            "dx": 0,
+            "dy": -8,
+            "preferred_horizontal": "aligned",
+            "preferred_vertical": "up"
+          },
+          "safe_moves": [
+            "down",
+            "left",
+            "right"
+          ],
+          "move_analysis": {
+            "up": {
+              "safe": false,
+              "reason": "neck",
+              "manhattan_to_food": 7,
+              "open_space": 0,
+              "reduces_distance": true
+            },
+            "down": {
+              "safe": true,
+              "reason": "safe",
+              "manhattan_to_food": 9,
+              "open_space": 126,
+              "reduces_distance": false
+            },
+            "left": {
+              "safe": true,
+              "reason": "safe",
+              "manhattan_to_food": 9,
+              "open_space": 126,
+              "reduces_distance": false
+            },
+            "right": {
+              "safe": true,
+              "reason": "safe",
+              "manhattan_to_food": 9,
+              "open_space": 126,
+              "reduces_distance": false
+            }
+          }
+        },
+        "questions": {
+          "move": {
+            "type": "choice",
+            "instructions": "Select the next move for the snake head. Avoid collisions and try to reach the food while preserving open space. No program selects or overrides your answer.",
+            "criteria": {
+              "up": "Move north (y - 1)",
+              "down": "Move south (y + 1)",
+              "left": "Move west (x - 1)",
+              "right": "Move east (x + 1)"
+            }
+          }
+        }
+      },
+      "request_sha256": "d2a2d5d72bdfa48ab0f3b719b725e39611b4fa6abb60e5e70e4a20e5da8b96e2"
+    }
+  ]
+}
