@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "python": "3.12.13",
+  "numpy": "2.5.3",
+  "matplotlib": "3.9.4",
+  "dataset_manifest_sha256": "78db43166c1f0d3b23d3d4824ab60e16b5f971d3644324d95f776778a887596a",
+  "analysis_plan_sha256": "8ef2350a7c4b17ee20f7411f9c41751d825b008ee07fabfe0c4efbc6fc7e7c89",
+  "analysis_source_sha256": "076734e026c95ee5d17c31fe4ba0a5effa7e556de268f79923b151954081008d",
+  "outputs_sha256": {
+    "kev-snake-results-mobile.png": "560cd0df0b79e9ef9fd6951249165ce8dcee85592af35e732aaaf1b5a2e96145",
+    "kev-snake-results-mobile.svg": "e27ee1032054a91638d98434d482a88866f9993b85c78ed7eb82f6dab85034f8",
+    "kev-snake-results.png": "161ce5c120724d46d7917860f74f2481374a2e07cbe2567b4b2fc0f8d69e51f4",
+    "kev-snake-results.svg": "32521794831f855aad00d244b687a377bd987c799ecbefe188cdfaa560a094c5",
+    "uncertainty.json": "99922e17f915a316c6e9105c702221c73a9736459c5fa18f42ac07a78add152e"
+  }
+}

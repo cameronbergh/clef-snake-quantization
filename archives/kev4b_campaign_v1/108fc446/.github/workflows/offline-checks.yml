@@ -1,0 +1,46 @@
+name: Offline protocol and evidence checks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Protocol smoke tests
+        run: python -m unittest discover -s tests -v
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Watcher data and rendering logic
+        run: node tests/test_watcher.js
+      - name: Compile Python sources
+        run: python -m compileall -q clef_snake experiments scripts tests
+      - name: Preserved Qwen preparation (no weights or inference)
+        run: python -m experiments.qwen3_snake_v1.verify
+      - name: Kev offline preparation and fixture integrity (no weights or inference)
+        run: python -m experiments.kev4b_v1.verify
+      - name: Prospective Kev campaign freeze (no weights, tokenizer or inference)
+        run: python -m experiments.kev4b_campaign_v1.verify
+      - name: Exhaustive offline dataset audits (no model download or GPU)
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from clef_snake.audit import audit, verify_hashes
+          datasets = sorted(Path('data').glob('*/seed-manifest.json'))
+          assert datasets, 'No public datasets found'
+          for manifest in datasets:
+              verify_hashes(manifest.parent)
+              result = audit(manifest.parent)
+              assert result['passed'] and result['server_request_response_exact']
+              print(manifest.parent, result['rounds'], result['calls'])
+          PY

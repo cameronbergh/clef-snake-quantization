@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "publication_only": true,
+  "execution_authorized": false,
+  "original_approval": {
+    "approval_sha256": "7dfbab1aa0823ed1c2e62301a06c27f5f48f8cda4c210da35f2ba587ff901264",
+    "one_use_id": "sha256:364c6ab5ac54cf3b50a17eb2c4683488a966a75f646b10e19e1259c656297c58",
+    "freeze_sha256": "1d9e83c0213d1db7263ff4f21a45c51ccf0a037c9b8213283f817b9df2dea79c",
+    "limits": {
+      "campaign_wall_seconds": 43200,
+      "decision_wall_seconds": 120,
+      "max_decision_evaluations": 45180,
+      "max_games": 90,
+      "successful_move_cap": 500,
+      "max_input_tokens": 8192,
+      "max_rss_bytes": 51539607552,
+      "max_mlx_active_bytes": 51539607552,
+      "max_campaign_evidence_bytes": 17179869184,
+      "max_root_bytes": 60129542144,
+      "min_free_bytes": 8589934592,
+      "warmups_per_load": 2,
+      "planned_loads": 90
+    },
+    "context_report_sha256": "4d23895728dd36f5e19c310a6e9736acf58e6c0b7228958f63f86a20718d6e66"
+  },
+  "original_claim_sha256": "704b9135faca49adf09310bc8e677504a917863fce7a54105290e404b942b277",
+  "deadline": 824853.278173208,
+  "note": "Commitments to a consumed private approval/claim, locally audited before export. This is not an execution approval."
+}

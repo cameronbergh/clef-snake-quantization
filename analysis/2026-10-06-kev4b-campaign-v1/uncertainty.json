@@ -1,0 +1,775 @@
+{
+  "schema_version": 1,
+  "analysis_kind": "prospective_frozen_seed_level_v1",
+  "dataset": "data/2026-10-06-kev4b-campaign-v1",
+  "paired_seeds": 30,
+  "conditions": [
+    "bf16",
+    "mlx-affine8-g64",
+    "mlx-affine4-g64"
+  ],
+  "draws": 100000,
+  "sign_seed": 2026100602,
+  "bootstrap_seed": 2026100601,
+  "quantile_method": "linear",
+  "sign_flip_assumption": "Sign exchangeability/symmetry; not an exact mean-only-null test without it.",
+  "intervals_are_simultaneous": false,
+  "comparisons": [
+    {
+      "condition": "mlx-affine8-g64",
+      "reference": "bf16",
+      "paired_mean_food_difference": 0.0,
+      "marginal_95_percentile_ci": [
+        -2.599999999999998,
+        2.6999999999999993
+      ],
+      "wins": 5,
+      "ties": 19,
+      "losses": 6,
+      "raw_two_sided_sign_flip_p": 1.0,
+      "holm_adjusted_p": 1.0,
+      "satisfies_frozen_improvement_rule": false
+    },
+    {
+      "condition": "mlx-affine4-g64",
+      "reference": "bf16",
+      "paired_mean_food_difference": -2.1,
+      "marginal_95_percentile_ci": [
+        -4.5,
+        0.13333333333333286
+      ],
+      "wins": 7,
+      "ties": 9,
+      "losses": 14,
+      "raw_two_sided_sign_flip_p": 0.0995490045099549,
+      "holm_adjusted_p": 0.1990980090199098,
+      "satisfies_frozen_improvement_rule": false
+    }
+  ],
+  "rows": [
+    {
+      "seed_round": 1,
+      "seed": "0f0078108ca101b5bb82258929b57771",
+      "scores": [
+        8,
+        32,
+        3
+      ],
+      "steps": [
+        66,
+        358,
+        25
+      ],
+      "attempts": [
+        67,
+        359,
+        26
+      ],
+      "ends": [
+        "collision",
+        "collision",
+        "collision"
+      ]
+    },
+    {
+      "seed_round": 2,
+      "seed": "f3d52962d7aec6b28141b666756b8d84",
+      "scores": [
+        7,
+        7,
+        7
+      ],
+      "steps": [
+        70,
+        70,
+        68
+      ],
+      "attempts": [
+        71,
+        71,
+        69
+      ],
+      "ends": [
+        "collision",
+        "collision",
+        "collision"
+      ]
+    },
+    {
+      "seed_round": 3,
+      "seed": "fd43c8e57f735cae70d4196dec393791",
+      "scores": [
+        26,
+        26,
+        30
+      ],
+      "steps": [
+        281,
+        283,
+        294
+      ],
+      "attempts": [
+        282,
+        284,
+        295
+      ],
+      "ends": [
+        "collision",
+        "collision",
+        "collision"
+      ]
+    },
+    {
+      "seed_round": 4,
+      "seed": "9ced2b78da08acc455b86e226bbac058",
+      "scores": [
+        31,
+        14,
+        16
+      ],
+      "steps": [
+        289,
+        111,
+        121
+      ],
+      "attempts": [
+        290,
+        112,
+        122
+      ],
+      "ends": [
+        "collision",
+        "collision",
+        "collision"
+      ]
+    },
+    {
+      "seed_round": 5,
+      "seed": "255725bd3befb1c5ccbb5348832af9a3",
+      "scores": [
+        24,
+        26,
+        24
+      ],
+      "steps": [
+        242,
+        311,
+        230
+      ],
+      "attempts": [
+        243,
+        312,
+        231
+      ],
+      "ends": [
+        "collision",
+        "collision",
+        "collision"
+      ]
+    },
+    {
+      "seed_round": 6,
+      "seed": "a9016c1400819cbe5bb05eff129d1cc3",
+      "scores": [
+        15,
+        15,
+        9
+      ],
+      "steps": [
+        134,
+        138,
+        89
+      ],
+      "attempts": [
+        135,
+        139,
+        90
+      ],
+      "ends": [
+        "collision",
+        "collision",
+        "collision"
+      ]
+    },
+    {
+      "seed_round": 7,
+      "seed": "fc24e848efb2b7b2c84ca079fb9f687b",
+      "scores": [
+        24,
+        16,
+        16
+      ],
+      "steps": [
+        265,
+        150,
+        156
+      ],
+      "attempts": [
+        266,
+        151,
+        157
+      ],
+      "ends": [
+        "collision",
+        "collision",
+        "collision"
+      ]
+    },
+    {
+      "seed_round": 8,
+      "seed": "6dc02986388d9a8b9457a5f83bfdd9fe",
+      "scores": [
+        17,
+        17,
+        21
+      ],
+      "steps": [
+        180,
+        178,
+        225
+      ],
+      "attempts": [
+        181,
+        179,
+        226
+      ],
+      "ends": [
+        "collision",
+        "collision",
+        "collision"
+      ]
+    },
+    {
+      "seed_round": 9,
+      "seed": "e51d6227d2c7f4f353e581c2a193e2d2",
+      "scores": [
+        25,
+        24,
+        18
+      ],
+      "steps": [
+        221,
+        202,
+        172
+      ],
+      "attempts": [
+        222,
+        203,
+        173
+      ],
+      "ends": [
+        "collision",
+        "collision",
+        "collision"
+      ]
+    },
+    {
+      "seed_round": 10,
+      "seed": "b30388728e546712c7048e3610eb5735",
+      "scores": [
+        12,
+        28,
+        11
+      ],
+      "steps": [
+        117,
+        290,
+        91
+      ],
+      "attempts": [
+        118,
+        291,
+        92
+      ],
+      "ends": [
+        "collision",
+        "collision",
+        "collision"
+      ]
+    },
+    {
+      "seed_round": 11,
+      "seed": "5cee9f01ce6b5067834f1df56be86db4",
+      "scores": [
+        26,
+        26,
+        22
+      ],
+      "steps": [
+        198,
+        200,
+        220
+      ],
+      "attempts": [
+        199,
+        201,
+        221
+      ],
+      "ends": [
+        "collision",
+        "collision",
+        "collision"
+      ]
+    },
+    {
+      "seed_round": 12,
+      "seed": "287990a7f5357a95a688e22aaba239ef",
+      "scores": [
+        19,
+        19,
+        19
+      ],
+      "steps": [
+        188,
+        188,
+        184
+      ],
+      "attempts": [
+        189,
+        189,
+        185
+      ],
+      "ends": [
+        "collision",
+        "collision",
+        "collision"
+      ]
+    },
+    {
+      "seed_round": 13,
+      "seed": "6458f377c57a792ab08d245bf22fde36",
+      "scores": [
+        17,
+        14,
+        2
+      ],
+      "steps": [
+        183,
+        132,
+        9
+      ],
+      "attempts": [
+        184,
+        133,
+        10
+      ],
+      "ends": [
+        "collision",
+        "collision",
+        "collision"
+      ]
+    },
+    {
+      "seed_round": 14,
+      "seed": "1e1849c765b5b9dd398e1d17c693f9bf",
+      "scores": [
+        17,
+        17,
+        16
+      ],
+      "steps": [
+        154,
+        162,
+        148
+      ],
+      "attempts": [
+        155,
+        163,
+        149
+      ],
+      "ends": [
+        "collision",
+        "collision",
+        "collision"
+      ]
+    },
+    {
+      "seed_round": 15,
+      "seed": "23e78398d804c7f7b388e400ee800c15",
+      "scores": [
+        28,
+        33,
+        32
+      ],
+      "steps": [
+        237,
+        314,
+        328
+      ],
+      "attempts": [
+        238,
+        315,
+        329
+      ],
+      "ends": [
+        "collision",
+        "collision",
+        "collision"
+      ]
+    },
+    {
+      "seed_round": 16,
+      "seed": "0f25f20a134f290c3a58d9dca9282aa4",
+      "scores": [
+        30,
+        10,
+        10
+      ],
+      "steps": [
+        404,
+        103,
+        103
+      ],
+      "attempts": [
+        405,
+        104,
+        104
+      ],
+      "ends": [
+        "collision",
+        "collision",
+        "collision"
+      ]
+    },
+    {
+      "seed_round": 17,
+      "seed": "285c46cc5fe55357e32ae9bb80d0b08a",
+      "scores": [
+        24,
+        24,
+        25
+      ],
+      "steps": [
+        189,
+        185,
+        224
+      ],
+      "attempts": [
+        190,
+        186,
+        225
+      ],
+      "ends": [
+        "collision",
+        "collision",
+        "collision"
+      ]
+    },
+    {
+      "seed_round": 18,
+      "seed": "f8200a458f16bd014788eb1fed06ed9b",
+      "scores": [
+        10,
+        10,
+        6
+      ],
+      "steps": [
+        99,
+        99,
+        86
+      ],
+      "attempts": [
+        100,
+        100,
+        87
+      ],
+      "ends": [
+        "collision",
+        "collision",
+        "collision"
+      ]
+    },
+    {
+      "seed_round": 19,
+      "seed": "34590caa77c4cea2b3589b7c4e05de89",
+      "scores": [
+        20,
+        20,
+        20
+      ],
+      "steps": [
+        184,
+        186,
+        182
+      ],
+      "attempts": [
+        185,
+        187,
+        183
+      ],
+      "ends": [
+        "collision",
+        "collision",
+        "collision"
+      ]
+    },
+    {
+      "seed_round": 20,
+      "seed": "168dd2356765d1fceb44c7ac3b376760",
+      "scores": [
+        8,
+        8,
+        8
+      ],
+      "steps": [
+        61,
+        61,
+        65
+      ],
+      "attempts": [
+        62,
+        62,
+        66
+      ],
+      "ends": [
+        "collision",
+        "collision",
+        "collision"
+      ]
+    },
+    {
+      "seed_round": 21,
+      "seed": "c23e60b52173c7807c1a5a38ef31e79c",
+      "scores": [
+        23,
+        23,
+        15
+      ],
+      "steps": [
+        252,
+        252,
+        165
+      ],
+      "attempts": [
+        253,
+        253,
+        166
+      ],
+      "ends": [
+        "collision",
+        "collision",
+        "collision"
+      ]
+    },
+    {
+      "seed_round": 22,
+      "seed": "3d3c3f7a6051f7c22a4d887f85fdbe68",
+      "scores": [
+        29,
+        27,
+        27
+      ],
+      "steps": [
+        299,
+        317,
+        277
+      ],
+      "attempts": [
+        300,
+        318,
+        278
+      ],
+      "ends": [
+        "collision",
+        "collision",
+        "collision"
+      ]
+    },
+    {
+      "seed_round": 23,
+      "seed": "ec3205fdb76606dfead6cc122bab33fd",
+      "scores": [
+        19,
+        19,
+        26
+      ],
+      "steps": [
+        137,
+        149,
+        189
+      ],
+      "attempts": [
+        138,
+        150,
+        190
+      ],
+      "ends": [
+        "collision",
+        "collision",
+        "collision"
+      ]
+    },
+    {
+      "seed_round": 24,
+      "seed": "bf93b6279fe93b6d744c6de70bc01c76",
+      "scores": [
+        18,
+        18,
+        22
+      ],
+      "steps": [
+        146,
+        146,
+        190
+      ],
+      "attempts": [
+        147,
+        147,
+        191
+      ],
+      "ends": [
+        "collision",
+        "collision",
+        "collision"
+      ]
+    },
+    {
+      "seed_round": 25,
+      "seed": "3cbb4ca056ba9a7e30d38f5357a37cd5",
+      "scores": [
+        20,
+        20,
+        17
+      ],
+      "steps": [
+        159,
+        159,
+        116
+      ],
+      "attempts": [
+        160,
+        160,
+        117
+      ],
+      "ends": [
+        "collision",
+        "collision",
+        "collision"
+      ]
+    },
+    {
+      "seed_round": 26,
+      "seed": "b97cf1318c1e8996b3bc5e38cc4a3ece",
+      "scores": [
+        23,
+        23,
+        23
+      ],
+      "steps": [
+        247,
+        249,
+        231
+      ],
+      "attempts": [
+        248,
+        250,
+        232
+      ],
+      "ends": [
+        "collision",
+        "collision",
+        "collision"
+      ]
+    },
+    {
+      "seed_round": 27,
+      "seed": "4f959d1de7fd25c53db789e966275f05",
+      "scores": [
+        15,
+        15,
+        15
+      ],
+      "steps": [
+        135,
+        139,
+        119
+      ],
+      "attempts": [
+        136,
+        140,
+        120
+      ],
+      "ends": [
+        "collision",
+        "collision",
+        "collision"
+      ]
+    },
+    {
+      "seed_round": 28,
+      "seed": "a47e602ceb7247d27f9e11193858ccd5",
+      "scores": [
+        21,
+        25,
+        33
+      ],
+      "steps": [
+        212,
+        235,
+        353
+      ],
+      "attempts": [
+        213,
+        236,
+        354
+      ],
+      "ends": [
+        "collision",
+        "collision",
+        "collision"
+      ]
+    },
+    {
+      "seed_round": 29,
+      "seed": "c728fab7c77a33d4112ac519d95f28a8",
+      "scores": [
+        26,
+        26,
+        26
+      ],
+      "steps": [
+        250,
+        250,
+        270
+      ],
+      "attempts": [
+        251,
+        251,
+        271
+      ],
+      "ends": [
+        "collision",
+        "collision",
+        "collision"
+      ]
+    },
+    {
+      "seed_round": 30,
+      "seed": "42df284490c4fdc8d5ff9f194c1a8762",
+      "scores": [
+        15,
+        15,
+        15
+      ],
+      "steps": [
+        99,
+        99,
+        93
+      ],
+      "attempts": [
+        100,
+        100,
+        94
+      ],
+      "ends": [
+        "collision",
+        "collision",
+        "collision"
+      ]
+    }
+  ],
+  "technical_errors": [],
+  "not_started_games": [],
+  "interpretation": "Neither Q8 nor Q4 meets the pre-specified improvement criterion. This does not establish equivalence or refute the CLEF Q2 observation.",
+  "implementation": "PCG64 choice([-1,1], size=(100000,30)), shared default-int64 signs; integer sums implement the exact absolute-mean threshold. PCG64 integers(0,30,size=(100000,30)), shared whole-row bootstrap."
+}

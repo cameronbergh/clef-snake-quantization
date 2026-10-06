@@ -17,19 +17,23 @@
 - `experiments/qwen3_snake_v1/`: deferred general instruction-model comparator, outside the intended Jev-style model class. Read `STATUS.md` first. Preserve the offline adapter, external-volume gate and pre-result freeze; no enabled campaign runner. Create a new version for outcome-informed amendments.
 - `data/`: versioned public discovery evidence; `docs/`: methods/reproduction/limitations; `tests/`: lightweight protocol checks.
 
+- `experiments/kev4b_publication_v1/`: offline allowlisted export, portable audit and frozen prospective analysis of the completed 90-game campaign. Read `docs/KEV_CAMPAIGN_RESULTS.md`. Original preparation, including historical root documentation/CI, is byte-preserved under `archives/kev4b_campaign_v1/108fc446/`; use that explicit archive for freeze verification. Public authorization receipts are non-executable. Never rerun the consumed campaign.
+
 ## Read first
 
-Read `README.md`, `docs/METHODS.md`, `docs/REPRODUCING.md`, `NOTICE`, and the relevant code before changing behavior. Existing observations are exploratory; do not turn them into a monotonic, causal or general-intelligence claim. The sample unit is an environment seed, not a move call.
+Read `README.md`, `docs/METHODS.md`, `docs/REPRODUCING.md`, `NOTICE`, and the relevant code before changing behavior. CLEF discovery is exploratory; Kev uses a separately frozen prospective analysis and met no improvement criterion. Neither dataset supports a monotonic or general-intelligence claim; absence of improvement is not equivalence. The sample unit is an environment seed, not a move call.
 
 ## Safe default commands
 
 ```sh
 python3 -m unittest discover -s tests -v
 node tests/test_watcher.js
+node tests/test_kev_results.js
 python3 -m compileall -q clef_snake experiments scripts tests
 python3 -m experiments.qwen3_snake_v1.verify
 python3 -m experiments.kev4b_v1.verify
-python3 -m experiments.kev4b_campaign_v1.verify
+python3 -c "from experiments.kev4b_campaign_v1.verify import verify; print(verify('archives/kev4b_campaign_v1/108fc446'))"
+python3 -m experiments.kev4b_publication_v1.audit data/2026-10-06-kev4b-campaign-v1
 python3 -m clef_snake.audit data/2026-10-05 --verify-hashes
 ```
 

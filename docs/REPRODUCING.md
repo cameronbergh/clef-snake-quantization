@@ -70,3 +70,7 @@ python scripts/analyze.py data/2026-10-05-fiveway/results.json runs/analysis-fiv
 ```
 
 The checked-in [additional exports](../analysis/2026-10-05-fiveway/FIGURES.md) include source and output hashes and the analysis environment. The optional flag adds cap markers and a portrait layout; omitting it retains the historical layout. To explore saved data without inference, follow the [watcher instructions](../watcher/README.md).
+
+## Completed prospective Kev campaign
+
+The Kev campaign is separately versioned from CLEF discovery and the spent compatibility preflight. Its [report](KEV_CAMPAIGN_RESULTS.md) links exact frozen preparation, all recorded evidence, paired analysis and the standard-library portable audit. Use `requirements-kev-analysis.txt` for CPU-only figure/statistical reproduction into a new directory. The campaign one-use approval is consumed: publication and offline checks authorize no repeat inference.

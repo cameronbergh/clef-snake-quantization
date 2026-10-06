@@ -1,5 +1,7 @@
 # Passive benchmark watcher
 
+The completed prospective Kev campaign has a separate [passive results viewer](kev-campaign-results.html). It reads only the versioned Kev results and frozen-analysis JSON, displays all 30 paired seed rows, checks their alignment and makes no model calls or automatic polling. Serve the repository as below and open `http://127.0.0.1:8000/watcher/kev-campaign-results.html`. Its data/interface and prospective caveats are separate from CLEF discovery. Offline checks: `node tests/test_kev_results.js`.
+
 `benchmark-watch.html` is a standalone, dependency-free data viewer. It contains no game controls, inference requests, remote libraries, or model loading. Its board is independently drawn from saved coordinates; no original third-party game UI is included.
 
 From the repository root:

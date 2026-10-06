@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "compressed_logs_decoded_and_checked": true,
+  "decoded_request_response_bytes_checked": true,
+  "redactions": {
+    "one_use_identity_commitments": 3,
+    "asset_path_aliases": 270
+  },
+  "policy": "Explicit file allowlist; fail on unrecognized personal paths, credential patterns or private control-plane fields.",
+  "original_journals_preserved": true
+}

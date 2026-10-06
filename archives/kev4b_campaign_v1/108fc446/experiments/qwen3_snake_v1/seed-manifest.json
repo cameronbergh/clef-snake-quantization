@@ -1,0 +1,61 @@
+{
+  "protocol_id": "qwen3_snake_v1",
+  "status": "prepared_unexecuted",
+  "created_utc": "2026-10-05T22:53:00.795728+00:00",
+  "generator": "Python secrets.token_hex(16), invoked exactly once per seed; no model calls, scores, food positions or trajectories inspected for selection",
+  "seeds": [
+    "62402c89ba8597566d00bf7ca928ef71",
+    "289661d19e0d4ae9808a367542ae7420",
+    "6725eddf0a1186548dd7aab3018afdbe",
+    "3cf77a903817c3503fb381f49b6af00a",
+    "5a3274c2c1b980000917eba30844fb7c",
+    "dba96dc515da7d75917c802c12102973",
+    "731737d2760237ccb0a89276238d220c",
+    "70c85ab6e0035846b0688c63ced275eb",
+    "7e5c8e0437ff8a8ba28f08816795fe57",
+    "88be26494dc80643b821d806888554a1",
+    "c783b7869a95052e00dc59acfad81c44",
+    "a67b1c48e08571837d00b59021e37e2e",
+    "79a4e7b729aa2d17037a7d7ba8f85bf8",
+    "53275ee0561269f34ba620a506e831db",
+    "54827f8a37315d07393f0e353cc7e8e7",
+    "d2f4cc5ba582d1c627021deed43c57d0",
+    "ae40b90a196bd2f6286dc7f2cb9a6402",
+    "457b940583507a8891bd6b07df2ab64a",
+    "ef1b96225832fefd12c06ace49c84743",
+    "67a2edb5c6754008d928a0dfcdd82767",
+    "7ed23485f6d33298b78bf221bb17c822",
+    "6827a2cd71b259071c6f143ebcf09d00",
+    "24e8c16a1d7a31d214d4b29e5593c37b",
+    "c57c8bc3641ec47bb41ecc6167fc67fe",
+    "0bf324d008631787ead49c07ce403432",
+    "5e0597707432efc101a49f56959e5525",
+    "06d557eaec06d94e8168afc85a9eb80c",
+    "cc0e6affa3df6bb7a31ca267a86fd1f1",
+    "a16f8300725f03182d643f9ae9a05fe6",
+    "b84ad8d9e6d71c2a7d2ecb1dc3ac4799"
+  ],
+  "preflight_seeds": [
+    "7046a356a0542a954fb673b26389cd56",
+    "62eab52078746f24cc4fd6b847ee1df9",
+    "e4fa41e612aeee904b88230787a17fb5",
+    "137b15a030ab7e6ee49ceb627663b7df",
+    "89c897000a0bd0ea21e0c3b03552174e",
+    "f42d23509466036d54f6844421ccb8ed"
+  ],
+  "excluded_published_manifests": [
+    {
+      "path": "data/2026-10-05/seed-manifest.json",
+      "sha256": "205edfc8bc8de47827d6b9147ad3f8cc3be590ebdfa5326747862d6e3deba8ae",
+      "seed_count": 15
+    },
+    {
+      "path": "data/2026-10-05-fiveway/seed-manifest.json",
+      "sha256": "205edfc8bc8de47827d6b9147ad3f8cc3be590ebdfa5326747862d6e3deba8ae",
+      "seed_count": 15
+    }
+  ],
+  "excluded_distinct_published_seed_count": 15,
+  "food_protocol": "SHA256 ASCII clef-snake-food-v1:{seed}:{event}:{j}, digest interpreted big-endian modulo j+1, Fisher-Yates j=143..1 on row-major cells0..143; event=food score, first unoccupied cell; full board retains [0,0] fallback. Priorities are paired, later coordinates need not match across variant trajectories.",
+  "regeneration_policy": "Never regenerate, replace, reorder or exclude seeds after writing this manifest. Preflight seeds never enter the main analysis."
+}

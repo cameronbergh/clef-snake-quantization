@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "experiment_id": "kev4b_v1",
+  "status": "draft_offline_preparation",
+  "authorization": {
+    "acquisition": true,
+    "installation": true,
+    "inference": true,
+    "resource_approval": "approved_bounded_preflight",
+    "model_loading": true,
+    "scope": {
+      "max_decision_evaluations": 64,
+      "max_preflight_wall_seconds": 900,
+      "scored_games": 0,
+      "storage_budget_bytes": 60129542144,
+      "destination": "/Volumes/Models/clef-snake-experiments/kev4b-v1"
+    },
+    "does_not_authorize_main_campaign": true
+  },
+  "validation": {
+    "offline_contract_tests": "implemented",
+    "real_tokenizer_checked": false,
+    "runtime_parity_verified": false,
+    "quantization_verified": false
+  },
+  "interface": {
+    "endpoint": "/v1/systemone",
+    "model_alias": "kev-latest",
+    "alias_is_checkpoint_identity": false,
+    "request_transform": "deep-copy Game.request(); replace only model alias",
+    "question": "move",
+    "type": "choice",
+    "option_order": [
+      "up",
+      "down",
+      "left",
+      "right"
+    ],
+    "action": "preserve native returned choice; audit unrounded argmax separately",
+    "probability_sum_tolerance": 0.00021,
+    "output_tokens_semantics": "native serialized-answer billing count; not generated tokens"
+  },
+  "policy": {
+    "safety_mask": false,
+    "fallback_action": false,
+    "solver": false,
+    "retries": 0,
+    "sampling": false,
+    "persist_full_attempt_before_apply": true,
+    "errors": "stop technical attempt without moving; never label as a collision or discard"
+  },
+  "game": {
+    "grid": [
+      12,
+      12
+    ],
+    "successful_move_cap": 500,
+    "alive_cap_is_censored": true,
+    "collision_counts_as_attempt": true,
+    "game_source": "clef_snake/game.py"
+  },
+  "preflight": {
+    "status": "proposed_not_validated_not_executed",
+    "fixture_path": "preflight-cases.json",
+    "fixed_states": 12,
+    "complete_row_token_limit": 8192,
+    "max_forward_calls": 64,
+    "planned_forward_calls": 60,
+    "max_wall_seconds": 900,
+    "scored_games": 0,
+    "serial": true,
+    "phases": [
+      {
+        "id": "warmup",
+        "calls": 8,
+        "scope": "2 per upstream BF16, wrapped BF16, affine8 and affine4; record all calls"
+      },
+      {
+        "id": "upstream_bf16",
+        "calls": 12,
+        "scope": "all fixed states, native MLX path"
+      },
+      {
+        "id": "wrapped_bf16",
+        "calls": 12,
+        "scope": "same states, same model weights with proposed audit wrapper"
+      },
+      {
+        "id": "repeatability",
+        "calls": 4,
+        "scope": "first four fixture cases on wrapped BF16"
+      },
+      {
+        "id": "affine8",
+        "calls": 12,
+        "scope": "same states, fixed FP32 head"
+      },
+      {
+        "id": "affine4",
+        "calls": 12,
+        "scope": "same states, fixed FP32 head"
+      }
+    ],
+    "failure_policy": "Stop on contract, identity, truncation, hidden-retry or BF16 parity failure. Do not fill unused budget with retries. Quantized action changes are observations, not automatic parity failures.",
+    "bf16_acceptance_proposed": {
+      "all_choices_equal": true,
+      "max_absolute_probability_difference": 1e-06,
+      "exact_tokens_and_option_positions": true,
+      "head_and_unchanged_tensor_hashes_equal": true
+    },
+    "time_budget_scope": "from first model load through final unload, including precision conversion, warmups and all decision evaluations; acquisition and dependency installation separately gated; incomplete preflight remains incomplete",
+    "deadline_enforcement": "future supervisor must enforce wall and cumulative forward-call limits including warmups; no supervisor implemented here",
+    "quantized_export_reload_validation": "required before persisted variants can be used; reserve unused calls only by a new reviewed preflight design, never exceed bounds",
+    "counting_unit": "One native forward(enc) evaluation of the single move question. Prefix/branch subpasses are recorded separately; no extra decision calls are permitted."
+  },
+  "runtime_proposal": {
+    "backend": "mlx",
+    "baseline_actual_precision": "BF16",
+    "decision_head_precision": "FP32",
+    "temperature": 2.41,
+    "trusted_launch_environment": {
+      "KEV_BACKEND": "mlx",
+      "KEV_PREFIX_CACHE": "0",
+      "KEV_DATE_FACTS": "0",
+      "KEV_TRUNCATE_STATES": "0",
+      "HF_HUB_OFFLINE": "1",
+      "TRANSFORMERS_OFFLINE": "1"
+    },
+    "server_checks": [
+      "resolved checkpoint/base/tokenizer/head hashes and source revision",
+      "backend and actual module tensor precision, not dtype label alone",
+      "prefix_cache.size=0; cached_states=0; oom_retries=0; truncate_states=false",
+      "one client, no other inference; requests count agrees with all attempts",
+      "raw probabilities/logits, input token IDs and selected option positions captured independently",
+      "no missing-checkpoint fallback; fail closed offline"
+    ],
+    "implementation_status": "none; no server, loader, download or quantization runner included"
+  },
+  "main_campaign": {
+    "status": "not_designed_not_frozen",
+    "seeds": null,
+    "schedule": null,
+    "games": null,
+    "execution_authorized": false,
+    "next_gate": "validate preflight design and results before selecting and freezing a main campaign"
+  }
+}

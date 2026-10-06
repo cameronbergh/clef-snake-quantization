@@ -4,11 +4,13 @@
 
 In **15 paired random environment seeds**, IQ2_M collected **18.53 food on average**, versus **12.20 for the official BF16 configuration**: an observed **+51.9%**, with **11 wins, 2 ties and 2 losses**. Q6_K_L and Q4_K_M stayed much closer to BF16. The completed Q2_K extension averaged **17.13 food (+40.4% versus BF16)**. This is a task-specific observation, **not a monotonic relationship or proof that quantization improves reasoning**.
 
+**New prospective Kev result:** 90 games on 30 fresh paired seeds, with a common native MLX runtime and fixed FP32 head. BF16 and Q8 averaged 19.9 food; Q4 averaged 17.8. Neither quantization met the frozen improvement criterion. This does not establish equivalence or refute CLEF Q2. [Audited results, data and figures](docs/KEV_CAMPAIGN_RESULTS.md).
+
 ![All five models: per-seed scores and exploratory uncertainty](figures/2026-10-05-fiveway/quantization-snake-results.png)
 
 [Additional cap-marked and portrait figures, captions and provenance](analysis/2026-10-05-fiveway/FIGURES.md)
 
-## Latest published snapshot
+## CLEF discovery snapshot
 
 | Backbone configuration | Mean food | Median | Range | Collisions / capped alive |
 |---|---:|---:|---|---|
@@ -22,7 +24,25 @@ In **15 paired random environment seeds**, IQ2_M collected **18.53 food on avera
 
 The original deterministic demo was first run five times per configuration. Those were repeatability checks, not five distinct environments. The data published here use 15 distinct, saved random seeds, shared across variants.
 
-## What is being measured?
+## Prospective Kev comparison
+
+![Kev paired scores and prospective differences](analysis/2026-10-06-kev4b-campaign-v1/kev-snake-results.png)
+
+| Condition | Mean food | Paired difference from BF16 | Marginal 95% interval | Holm p |
+|---|---:|---:|---|---:|
+| BF16 | 19.90 | — | — | — |
+| Q8 affine, group 64 | 19.90 | 0.00 | −2.60 to +2.70 | 1.000 |
+| Q4 affine, group 64 | 17.80 | −2.10 | −4.50 to +0.13 | 0.199 |
+
+All 90 games completed, with 180 warmups, 16,707 audited decisions and zero technical/parser failures. All six condition orders occurred five times; fresh seeds excluded prior manifests. The complete preparation is preserved byte for byte in [an immutable archive](archives/kev4b_campaign_v1/108fc446/), including historical documentation/CI. [Methods and limitations](docs/KEV_CAMPAIGN_RESULTS.md) · [Versioned data](data/2026-10-06-kev4b-campaign-v1/) · [PNG/SVG exports](analysis/2026-10-06-kev4b-campaign-v1/) · [Passive Kev viewer](watcher/kev-campaign-results.html).
+
+```sh
+python -B -m experiments.kev4b_publication_v1.audit data/2026-10-06-kev4b-campaign-v1
+```
+
+This standard-library audit needs no weights, tokenizer, GPU or third-party packages. It reconstructs every public decision/trajectory and verifies the source freeze, context report, tensor inventories and supervisor resources. Private authorization bytes were checked by the original local audit and remain excluded; public receipts retain hash commitments and authorize no execution.
+
+## What is being measured in CLEF?
 
 - 12×12 Snake, fixed initial body `[[5,6],[4,6],[3,6],[2,6]]`, initially moving right.
 - Structured state, not images: body, food, direction, factual collision checks, Manhattan distances and flood-fill open-space counts.
@@ -34,7 +54,7 @@ The original deterministic demo was first run five times per configuration. Thos
 
 GGUF recipe names do not mean every tensor has that bit width. The joint head is never quantized. Quantized `output.weight` rows are dequantized and cast to BF16 for lexical head inputs; official BF16 output embeddings are not silently substituted.
 
-## Evidence and limitations
+## CLEF evidence and limitations
 
 [Methods and reasoning](docs/METHODS.md) · [Research note](docs/PUBLICATION.md) · [Uncertainty methods](docs/UNCERTAINTY.md) · [Next experiments](docs/NEXT_EXPERIMENTS.md) · [Research TODO](TODO.md) · [Latest full data](data/2026-10-05-fiveway)
 
@@ -73,19 +93,19 @@ python3 -m http.server 8000 --bind 127.0.0.1
 - [x] Add passive watcher charts for recorded scores, paired outcomes and latency.
 - [ ] Validate and publish first-divergence analysis on identical states.
 - [ ] Add a high-precision backbone on the same GGUF runtime to separate runtime effects from precision.
-- [ ] Freeze and run fresh held-out validation with counterbalanced model order.
+- [ ] Freeze and run fresh held-out **CLEF** validation with counterbalanced model order; Kev is a separate model comparison.
 - [ ] Investigate smaller supported quantizations; independently reproduce results and extend to another task.
-- [ ] [Benchmark another local decision model beyond CLEF (#1)](https://github.com/cameronbergh/clef-snake-quantization/issues/1), using its supported action interface and a frozen, separately audited protocol.
+- [x] [Benchmark another local decision model beyond CLEF (#1)](https://github.com/cameronbergh/clef-snake-quantization/issues/1): Kev native BF16/Q8/Q4, 30 fresh paired seeds, audited dataset and prospective charts/report.
 - [x] Select Kev-4B for a bounded native decision-model preflight and prepare its [offline adapter and plans](experiments/kev4b_v1/README.md). Pinned acquisition and isolated setup are complete; the [60-decision preflight passed](experiments/kev4b_v1/PREFLIGHT_RESULTS.md), with zero games.
 - [x] Implement execution guards and complete the [Kev compatibility preflight](experiments/kev4b_v1/PREFLIGHT_RESULTS.md), preserving initial failures and the remaining aggregate budget.
 - [x] Prepare a separately frozen [30-seed Kev campaign](experiments/kev4b_campaign_v1/README.md), serial runner, independent auditor and prospective analysis.
-- [ ] Complete tokenizer-only long-state validation and separately authorize campaign execution. No Kev games have run; quantized export/reload is unnecessary for the planned in-memory design.
+- [x] Complete the tokenizer-only gate, receive separate exact-freeze authorization, execute all 90 Kev games and publish the audits and frozen analysis. No improvement criterion was met; export/reload was unnecessary for this in-memory design.
 
 Kev's 60 evaluations used twelve saved discovery states, the native BF16 MLX path and affine 8-bit/4-bit projection variants with its unchanged FP32 pointer head. All twelve native/wrapped BF16 probability vectors matched exactly; both quantizations retained all twelve baseline choices while changing probabilities. This is a zero-game compatibility check, not evidence of gameplay performance. The approved storage destination is the external Models partition, under a 56 GiB overall budget. See the [candidate assessment](docs/DECISION_MODEL_CANDIDATES.md) for the selection context and alternatives.
 
 The earlier [Qwen3 preparation is deferred](experiments/qwen3_snake_v1/STATUS.md). Qwen3-4B-Instruct generates constrained JSON text and does not satisfy the intended Jev-style decision-model comparison. Its offline adapter and frozen protocol remain preserved as an optional general instruction-model comparator; no weights, preflight or campaign were run.
 
-See the [full research TODO](TODO.md) for completion evidence and remaining chart work. The strongest next controlled experiment is a **same-runtime high-precision GGUF control** on saved identical requests, followed by a frozen held-out game protocol. The CLEF results and charts above use the preserved discovery evidence; the Kev compatibility results are reported separately.
+See the [full research TODO](TODO.md) for completion evidence and remaining chart work. The strongest next controlled experiment is a **same-runtime high-precision GGUF control** on saved identical requests, followed by a frozen held-out game protocol. CLEF discovery and the prospective Kev campaign use separately versioned datasets and reports.
 
 ## Reproduce model-backed games
 
@@ -110,6 +130,6 @@ The new standalone driver is an independent Python implementation of the documen
 
 ## Credits and licensing
 
-[Cloudflare CLEF-Flash](https://huggingface.co/Cloudflare/clef-flash), [Qwen3.5](https://huggingface.co/Qwen/Qwen3.5-9B), [bartowski GGUFs](https://huggingface.co/bartowski/Cloudflare_clef-flash-GGUF), [llama.cpp](https://github.com/ggml-org/llama.cpp), and the motivating [taeold/djev-run demo](https://github.com/taeold/djev-run). This project is an independent experiment, not an official evaluation or endorsement by those authors.
+[Kev 4B](https://huggingface.co/jaredpalmer/kev-4b), [Cloudflare CLEF-Flash](https://huggingface.co/Cloudflare/clef-flash), [Qwen3.5](https://huggingface.co/Qwen/Qwen3.5-9B), [bartowski GGUFs](https://huggingface.co/bartowski/Cloudflare_clef-flash-GGUF), [llama.cpp](https://github.com/ggml-org/llama.cpp), and the motivating [taeold/djev-run demo](https://github.com/taeold/djev-run). This project is an independent experiment, not an official evaluation or endorsement by those authors.
 
 New project code, documentation and experimental data: Apache-2.0. The llama.cpp patch's upstream context remains MIT; included notice at [licenses/llama.cpp-MIT.txt](licenses/llama.cpp-MIT.txt). Model downloads remain governed by their upstream Apache-2.0 licenses. See [NOTICE](NOTICE). No checkpoints, credentials or personal workspace history are included.

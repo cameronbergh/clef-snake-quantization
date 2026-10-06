@@ -22,7 +22,9 @@ jobs:
         with:
           node-version: '22'
       - name: Watcher data and rendering logic
-        run: node tests/test_watcher.js
+        run: |
+          node tests/test_watcher.js
+          node tests/test_kev_results.js
       - name: Compile Python sources
         run: python -m compileall -q clef_snake experiments scripts tests
       - name: Preserved Qwen preparation (no weights or inference)
@@ -30,15 +32,21 @@ jobs:
       - name: Kev offline preparation and fixture integrity (no weights or inference)
         run: python -m experiments.kev4b_v1.verify
       - name: Prospective Kev campaign freeze (no weights, tokenizer or inference)
-        run: python -m experiments.kev4b_campaign_v1.verify
+        run: python -c "from experiments.kev4b_campaign_v1.verify import verify; print(verify('archives/kev4b_campaign_v1/108fc446'))"
       - name: Exhaustive offline dataset audits (no model download or GPU)
         run: |
           python - <<'PY'
           from pathlib import Path
           from clef_snake.audit import audit, verify_hashes
+          from experiments.kev4b_publication_v1.audit import audit as kev_audit
           datasets = sorted(Path('data').glob('*/seed-manifest.json'))
           assert datasets, 'No public datasets found'
           for manifest in datasets:
+              if (manifest.parent / 'authorization-receipt.json').exists():
+                  result = kev_audit(manifest.parent)
+                  assert result['passed'] and result['complete'] and result['counts']['completed_games'] == 90
+                  print(manifest.parent, result['counts'])
+                  continue
               verify_hashes(manifest.parent)
               result = audit(manifest.parent)
               assert result['passed'] and result['server_request_response_exact']

@@ -1,0 +1,21 @@
+{
+  "created_utc": "2026-10-05T20:15:49.488869+00:00",
+  "seeds": [
+    "b145b41017ce4bce48bf75df6719f853",
+    "6f5d8daa754d8a534cd54a77a298624b",
+    "7e32e4a29bd1fcc4d5fab56d1f09f0c2",
+    "049f19358d3c1258bed06de6c4a74b66",
+    "b3a781a1047b360a5866a65d8aa8f4af",
+    "589ff640e8dfebfc80de6132f4c86a0d",
+    "b9938ba78714efde8e69f74c5f158da9",
+    "9a783961ab5263906ebf61102d111686",
+    "d3c5958ea2ad2c78b32506e16769c94d",
+    "fafeaaf3298e87e8883d6e29daa652f0",
+    "95a82ebbd8d8ba3bb7601dd8f4721149",
+    "0be8e63b4fb86c993850c70efa940fef",
+    "4a4af34fab25894939f1ec37802af6db",
+    "6993db3cf906d121dcc6fb8a1e3b2261",
+    "cdc04ef09b6e80657fa3507da98ad135"
+  ],
+  "protocol": "For seed/event/j, SHA256 ASCII clef-snake-food-v1:{seed}:{event}:{j}, big-endian integer modulo j+1 gives Fisher-Yates swap index, j=143..1, starting row-major indices 0..143. Food event=score; choose first unoccupied cell. Full board retains original [0,0] fallback. Same priorities, not necessarily same future coordinates, across variants."
+}

@@ -1,0 +1,215 @@
+{
+  "schema_version": 1,
+  "campaign_id": "kev4b_campaign_v1",
+  "status": "prospective_preparation_no_execution_authorized",
+  "created_utc": "2026-10-06T00:27:34.002295+00:00",
+  "inference_authorized_by_preparation": false,
+  "conditions": [
+    "bf16",
+    "mlx-affine8-g64",
+    "mlx-affine4-g64"
+  ],
+  "limits": {
+    "campaign_wall_seconds": 43200,
+    "decision_wall_seconds": 120,
+    "max_decision_evaluations": 45180,
+    "max_games": 90,
+    "successful_move_cap": 500,
+    "max_input_tokens": 8192,
+    "max_rss_bytes": 51539607552,
+    "max_mlx_active_bytes": 51539607552,
+    "max_campaign_evidence_bytes": 17179869184,
+    "max_root_bytes": 60129542144,
+    "min_free_bytes": 8589934592,
+    "warmups_per_load": 2,
+    "planned_loads": 90
+  },
+  "warmups": {
+    "fixture_path": "experiments/kev4b_v1/preflight-cases.json",
+    "case_ids": [
+      "bf16-round-01-first",
+      "bf16-round-01-middle"
+    ],
+    "apply_moves": false,
+    "count_against_decision_and_time_limits": true
+  },
+  "game": {
+    "source": "clef_snake/game.py",
+    "source_sha256": "f9dba4b830850f9eba36efcc73f2d2992e484c26e419cfc0921dc43079720f08",
+    "grid": [
+      12,
+      12
+    ],
+    "initial_body": [
+      [
+        5,
+        6
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        2,
+        6
+      ]
+    ],
+    "initial_direction": "right",
+    "successful_move_cap": 500,
+    "all_four_actions_available": true,
+    "unsafe_choices_executed": true,
+    "collision_counts_as_attempt": true,
+    "alive_cap_is_censored_for_lifetime": true,
+    "food_rule": "SHA256-keyed Fisher-Yates first unoccupied cell, exactly as frozen source including full-board fallback",
+    "request_transform": "deep-copy complete ordered Game.request(); replace only alias with kev-latest",
+    "clock_penalty": false
+  },
+  "runtime": {
+    "backend": "mlx",
+    "architecture": "arm64",
+    "system": "Darwin",
+    "model_alias": "kev-latest",
+    "option_order": [
+      "up",
+      "down",
+      "left",
+      "right"
+    ],
+    "baseline_dtype": "bfloat16",
+    "head_dtype": "float32",
+    "head_device": "cpu",
+    "temperature": 2.406050072164233,
+    "head_file_sha256": "dd633435998ecc751ac538717a3742e32149500fabf7d7276287dbf0693f347c",
+    "head_state_sha256": "362a712478d849967537009392f58dc463f828388f6403e334cf2160a400f9d8",
+    "expected_native_inventory_sha256": "8d8c6cfe11874d898639c86fec0b1bbc1413d25a528bbef76f0afeac4edba641",
+    "expected_condition_inventory_sha256": {
+      "bf16": "8d8c6cfe11874d898639c86fec0b1bbc1413d25a528bbef76f0afeac4edba641",
+      "mlx-affine8-g64": "69d4a1dfba80246035dc1dcbd67cdca98a081de7938b87a1c4762f2254d5d472",
+      "mlx-affine4-g64": "bb107d751b200ae58bcd831ac57ec62a6fdba9148e5956cde22c4fc3ab3303dc"
+    },
+    "inventory_hash_encoding": "UTF-8 JSON, ensure_ascii=False, allow_nan=False, sort_keys=True, separators comma/colon",
+    "prefill_chunk_tokens": 1024,
+    "single_question": true,
+    "fresh_request_cache": true,
+    "cross_request_cache": false,
+    "date_fact_injection": false,
+    "truncation": false,
+    "sampling": false,
+    "fallback": false,
+    "safety_override": false,
+    "retry": false,
+    "offline_only": true,
+    "interface": "in-process native decision API; serialized response adapter; no HTTP server",
+    "quantized_artifacts": "fresh in-memory derivation per load, no export/reload dependency",
+    "expected_verified_files_sha256": "0d2ba4a16303637bda6806e0f492e914b242b64bda6da39c1db68068aef7ce91"
+  },
+  "quantization": {
+    "eligible_linear_modules": 248,
+    "eligible_linear_weights": 3569090560,
+    "retained_backbone_tensors": 178,
+    "group_size": 64,
+    "mode": "affine",
+    "quantize_input": false,
+    "variants": {
+      "bf16": {
+        "bits": null
+      },
+      "mlx-affine8-g64": {
+        "bits": 8
+      },
+      "mlx-affine4-g64": {
+        "bits": 4
+      }
+    },
+    "policy": "Each load begins with the same native FP32 LoRA merge rounded once to BF16; every complete inventory must match its accepted preflight hash; head and retained tensors remain unchanged"
+  },
+  "source_pins": {
+    "upstream_code": "5e42a7a03f28134853dd3ff77461457e921e5ec1",
+    "Qwen/Qwen3.5-4B-Base": "1001bb4d826a52d1f399e183466143f4da7b741b",
+    "jaredpalmer/kev-4b": "6cfce5c2fa4b4bd64026336ab649c5ca78857d52"
+  },
+  "runtime_identity": {
+    "python": "3.12.13",
+    "packages": {
+      "mlx": "0.32.2",
+      "mlx-metal": "0.32.2",
+      "mlx-lm": "0.31.3",
+      "numpy": "2.5.3",
+      "torch": "2.8.0",
+      "transformers": "5.17.0",
+      "peft": "0.21.0",
+      "huggingface-hub": "1.32.0"
+    },
+    "author_lock_sha256": "a9922dbb89acdef78299fd2b4a8c3f7f0fa1b2bc08b55595b6926fa785a9c466"
+  },
+  "evidence": {
+    "independent_streams": [
+      "runner",
+      "native"
+    ],
+    "durable_attempt_before_apply": true,
+    "retain_raw_request_response_bytes": true,
+    "retain_complete_tokens_and_option_positions": true,
+    "retain_raw_logits_probabilities_and_argmax": true,
+    "retain_all_failures": true,
+    "automatic_resume": false,
+    "call_unit": "One native model.forward(enc) for one four-option move; reserve before forward even if it fails",
+    "internal_pass_unit": "Each text-backbone invocation, including prefix chunks and question branch; recorded separately",
+    "max_internal_passes_per_decision": 9,
+    "max_internal_passes": 406620
+  },
+  "schedule_policy": {
+    "seed_blocks": 30,
+    "games": 90,
+    "condition_order": "itertools.permutations(conditions) order, assigned to successive manifest seed blocks and repeated five times",
+    "serial": true,
+    "one_loaded_condition": true,
+    "loads_per_game": 1,
+    "warmups_per_load": 2
+  },
+  "storage": {
+    "asset_root": "/Volumes/Models/clef-snake-experiments/kev4b-v1",
+    "campaign_subdirectory": "campaigns/kev4b_campaign_v1",
+    "external_volume": "Models",
+    "new_payload_downloads": false,
+    "internal_or_x9_fallback": false,
+    "persist_quantized_weights": false
+  },
+  "authorization": {
+    "required_external_approval": true,
+    "approval_fields": [
+      "schema_version",
+      "campaign_id",
+      "freeze_sha256",
+      "execution_authorized",
+      "one_use_id",
+      "limits",
+      "context_report_sha256"
+    ],
+    "approval_must_match_all_frozen_limits": true,
+    "claim_once": true,
+    "approval_created_by_this_preparation": false
+  },
+  "completion": {
+    "primary_analysis_requires_all_90_games_complete_and_audited": true,
+    "technical_errors_are_not_scores_or_collisions": true,
+    "stop_on_first_technical_failure": true,
+    "unused_budget_is_not_retry_allowance": true,
+    "partial_scheduled_rows_retained": true,
+    "no_post_outcome_replacement_seeds": true
+  },
+  "context_validation": {
+    "required_before_execution": true,
+    "report_relative_path": "evidence/kev-campaign-context-2026-10-06.json",
+    "utility_path": "experiments/kev4b_campaign_v1/context_check.py",
+    "mode": "native_tokenizer_only",
+    "synthetic_cases": 113,
+    "status_at_freeze": "not_executed",
+    "report_bound_in_external_approval": true,
+    "no_model_loads_or_forwards": true
+  }
+}

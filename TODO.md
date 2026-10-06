@@ -12,7 +12,7 @@
 
 - [x] Publish the completed and audited Q2_K extension as an additive dataset; preserve the initial 60-game release. Published in `5ee0d86`; hosted offline checks passed. [75-game evidence and audit](docs/FIVE_WAY_RESULTS.md).
 - [ ] Validate and publish first-action-divergence analysis on exactly equal recorded states; distinguish observed trajectories from untested counterfactuals.
-- [ ] Freeze a fresh held-out validation protocol before seeing its results; keep discovery seeds separate.
+- [ ] Freeze a fresh held-out **CLEF** validation protocol before observing results. The completed fresh-seed Kev campaign is a separate model comparison, not direct CLEF Q2 replication.
 - [ ] Add a same-runtime high-precision GGUF control and expand numerical compatibility checks.
 - [ ] Seek an independent clean-room reproduction and, if effects persist, test additional initial states/tasks.
 
@@ -23,15 +23,16 @@
 - [x] Obtain approval for pinned acquisition, isolated setup and a [bounded zero-game preflight](experiments/kev4b_v1/PREFLIGHT_PLAN.md): at most 64 decision evaluations, 900 seconds from first load through final unload, and a 56 GiB external Models budget. Approval is not a completed execution.
 - [x] Acquire and hash-verify all 29 pinned files on external Models, create the isolated environment and implement storage, identity, deadline, call-count and evidence guards; existing environments were preserved.
 - [x] Complete the [60-decision preflight](experiments/kev4b_v1/PREFLIGHT_RESULTS.md): full 383–581-token rows, exact native/wrapped BF16 parity and four repeats, unchanged FP32 head, and 248 affine8/affine4 linear projections. Both initial failures and the explicitly authorized remaining-budget retry are retained; zero games.
-- [ ] Complete the frozen tokenizer-only long-state check before any [Kev campaign](experiments/kev4b_campaign_v1/README.md). Model latency/memory for long states remain unmeasured. The campaign uses fresh in-memory variants and needs no HTTP server or quantized export/reload.
+- [x] Complete the tokenizer-only long-state gate: 113 synthetic cases, maximum 1,964 tokens, zero truncation/model calls. [Exact report](data/2026-10-06-kev4b-campaign-v1/context-report.json). Synthetic coverage is not exhaustive long-state forward validation.
 - [x] Separately prepare and freeze [30 fresh paired seeds, counterbalanced serial execution and prospective analysis](experiments/kev4b_campaign_v1/README.md), with a native runner and independent auditor. No campaign outcomes informed this preparation.
-- [ ] Obtain separate exact-freeze execution approval after the context-validation gate passes; proposed bounds are 90 games, 45,180 decisions and 12 hours. Preserve all errors/partial results, with no automatic resume. No campaign has run.
-- [ ] [Issue #1: benchmark another local decision model beyond CLEF](https://github.com/cameronbergh/clef-snake-quantization/issues/1). Preserve board/action rules and factual features, label model-interface differences, use native argmax without safety overrides, and publish a separately audited additive dataset. No new campaign has run.
+- [x] Receive separate exact-freeze execution approval and complete all 90 games within the 45,180-decision / 12-hour limits. The one-use approval is consumed; no retry or resume is authorized. [Run evidence and audit](docs/KEV_CAMPAIGN_RESULTS.md).
+- [x] [Issue #1: benchmark another local decision model beyond CLEF](https://github.com/cameronbergh/clef-snake-quantization/issues/1): publish the audited Kev BF16/Q8/Q4 dataset, native adapter/setup and frozen prospective report/charts. Neither quantization met the improvement criterion; this does not establish equivalence or refute CLEF Q2.
 
 **Deferred, outside the intended model class:** the [Qwen3 general instruction-model comparator](experiments/qwen3_snake_v1/STATUS.md). Its adapter, 30-seed schedule and analysis were prepared, but that work does not complete candidate selection for issue #1. Preserve the original freeze; do not acquire or run Qwen as an incidental next step.
 
 ## Charts, watcher and publication graphics
 
+- [x] Publish separately versioned [Kev PNG/SVG desktop/mobile figures](analysis/2026-10-06-kev4b-campaign-v1/) and [passive results viewer](watcher/kev-campaign-results.html); preserve CLEF figures and datasets unchanged.
 - [x] Publish the initial per-seed score comparison and paired-difference uncertainty figure in the GitHub README (PNG and SVG).
 - [x] Add charts to the **HTML benchmark watcher**, using recorded benchmark data only; viewing charts never triggers inference. [Watcher and setup](watcher/README.md).
 - [x] Show score distributions, matched-seed comparisons and paired wins/ties/losses. Label counts and unfinished models; use only shared completed seeds for interim paired comparisons.

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kev 4B · prospective Snake results</title>
+<style>body{margin:0;background:#f6f7f9;color:#17202d;font:16px/1.55 system-ui,sans-serif}main{max-width:1100px;margin:auto;padding:36px 22px}h1{font-size:clamp(28px,5vw,44px);line-height:1.12;margin:12px 0}h2{font-size:21px}.tag{font-size:13px;color:#526175}a{color:#245ac1}section{background:white;border:1px solid #dfe4eb;border-radius:12px;padding:22px;margin:22px 0}.scroll{overflow:auto}table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}th,td{text-align:right;padding:10px;border-bottom:1px solid #e7ebf0;white-space:nowrap}th:first-child,td:first-child{text-align:left}svg{width:100%;height:auto}button{padding:8px 15px;background:white;border:1px solid #bac4d1;border-radius:7px;font:inherit;cursor:pointer}.note{color:#526175;font-size:14px}.error{color:#a32626}footer{font-size:14px;color:#526175}</style></head>
+<body><main>
+<div class="tag">Published evidence · 30 fresh paired seeds · 90 games</div>
+<h1>Kev 4B · prospective Snake results</h1>
+<p><strong>Neither Q8 nor Q4 met the frozen improvement criterion.</strong> This does not establish equivalence or refute CLEF Q2.</p>
+<p><a href="benchmark-watch.html">CLEF discovery viewer</a> · <a href="../docs/KEV_CAMPAIGN_RESULTS.md">Methods and audit</a> · <a href="../data/2026-10-06-kev4b-campaign-v1/">Versioned data</a> · <button id="refresh" type="button">Refresh</button></p>
+<p id="status" role="status">Loading the completed public dataset…</p>
+<section><h2>Condition summaries</h2><div class="scroll"><table><thead><tr><th>Condition</th><th>Mean food</th><th>Median</th><th>Range</th><th>Caps</th><th>Forward median</th></tr></thead><tbody id="summary"></tbody></table></div><p class="note">Same native MLX runtime and unchanged FP32 pointer head. Forward latency is descriptive, excludes warmups/load/conversion and includes instrumentation; trajectories differ. Snake waits for each decision.</p></section>
+<section><h2>All paired food scores</h2><svg id="scores" viewBox="0 0 1000 390" role="img" aria-label="Food scores across all 30 paired seeds"></svg><p class="note">Each line connects one shared seed across BF16, Q8 and Q4. Hover a point for its seed and score. All 90 games collided before the cap.</p></section>
+<section><h2>Frozen prospective comparisons</h2><div class="scroll"><table><thead><tr><th>Versus BF16</th><th>Mean difference</th><th>Marginal 95% interval</th><th>Wins / ties / losses</th><th>Holm p</th></tr></thead><tbody id="effects"></tbody></table></div><p class="note">100,000 paired whole-seed bootstrap resamples and 100,000 common two-sided sign draws. Holm covers two primary tests. Sign-flip interpretation assumes sign exchangeability/symmetry. Marginal intervals are not simultaneous; 30 seeds are the sample units.</p></section>
+<section><h2>Every seed</h2><div class="scroll"><table><thead><tr><th>Seed</th><th>BF16</th><th>Q8</th><th>Q4</th><th>Q8−BF16</th><th>Q4−BF16</th></tr></thead><tbody id="seeds"></tbody></table></div></section>
+<footer>Passive viewer · fixed local JSON paths · no model calls · published data do not poll automatically. Serve the repository over localhost; file:// fetches may be blocked. Visualization checks do not replace the exhaustive offline audit.</footer>
+</main>
+<script id="kev-results-core">
+(() => {
+ 'use strict';
+ const variants=['bf16','mlx-affine8-g64','mlx-affine4-g64'];
+ const labels=['BF16','Q8 affine / g64','Q4 affine / g64'];
+ function prepare(raw) {
+  if(raw?.dataset_kind!=='kev_native_campaign_v1'||raw.state!=='complete'||!Array.isArray(raw.games)||raw.games.length!==90)throw Error('Expected the complete 90-game Kev dataset.');
+  const byRound=new Map(),seen=new Set(),seeds=new Set();
+  for(const g of raw.games){
+   if(!Number.isInteger(g.seed_round)||g.seed_round<1||g.seed_round>30||!variants.includes(g.variant)||!/^[0-9a-f]{32}$/.test(g.seed)||!Number.isInteger(g.score)||g.score<0||!Number.isInteger(g.steps)||g.steps<0||g.steps>500||typeof g.alive!=='boolean'||g.censored!==g.alive||g.attempts!==g.steps+(g.alive?0:1)||!['collision','cap'].includes(g.end_reason)||g.alive!==(g.end_reason==='cap')||g.alive&&g.steps!==500||!g.alive&&g.steps>=500)throw Error('Malformed game row.');
+   const key=g.seed_round+':'+g.variant;if(seen.has(key))throw Error('Duplicate paired condition.');seen.add(key);
+   if(!byRound.has(g.seed_round))byRound.set(g.seed_round,[]);byRound.get(g.seed_round).push(g);
+  }
+  const rows=Array.from({length:30},(_,i)=>{const gs=byRound.get(i+1);if(!gs||gs.length!==3||new Set(gs.map(g=>g.seed)).size!==1||seeds.has(gs[0].seed))throw Error('Incomplete, mispaired or repeated seed.');seeds.add(gs[0].seed);return variants.map(v=>gs.find(g=>g.variant===v));});
+  const summary=variants.map((v,j)=>{const values=rows.map(r=>r[j].score).sort((a,b)=>a-b);return {variant:v,label:labels[j],mean:values.reduce((a,b)=>a+b,0)/30,median:(values[14]+values[15])/2,min:values[0],max:values[29],caps:rows.filter(r=>r[j].alive).length};});
+  const comparisons=variants.slice(1).map((v,j)=>{const d=rows.map(r=>r[j+1].score-r[0].score);return {condition:v,mean:d.reduce((a,b)=>a+b,0)/30,wins:d.filter(x=>x>0).length,ties:d.filter(x=>x===0).length,losses:d.filter(x=>x<0).length};});
+  return {rows,summary,comparisons};
+ }
+ globalThis.KevResults={prepare,variants,labels};
+})();
+</script>
+<script>
+(() => {
+ 'use strict';
+ const $=id=>document.getElementById(id),colors=['#374151','#2563eb','#c65b16'];
+ const cell=(tr,value)=>{const td=document.createElement('td');td.textContent=String(value);tr.append(td);};
+ function table(id,rows){$(id).replaceChildren();for(const values of rows){const tr=document.createElement('tr');values.forEach(v=>cell(tr,v));$(id).append(tr);}}
+ function svg(tag,attrs,text){const el=document.createElementNS('http://www.w3.org/2000/svg',tag);for(const [k,v]of Object.entries(attrs))el.setAttribute(k,String(v));if(text!==undefined)el.textContent=text;return el;}
+ function plot(rows){const p=$('scores');p.replaceChildren();const x=[150,500,850],y=s=>330-s*8;
+  for(let score=0;score<=40;score+=5){p.append(svg('line',{x1:80,x2:930,y1:y(score),y2:y(score),stroke:'#e5e7eb'}),svg('text',{x:63,y:y(score)+5,'text-anchor':'end','font-size':14},score));}
+  rows.forEach((r,i)=>{p.append(svg('polyline',{points:r.map((g,j)=>x[j]+','+y(g.score)).join(' '),fill:'none',stroke:'#9ca3af','stroke-opacity':.3}));r.forEach((g,j)=>{const dot=svg('circle',{cx:x[j]+(i-14.5)*.6,cy:y(g.score),r:4.5,fill:colors[j],opacity:.8});dot.append(svg('title',{},'Seed '+g.seed_round+' · '+KevResults.labels[j]+' · '+g.score+' food'));p.append(dot);});});
+  KevResults.labels.forEach((label,j)=>p.append(svg('text',{x:x[j],y:368,'text-anchor':'middle','font-size':17},label)));
+ }
+ async function read(path){const r=await fetch(path,{cache:'no-store',redirect:'error'});if(!r.ok)throw Error('Data request failed ('+r.status+').');return r.json();}
+ async function refresh(){try{$('status').className='';const [raw,analysis]=await Promise.all([read('../data/2026-10-06-kev4b-campaign-v1/results.json'),read('../analysis/2026-10-06-kev4b-campaign-v1/uncertainty.json')]);const data=KevResults.prepare(raw);
+   table('summary',data.summary.map(s=>{const a=raw.aggregate_by_condition[s.variant];if(a.games!==30||a.food.mean!==s.mean)throw Error('Aggregate differs from paired rows.');return [s.label,s.mean.toFixed(2),s.median,s.min+'–'+s.max,s.caps,a.native_forward_latency_ms.median.toFixed(2)+' ms'];}));
+   table('effects',data.comparisons.map((c,j)=>{const a=analysis.comparisons[j];if(a.condition!==c.condition||a.paired_mean_food_difference!==c.mean||a.wins!==c.wins||a.ties!==c.ties||a.losses!==c.losses||a.satisfies_frozen_improvement_rule!==false)throw Error('Analysis differs from paired rows.');return [KevResults.labels[j+1],c.mean.toFixed(2),a.marginal_95_percentile_ci.map(v=>v.toFixed(2)).join(' to '),c.wins+' / '+c.ties+' / '+c.losses,a.holm_adjusted_p.toFixed(3)];}));
+   table('seeds',data.rows.map((r,i)=>[i+1,...r.map(g=>g.score),r[1].score-r[0].score,r[2].score-r[0].score]));plot(data.rows);$('status').textContent='Complete · 90 games · 30 paired seeds · zero technical failures · independent audit available.';
+  }catch(e){$('status').className='error';$('status').textContent='Unable to display verified results: '+e.message;}}
+ $('refresh').addEventListener('click',refresh);refresh();
+})();
+</script></body></html>

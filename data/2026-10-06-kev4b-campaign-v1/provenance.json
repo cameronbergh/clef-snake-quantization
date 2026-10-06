@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "source_freeze_commit": "108fc4464c5012793b82efe8200ab7438d17255e",
+  "freeze_sha256": "1d9e83c0213d1db7263ff4f21a45c51ccf0a037c9b8213283f817b9df2dea79c",
+  "frozen_files": {
+    ".github/workflows/offline-checks.yml": "3687a54d12ca38465574b2c9236ea90c8ba2656025e15981772141e36f44d159",
+    "AGENTS.md": "53b0c346507bc7e9cabc699df8c5177b3917b703f6619c011c65c58914f3a87c",
+    "README.md": "023e8d966a025b0bdcd4bd92af92cf6eb1f440f7b060be0afbc4db44e4fce352",
+    "TODO.md": "a99d7b2316f6d8d62c621090decd32fce9de57a519879a11e5455a3979fed68e",
+    "clef_snake/__init__.py": "9babe11acea6b45a10f4f9cd97c50ebfd11fa30be4ca770c56191cd37beed570",
+    "clef_snake/game.py": "f9dba4b830850f9eba36efcc73f2d2992e484c26e419cfc0921dc43079720f08",
+    "data/2026-10-05-fiveway/seed-manifest.json": "205edfc8bc8de47827d6b9147ad3f8cc3be590ebdfa5326747862d6e3deba8ae",
+    "data/2026-10-05/seed-manifest.json": "205edfc8bc8de47827d6b9147ad3f8cc3be590ebdfa5326747862d6e3deba8ae",
+    "docs/NEXT_EXPERIMENTS.md": "71e50cfe5bc680193addd0745ae9b1ef2a9e4ded5aea9a5207209c137188f64d",
+    "experiments/__init__.py": "948c5d80a5f85eede099afa2036774d41a9c33b3362fe5b71e5161a6b46f7d25",
+    "experiments/kev4b_campaign_v1/EVIDENCE.md": "dfa2f3a3f1482674e003c459d72e58e5eddc7e3f28838b68c639875b0ea0aa2c",
+    "experiments/kev4b_campaign_v1/README.md": "1a6c9cb928af2dfc4e8b79ee19b21e48e09668dda325c399e6fe2ef920df2007",
+    "experiments/kev4b_campaign_v1/RESOURCE_PLAN.md": "912ec3660be362656265da87b1d435ba75cd5bddee3e851af50b7f5878a8b317",
+    "experiments/kev4b_campaign_v1/__init__.py": "e7f73253189f8d8872b5537c9fe590ee9c4dc99214d412f58152b06942670532",
+    "experiments/kev4b_campaign_v1/analysis-plan.json": "8ef2350a7c4b17ee20f7411f9c41751d825b008ee07fabfe0c4efbc6fc7e7c89",
+    "experiments/kev4b_campaign_v1/audit.py": "0777c4025bb4f2721b42b6217debc35f0687a70e1b87c917303e40fd1d2f0757",
+    "experiments/kev4b_campaign_v1/context_check.py": "b250ab3907ceb9ba519661fbf3ab2c0f8f6408f15c3305927e20bc5d89c8f0a2",
+    "experiments/kev4b_campaign_v1/native.py": "64cbb98bc1f16e414c149d4e7661bbd3de432f0931f2f5728541471b72280845",
+    "experiments/kev4b_campaign_v1/protocol.json": "bd317f2d0c33a83805dd7255c61ae58f83af4acd3019318e3ddbf2eb82604218",
+    "experiments/kev4b_campaign_v1/runner.py": "b24267bb8d2334ab3717efb547a35f01cbb397643cadef00174bd4df12736bcb",
+    "experiments/kev4b_campaign_v1/schedule.json": "98bdd38fe6f343aa10ed90bc52014f9dd90611ec1991f069cf09e05140de4dec",
+    "experiments/kev4b_campaign_v1/seed-manifest.json": "291fde9867124e70d6b1ccab2b8adbf90660be6e396a8fe7660d1f65bd6601fa",
+    "experiments/kev4b_campaign_v1/verify.py": "d1e2664b3c77b495ff03d6a14a0245870b1281ed7c0ff2810c56033a54cede7f",
+    "experiments/kev4b_v1/README.md": "b89a81b51acfce54983d622fb7ec8d7a47e14c2e84d5f3819c3f82c01cabc2e1",
+    "experiments/kev4b_v1/__init__.py": "cb96800bac34f311272ec4310821168416fb912b6e587632f01ab556ce645fd9",
+    "experiments/kev4b_v1/adapter.py": "fd0ee96a44dc2f26d115f3eaf8ad69a02a0b85d1ade11b1aaa517a5c40bc65b0",
+    "experiments/kev4b_v1/artifact-plan.json": "1b01e6e09b486640b20ec586a7a4524e296914255bc844c9ce1f16175b546c5a",
+    "experiments/kev4b_v1/local_resolver.py": "a6124707411cdd7c470826028fd56b693d02e862cd262583c23c8002a5cbd81e",
+    "experiments/kev4b_v1/preflight-cases.json": "a2af995c0c1aa1d8f73988862127edc7ade2424c71653ec8580da5ed5c2639fb",
+    "experiments/kev4b_v1/preflight-results-2026-10-06.json": "febffe857923ec6a7f544c5608e0300aaf0514796795e2444982a0c793221253",
+    "experiments/kev4b_v1/preflight.py": "c15c9180a44654a48e0eb2a83bbc38c66b2f148c5e8663ca6467887e7723b5ae",
+    "experiments/kev4b_v1/protocol.json": "a7948aa07a91638d9d2fa5483dc1c911ac1f6c60999691495f6a5eefd29a5744",
+    "experiments/kev4b_v1/provenance.json": "f272d7d072f34c92c258e6878ec95ee374acb3411a4cee88e633f2f3d10aa0c8",
+    "experiments/kev4b_v1/retry_budget.py": "bd965d4b78c6b1b5dbfe726e55d85a0bdcf8ae8bb3fbd7b596f358af466d3bf7",
+    "experiments/kev4b_v1/storage-plan.json": "af842ecf6336c98a61d5aab23d837e9c751ef8f3e289e846e7088d403b7bf239",
+    "experiments/qwen3_snake_v1/seed-manifest.json": "ad9b9f589a809977bf082dfaaed23b0c8a8bcd5513ceedc9d54440915b36d0ca",
+    "tests/test_kev_campaign_audit.py": "c1e771583cbba91b34c1dad497413fae7c98ff4ab0dd674ad27b9ce71d4c8fee",
+    "tests/test_kev_campaign_context.py": "b284612389f1036d3dea58a6362461c326e836188943082fb0123b5a0929fd41",
+    "tests/test_kev_campaign_native.py": "e101835d422aba2f70db245ddaa693600d1451e1f1b833b759ae9d6650aa2a2d",
+    "tests/test_kev_campaign_runner.py": "7c70e06523d9df2e65a87a2c19c8aa722ae960db8e8c82b8cef50e96afea54e6"
+  },
+  "source_pins": {
+    "upstream_code": "5e42a7a03f28134853dd3ff77461457e921e5ec1",
+    "Qwen/Qwen3.5-4B-Base": "1001bb4d826a52d1f399e183466143f4da7b741b",
+    "jaredpalmer/kev-4b": "6cfce5c2fa4b4bd64026336ab649c5ca78857d52"
+  },
+  "original_file_sha256": {
+    "runner.jsonl": "37b2381ffd77f58609f88d1dbc19167e5c654c842a0d6c2fb8c4732be7f833ff",
+    "native.jsonl": "7bbd6271ae93f63a1d44f991fb31a559d583237de34653f20dc6e4bb95c8fa99",
+    "supervisor.jsonl": "8c5a76f8b59fac382c0b83653b9ae0b93ef16963a223f23b3b5e93a3886e640e",
+    "approval.json": "7dfbab1aa0823ed1c2e62301a06c27f5f48f8cda4c210da35f2ba587ff901264",
+    "claim.json": "704b9135faca49adf09310bc8e677504a917863fce7a54105290e404b942b277",
+    "context-report.json": "4d23895728dd36f5e19c310a6e9736acf58e6c0b7228958f63f86a20718d6e66"
+  },
+  "original_journal_bytes": {
+    "runner.jsonl": 117936435,
+    "native.jsonl": 272303043,
+    "supervisor.jsonl": 414888
+  },
+  "export_pipeline": "experiments.kev4b_publication_v1",
+  "journal_rows": {
+    "runner": 50484,
+    "native": 151115,
+    "supervisor": 1419
+  },
+  "journal_serialization": "All rows retained in order; JSON compacted without sorting keys; deterministic gzip, mtime=0.",
+  "changes": {
+    "one_use_identity_commitments": 3,
+    "asset_path_aliases": 270
+  },
+  "raw_requests_responses": "Exact base64 bytes and original SHA256 retained; never redacted.",
+  "private_files_excluded": [
+    "approval.json",
+    "claim.json",
+    "control.json",
+    "watchdog-ack.json",
+    "stdout.txt",
+    "stderr.txt"
+  ],
+  "receipt_policy": "Private identifiers replaced by SHA256 commitments; private approval/claim bytes are excluded.",
+  "publication_source_sha256": {
+    "experiments/kev4b_publication_v1/__init__.py": "aab454ab9a7817cde53606c7d7b6d0a57c3c016c5695e0ad57984f00e9dc8a53",
+    "experiments/kev4b_publication_v1/audit.py": "b6d9a3d6bf5a062641724c1ba6d1c44f24ce87b39e5a818601709d5d8bc26eb4",
+    "experiments/kev4b_publication_v1/export.py": "3cbe02e7a2a64713d1e365afd5ae6506921b7828e41e25957fef44a1bbd97f26",
+    "experiments/kev4b_publication_v1/analysis.py": "076734e026c95ee5d17c31fe4ba0a5effa7e556de268f79923b151954081008d",
+    "requirements-kev-analysis.txt": "b91033c35919fdb994fdb4a64dbb5fba19021fbf78b9e893ed6f74043e9bc192"
+  }
+}
