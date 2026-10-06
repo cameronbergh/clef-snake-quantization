@@ -1,6 +1,6 @@
 # Kev-4B: offline preparation and approved bounded preflight
 
-Kev-4B is selected for a bounded native decision-model compatibility check for [issue #1](https://github.com/cameronbergh/clef-snake-quantization/issues/1). **Pinned acquisition, isolated dependency setup and preflight are authorized; they have not been executed by this preparation.** No Kev game results, runtime parity or validated quantized artifacts are claimed. A main campaign is neither designed, frozen nor authorized.
+Kev-4B is selected for a bounded native decision-model compatibility check for [issue #1](https://github.com/cameronbergh/clef-snake-quantization/issues/1). **Pinned acquisition, isolated setup and the 60-decision compatibility preflight are complete.** Native/wrapped BF16 probabilities matched exactly on all twelve saved states; affine8 and affine4 retained the same choices on those states. See the [audited preflight results](PREFLIGHT_RESULTS.md), including both preserved initial failures and the explicitly authorized retry. No Kev games or persisted quantized artifacts were produced. A main campaign is neither designed, frozen nor authorized.
 
 The approved preflight permits at most **64 decision evaluations, 900 seconds from first model load through final unload, and zero scored games**, within the **56 GiB external Models budget**. The plan uses 60 evaluations. Conversion after first load counts toward the time limit. See the [preflight plan](PREFLIGHT_PLAN.md) for the fixed states, counters, evidence and stop conditions.
 
@@ -17,7 +17,7 @@ All four directions remain available, including unsafe choices. Kev chooses its 
 - [Protocol](protocol.json): native request contract, approved preflight bounds and main-campaign exclusion.
 - [Fixed requests](preflight-cases.json): twelve saved CLEF discovery states, with source lines and hashes. These are compatibility fixtures, not fresh validation seeds.
 - [Quantization plan](QUANTIZATION_PLAN.md): merged native MLX BF16 baseline, proposed affine 8-bit/4-bit linear projections with groups of 64, and unchanged FP32 pointer head and retained tensors. The 2-bit condition remains deferred.
-- [Provenance](provenance.json) and [artifact inventory](artifact-plan.json): pinned code, base, adapter/head, expected file identities and remaining validation gaps. Metadata hashes are not local verification of unacquired weights.
+- [Provenance](provenance.json) and [artifact inventory](artifact-plan.json): pinned code, base, adapter/head, expected file identities and remaining validation gaps. The execution report separately records local acquisition verification.
 - [Storage plan](storage-plan.json): destination, isolated environment, cache paths, exact source bytes and estimated derived-file reservations.
 
 The complete source snapshots total **9,502,566,604 bytes** (about 9.502 GB). All weights, environments, caches, temporary conversions and evidence output belong under **`/Volumes/Models/clef-snake-experiments/kev4b-v1`**. Verify the dedicated external Models mount, destination ancestry and current free space before any write; no internal-disk or X9 fallback, moving existing files or incidental cleanup is allowed.
@@ -33,6 +33,6 @@ python3 -m unittest discover -s tests -p 'test_kev_*.py' -v
 python3 -m experiments.kev4b_v1.verify
 ```
 
-These checks use saved evidence and synthetic transport responses; they do not load a tokenizer or model, contact HTTP, install dependencies or acquire weights. They validate preparation consistency, not runtime compatibility. The real tokenizer, native baseline parity, quantized scope, storage-writing guard and bounded execution supervisor still need implementation or validation before this preflight can execute safely within its existing authorization.
+These checks use saved evidence and synthetic transport responses; they do not load a tokenizer or model, contact HTTP, install dependencies or acquire weights. They validate preparation consistency, not runtime compatibility. The [supervised preflight](preflight.py) has now checked the twelve fixed states. Its [local resolver](local_resolver.py) accepts only exact pinned, previously hash-verified snapshots, changes no native decision math, and restores the upstream resolver after loading. The [one-use retry ledger](retry_budget.py) binds the two initial failures by journal hashes and debits their full elapsed span: 181 seconds charged, at most 719 left for the explicitly approved retry. A permanent external launch receipt covers failures before the ledger claim. This spent claim is not a general-purpose runner or permission for further inference. Export/reload compatibility and gameplay remain untested.
 
 Fresh main seeds, a counterbalanced schedule, prospective analysis, an independent Kev evidence auditor and a separate campaign decision remain future work. The CLEF evidence and deferred Qwen freeze remain unchanged.
