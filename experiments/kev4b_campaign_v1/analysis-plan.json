@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "campaign_id": "kev4b_campaign_v1",
+  "status": "prospective_plan_frozen_before_campaign_results",
+  "analysis_unit": "environment seed (30 paired blocks), not decision call",
+  "primary_endpoint": {
+    "name": "restricted_horizon_food",
+    "definition": "Food collected before collision or the 500-successful-move horizon.",
+    "cap_handling": "Retain capped scores. Food at the fixed horizon is fully observed; uncapped lifetime and survival are censored. A cap is not a loss."
+  },
+  "primary_comparisons": [
+    {
+      "condition": "mlx-affine8-g64",
+      "reference": "bf16"
+    },
+    {
+      "condition": "mlx-affine4-g64",
+      "reference": "bf16"
+    }
+  ],
+  "effect": "mean paired condition-minus-BF16 food difference",
+  "testing": {
+    "method": "two-sided paired Monte Carlo sign-flip of seed differences",
+    "statistic": "absolute mean paired food difference",
+    "draws": 100000,
+    "generator": "NumPy PCG64",
+    "seed": 2026100602,
+    "p_value": "(1 + count(abs(T_star) >= abs(T_observed))) / (100000 + 1)",
+    "all_zero_difference_p": 1.0,
+    "assumption": "sign exchangeability/symmetry; not an exact mean-only-null test without that assumption",
+    "multiplicity": "Holm across exactly the two primary comparisons",
+    "familywise_alpha": 0.05,
+    "improvement_claim": "Positive paired mean difference and Holm-adjusted two-sided p <= 0.05.",
+    "shared_sign_draws": "Use one 100000 by 30 matrix of independent {-1,+1} signs for both comparisons, generated once in listed comparison order."
+  },
+  "estimation": {
+    "method": "Paired bootstrap of the complete 30 by 3 score matrix; sample entire seed rows and use the same draws for all conditions.",
+    "resamples": 100000,
+    "generator": "NumPy PCG64",
+    "seed": 2026100601,
+    "interval": "Marginal 95% percentile intervals.",
+    "quantile_method": "linear",
+    "not_simultaneous": true
+  },
+  "report_all": [
+    "Every seed and condition score and end status",
+    "Mean, median and range",
+    "Paired mean differences and intervals",
+    "Wins, ties and losses versus BF16",
+    "Cap counts and successful and attempted moves",
+    "Every technical error and not-started scheduled row",
+    "Descriptive latency and memory; report loading and conversion separately"
+  ],
+  "secondary_only": [
+    "Score median and distribution",
+    "Successful moves and cap frequency at the fixed horizon",
+    "Latency and memory; state lengths differ along trajectories"
+  ],
+  "incomplete_policy": {
+    "primary_inference_requires": "All 90 scheduled games complete and independently audited.",
+    "technical_stop": "Retain every record; no zero imputation, outcome-based exclusion or hidden retry.",
+    "partial_summary": "Explicitly descriptive and potentially selected; show every scheduled row, including missing outcomes.",
+    "resume": "Not authorized by this freeze. Any later attempt requires preserved predecessor evidence and a new explicit plan and budget."
+  },
+  "interpretation": {
+    "population": "Fresh paired food-placement seeds for this selected Kev checkpoint on this single Snake protocol.",
+    "does_not_establish": [
+      "General intelligence improvement",
+      "A monotonic precision effect",
+      "Effects on other models or tasks",
+      "Uncapped survival",
+      "HTTP service or persisted export compatibility"
+    ],
+    "selection_context": "Kev and the precision conditions were chosen after CLEF discovery. Fresh-seed prospective testing does not constitute replication across models or tasks."
+  },
+  "immutable_choices": [
+    "Condition selection",
+    "Seed manifest and schedule",
+    "Head, tokenizer and native configuration",
+    "Primary endpoint",
+    "Comparisons, test directions, random seeds, resample counts and multiplicity correction",
+    "Cap, failure and stopping policies"
+  ],
+  "analysis_must_not_change_after_outcomes": true
+}

@@ -29,6 +29,8 @@ jobs:
         run: python -m experiments.qwen3_snake_v1.verify
       - name: Kev offline preparation and fixture integrity (no weights or inference)
         run: python -m experiments.kev4b_v1.verify
+      - name: Prospective Kev campaign freeze (no weights, tokenizer or inference)
+        run: python -m experiments.kev4b_campaign_v1.verify
       - name: Exhaustive offline dataset audits (no model download or GPU)
         run: |
           python - <<'PY'

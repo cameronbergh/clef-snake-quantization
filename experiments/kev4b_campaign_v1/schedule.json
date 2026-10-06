@@ -1,0 +1,670 @@
+{
+  "schema_version": 1,
+  "campaign_id": "kev4b_campaign_v1",
+  "created_utc": "2026-10-06T00:27:34.002295+00:00",
+  "condition_orders": [
+    [
+      "bf16",
+      "mlx-affine8-g64",
+      "mlx-affine4-g64"
+    ],
+    [
+      "bf16",
+      "mlx-affine4-g64",
+      "mlx-affine8-g64"
+    ],
+    [
+      "mlx-affine8-g64",
+      "bf16",
+      "mlx-affine4-g64"
+    ],
+    [
+      "mlx-affine8-g64",
+      "mlx-affine4-g64",
+      "bf16"
+    ],
+    [
+      "mlx-affine4-g64",
+      "bf16",
+      "mlx-affine8-g64"
+    ],
+    [
+      "mlx-affine4-g64",
+      "mlx-affine8-g64",
+      "bf16"
+    ]
+  ],
+  "repetitions_per_order": 5,
+  "games": [
+    {
+      "sequence": 1,
+      "game_id": "seed-01-bf16",
+      "seed_round": 1,
+      "seed": "0f0078108ca101b5bb82258929b57771",
+      "variant": "bf16"
+    },
+    {
+      "sequence": 2,
+      "game_id": "seed-01-mlx-affine8-g64",
+      "seed_round": 1,
+      "seed": "0f0078108ca101b5bb82258929b57771",
+      "variant": "mlx-affine8-g64"
+    },
+    {
+      "sequence": 3,
+      "game_id": "seed-01-mlx-affine4-g64",
+      "seed_round": 1,
+      "seed": "0f0078108ca101b5bb82258929b57771",
+      "variant": "mlx-affine4-g64"
+    },
+    {
+      "sequence": 4,
+      "game_id": "seed-02-bf16",
+      "seed_round": 2,
+      "seed": "f3d52962d7aec6b28141b666756b8d84",
+      "variant": "bf16"
+    },
+    {
+      "sequence": 5,
+      "game_id": "seed-02-mlx-affine4-g64",
+      "seed_round": 2,
+      "seed": "f3d52962d7aec6b28141b666756b8d84",
+      "variant": "mlx-affine4-g64"
+    },
+    {
+      "sequence": 6,
+      "game_id": "seed-02-mlx-affine8-g64",
+      "seed_round": 2,
+      "seed": "f3d52962d7aec6b28141b666756b8d84",
+      "variant": "mlx-affine8-g64"
+    },
+    {
+      "sequence": 7,
+      "game_id": "seed-03-mlx-affine8-g64",
+      "seed_round": 3,
+      "seed": "fd43c8e57f735cae70d4196dec393791",
+      "variant": "mlx-affine8-g64"
+    },
+    {
+      "sequence": 8,
+      "game_id": "seed-03-bf16",
+      "seed_round": 3,
+      "seed": "fd43c8e57f735cae70d4196dec393791",
+      "variant": "bf16"
+    },
+    {
+      "sequence": 9,
+      "game_id": "seed-03-mlx-affine4-g64",
+      "seed_round": 3,
+      "seed": "fd43c8e57f735cae70d4196dec393791",
+      "variant": "mlx-affine4-g64"
+    },
+    {
+      "sequence": 10,
+      "game_id": "seed-04-mlx-affine8-g64",
+      "seed_round": 4,
+      "seed": "9ced2b78da08acc455b86e226bbac058",
+      "variant": "mlx-affine8-g64"
+    },
+    {
+      "sequence": 11,
+      "game_id": "seed-04-mlx-affine4-g64",
+      "seed_round": 4,
+      "seed": "9ced2b78da08acc455b86e226bbac058",
+      "variant": "mlx-affine4-g64"
+    },
+    {
+      "sequence": 12,
+      "game_id": "seed-04-bf16",
+      "seed_round": 4,
+      "seed": "9ced2b78da08acc455b86e226bbac058",
+      "variant": "bf16"
+    },
+    {
+      "sequence": 13,
+      "game_id": "seed-05-mlx-affine4-g64",
+      "seed_round": 5,
+      "seed": "255725bd3befb1c5ccbb5348832af9a3",
+      "variant": "mlx-affine4-g64"
+    },
+    {
+      "sequence": 14,
+      "game_id": "seed-05-bf16",
+      "seed_round": 5,
+      "seed": "255725bd3befb1c5ccbb5348832af9a3",
+      "variant": "bf16"
+    },
+    {
+      "sequence": 15,
+      "game_id": "seed-05-mlx-affine8-g64",
+      "seed_round": 5,
+      "seed": "255725bd3befb1c5ccbb5348832af9a3",
+      "variant": "mlx-affine8-g64"
+    },
+    {
+      "sequence": 16,
+      "game_id": "seed-06-mlx-affine4-g64",
+      "seed_round": 6,
+      "seed": "a9016c1400819cbe5bb05eff129d1cc3",
+      "variant": "mlx-affine4-g64"
+    },
+    {
+      "sequence": 17,
+      "game_id": "seed-06-mlx-affine8-g64",
+      "seed_round": 6,
+      "seed": "a9016c1400819cbe5bb05eff129d1cc3",
+      "variant": "mlx-affine8-g64"
+    },
+    {
+      "sequence": 18,
+      "game_id": "seed-06-bf16",
+      "seed_round": 6,
+      "seed": "a9016c1400819cbe5bb05eff129d1cc3",
+      "variant": "bf16"
+    },
+    {
+      "sequence": 19,
+      "game_id": "seed-07-bf16",
+      "seed_round": 7,
+      "seed": "fc24e848efb2b7b2c84ca079fb9f687b",
+      "variant": "bf16"
+    },
+    {
+      "sequence": 20,
+      "game_id": "seed-07-mlx-affine8-g64",
+      "seed_round": 7,
+      "seed": "fc24e848efb2b7b2c84ca079fb9f687b",
+      "variant": "mlx-affine8-g64"
+    },
+    {
+      "sequence": 21,
+      "game_id": "seed-07-mlx-affine4-g64",
+      "seed_round": 7,
+      "seed": "fc24e848efb2b7b2c84ca079fb9f687b",
+      "variant": "mlx-affine4-g64"
+    },
+    {
+      "sequence": 22,
+      "game_id": "seed-08-bf16",
+      "seed_round": 8,
+      "seed": "6dc02986388d9a8b9457a5f83bfdd9fe",
+      "variant": "bf16"
+    },
+    {
+      "sequence": 23,
+      "game_id": "seed-08-mlx-affine4-g64",
+      "seed_round": 8,
+      "seed": "6dc02986388d9a8b9457a5f83bfdd9fe",
+      "variant": "mlx-affine4-g64"
+    },
+    {
+      "sequence": 24,
+      "game_id": "seed-08-mlx-affine8-g64",
+      "seed_round": 8,
+      "seed": "6dc02986388d9a8b9457a5f83bfdd9fe",
+      "variant": "mlx-affine8-g64"
+    },
+    {
+      "sequence": 25,
+      "game_id": "seed-09-mlx-affine8-g64",
+      "seed_round": 9,
+      "seed": "e51d6227d2c7f4f353e581c2a193e2d2",
+      "variant": "mlx-affine8-g64"
+    },
+    {
+      "sequence": 26,
+      "game_id": "seed-09-bf16",
+      "seed_round": 9,
+      "seed": "e51d6227d2c7f4f353e581c2a193e2d2",
+      "variant": "bf16"
+    },
+    {
+      "sequence": 27,
+      "game_id": "seed-09-mlx-affine4-g64",
+      "seed_round": 9,
+      "seed": "e51d6227d2c7f4f353e581c2a193e2d2",
+      "variant": "mlx-affine4-g64"
+    },
+    {
+      "sequence": 28,
+      "game_id": "seed-10-mlx-affine8-g64",
+      "seed_round": 10,
+      "seed": "b30388728e546712c7048e3610eb5735",
+      "variant": "mlx-affine8-g64"
+    },
+    {
+      "sequence": 29,
+      "game_id": "seed-10-mlx-affine4-g64",
+      "seed_round": 10,
+      "seed": "b30388728e546712c7048e3610eb5735",
+      "variant": "mlx-affine4-g64"
+    },
+    {
+      "sequence": 30,
+      "game_id": "seed-10-bf16",
+      "seed_round": 10,
+      "seed": "b30388728e546712c7048e3610eb5735",
+      "variant": "bf16"
+    },
+    {
+      "sequence": 31,
+      "game_id": "seed-11-mlx-affine4-g64",
+      "seed_round": 11,
+      "seed": "5cee9f01ce6b5067834f1df56be86db4",
+      "variant": "mlx-affine4-g64"
+    },
+    {
+      "sequence": 32,
+      "game_id": "seed-11-bf16",
+      "seed_round": 11,
+      "seed": "5cee9f01ce6b5067834f1df56be86db4",
+      "variant": "bf16"
+    },
+    {
+      "sequence": 33,
+      "game_id": "seed-11-mlx-affine8-g64",
+      "seed_round": 11,
+      "seed": "5cee9f01ce6b5067834f1df56be86db4",
+      "variant": "mlx-affine8-g64"
+    },
+    {
+      "sequence": 34,
+      "game_id": "seed-12-mlx-affine4-g64",
+      "seed_round": 12,
+      "seed": "287990a7f5357a95a688e22aaba239ef",
+      "variant": "mlx-affine4-g64"
+    },
+    {
+      "sequence": 35,
+      "game_id": "seed-12-mlx-affine8-g64",
+      "seed_round": 12,
+      "seed": "287990a7f5357a95a688e22aaba239ef",
+      "variant": "mlx-affine8-g64"
+    },
+    {
+      "sequence": 36,
+      "game_id": "seed-12-bf16",
+      "seed_round": 12,
+      "seed": "287990a7f5357a95a688e22aaba239ef",
+      "variant": "bf16"
+    },
+    {
+      "sequence": 37,
+      "game_id": "seed-13-bf16",
+      "seed_round": 13,
+      "seed": "6458f377c57a792ab08d245bf22fde36",
+      "variant": "bf16"
+    },
+    {
+      "sequence": 38,
+      "game_id": "seed-13-mlx-affine8-g64",
+      "seed_round": 13,
+      "seed": "6458f377c57a792ab08d245bf22fde36",
+      "variant": "mlx-affine8-g64"
+    },
+    {
+      "sequence": 39,
+      "game_id": "seed-13-mlx-affine4-g64",
+      "seed_round": 13,
+      "seed": "6458f377c57a792ab08d245bf22fde36",
+      "variant": "mlx-affine4-g64"
+    },
+    {
+      "sequence": 40,
+      "game_id": "seed-14-bf16",
+      "seed_round": 14,
+      "seed": "1e1849c765b5b9dd398e1d17c693f9bf",
+      "variant": "bf16"
+    },
+    {
+      "sequence": 41,
+      "game_id": "seed-14-mlx-affine4-g64",
+      "seed_round": 14,
+      "seed": "1e1849c765b5b9dd398e1d17c693f9bf",
+      "variant": "mlx-affine4-g64"
+    },
+    {
+      "sequence": 42,
+      "game_id": "seed-14-mlx-affine8-g64",
+      "seed_round": 14,
+      "seed": "1e1849c765b5b9dd398e1d17c693f9bf",
+      "variant": "mlx-affine8-g64"
+    },
+    {
+      "sequence": 43,
+      "game_id": "seed-15-mlx-affine8-g64",
+      "seed_round": 15,
+      "seed": "23e78398d804c7f7b388e400ee800c15",
+      "variant": "mlx-affine8-g64"
+    },
+    {
+      "sequence": 44,
+      "game_id": "seed-15-bf16",
+      "seed_round": 15,
+      "seed": "23e78398d804c7f7b388e400ee800c15",
+      "variant": "bf16"
+    },
+    {
+      "sequence": 45,
+      "game_id": "seed-15-mlx-affine4-g64",
+      "seed_round": 15,
+      "seed": "23e78398d804c7f7b388e400ee800c15",
+      "variant": "mlx-affine4-g64"
+    },
+    {
+      "sequence": 46,
+      "game_id": "seed-16-mlx-affine8-g64",
+      "seed_round": 16,
+      "seed": "0f25f20a134f290c3a58d9dca9282aa4",
+      "variant": "mlx-affine8-g64"
+    },
+    {
+      "sequence": 47,
+      "game_id": "seed-16-mlx-affine4-g64",
+      "seed_round": 16,
+      "seed": "0f25f20a134f290c3a58d9dca9282aa4",
+      "variant": "mlx-affine4-g64"
+    },
+    {
+      "sequence": 48,
+      "game_id": "seed-16-bf16",
+      "seed_round": 16,
+      "seed": "0f25f20a134f290c3a58d9dca9282aa4",
+      "variant": "bf16"
+    },
+    {
+      "sequence": 49,
+      "game_id": "seed-17-mlx-affine4-g64",
+      "seed_round": 17,
+      "seed": "285c46cc5fe55357e32ae9bb80d0b08a",
+      "variant": "mlx-affine4-g64"
+    },
+    {
+      "sequence": 50,
+      "game_id": "seed-17-bf16",
+      "seed_round": 17,
+      "seed": "285c46cc5fe55357e32ae9bb80d0b08a",
+      "variant": "bf16"
+    },
+    {
+      "sequence": 51,
+      "game_id": "seed-17-mlx-affine8-g64",
+      "seed_round": 17,
+      "seed": "285c46cc5fe55357e32ae9bb80d0b08a",
+      "variant": "mlx-affine8-g64"
+    },
+    {
+      "sequence": 52,
+      "game_id": "seed-18-mlx-affine4-g64",
+      "seed_round": 18,
+      "seed": "f8200a458f16bd014788eb1fed06ed9b",
+      "variant": "mlx-affine4-g64"
+    },
+    {
+      "sequence": 53,
+      "game_id": "seed-18-mlx-affine8-g64",
+      "seed_round": 18,
+      "seed": "f8200a458f16bd014788eb1fed06ed9b",
+      "variant": "mlx-affine8-g64"
+    },
+    {
+      "sequence": 54,
+      "game_id": "seed-18-bf16",
+      "seed_round": 18,
+      "seed": "f8200a458f16bd014788eb1fed06ed9b",
+      "variant": "bf16"
+    },
+    {
+      "sequence": 55,
+      "game_id": "seed-19-bf16",
+      "seed_round": 19,
+      "seed": "34590caa77c4cea2b3589b7c4e05de89",
+      "variant": "bf16"
+    },
+    {
+      "sequence": 56,
+      "game_id": "seed-19-mlx-affine8-g64",
+      "seed_round": 19,
+      "seed": "34590caa77c4cea2b3589b7c4e05de89",
+      "variant": "mlx-affine8-g64"
+    },
+    {
+      "sequence": 57,
+      "game_id": "seed-19-mlx-affine4-g64",
+      "seed_round": 19,
+      "seed": "34590caa77c4cea2b3589b7c4e05de89",
+      "variant": "mlx-affine4-g64"
+    },
+    {
+      "sequence": 58,
+      "game_id": "seed-20-bf16",
+      "seed_round": 20,
+      "seed": "168dd2356765d1fceb44c7ac3b376760",
+      "variant": "bf16"
+    },
+    {
+      "sequence": 59,
+      "game_id": "seed-20-mlx-affine4-g64",
+      "seed_round": 20,
+      "seed": "168dd2356765d1fceb44c7ac3b376760",
+      "variant": "mlx-affine4-g64"
+    },
+    {
+      "sequence": 60,
+      "game_id": "seed-20-mlx-affine8-g64",
+      "seed_round": 20,
+      "seed": "168dd2356765d1fceb44c7ac3b376760",
+      "variant": "mlx-affine8-g64"
+    },
+    {
+      "sequence": 61,
+      "game_id": "seed-21-mlx-affine8-g64",
+      "seed_round": 21,
+      "seed": "c23e60b52173c7807c1a5a38ef31e79c",
+      "variant": "mlx-affine8-g64"
+    },
+    {
+      "sequence": 62,
+      "game_id": "seed-21-bf16",
+      "seed_round": 21,
+      "seed": "c23e60b52173c7807c1a5a38ef31e79c",
+      "variant": "bf16"
+    },
+    {
+      "sequence": 63,
+      "game_id": "seed-21-mlx-affine4-g64",
+      "seed_round": 21,
+      "seed": "c23e60b52173c7807c1a5a38ef31e79c",
+      "variant": "mlx-affine4-g64"
+    },
+    {
+      "sequence": 64,
+      "game_id": "seed-22-mlx-affine8-g64",
+      "seed_round": 22,
+      "seed": "3d3c3f7a6051f7c22a4d887f85fdbe68",
+      "variant": "mlx-affine8-g64"
+    },
+    {
+      "sequence": 65,
+      "game_id": "seed-22-mlx-affine4-g64",
+      "seed_round": 22,
+      "seed": "3d3c3f7a6051f7c22a4d887f85fdbe68",
+      "variant": "mlx-affine4-g64"
+    },
+    {
+      "sequence": 66,
+      "game_id": "seed-22-bf16",
+      "seed_round": 22,
+      "seed": "3d3c3f7a6051f7c22a4d887f85fdbe68",
+      "variant": "bf16"
+    },
+    {
+      "sequence": 67,
+      "game_id": "seed-23-mlx-affine4-g64",
+      "seed_round": 23,
+      "seed": "ec3205fdb76606dfead6cc122bab33fd",
+      "variant": "mlx-affine4-g64"
+    },
+    {
+      "sequence": 68,
+      "game_id": "seed-23-bf16",
+      "seed_round": 23,
+      "seed": "ec3205fdb76606dfead6cc122bab33fd",
+      "variant": "bf16"
+    },
+    {
+      "sequence": 69,
+      "game_id": "seed-23-mlx-affine8-g64",
+      "seed_round": 23,
+      "seed": "ec3205fdb76606dfead6cc122bab33fd",
+      "variant": "mlx-affine8-g64"
+    },
+    {
+      "sequence": 70,
+      "game_id": "seed-24-mlx-affine4-g64",
+      "seed_round": 24,
+      "seed": "bf93b6279fe93b6d744c6de70bc01c76",
+      "variant": "mlx-affine4-g64"
+    },
+    {
+      "sequence": 71,
+      "game_id": "seed-24-mlx-affine8-g64",
+      "seed_round": 24,
+      "seed": "bf93b6279fe93b6d744c6de70bc01c76",
+      "variant": "mlx-affine8-g64"
+    },
+    {
+      "sequence": 72,
+      "game_id": "seed-24-bf16",
+      "seed_round": 24,
+      "seed": "bf93b6279fe93b6d744c6de70bc01c76",
+      "variant": "bf16"
+    },
+    {
+      "sequence": 73,
+      "game_id": "seed-25-bf16",
+      "seed_round": 25,
+      "seed": "3cbb4ca056ba9a7e30d38f5357a37cd5",
+      "variant": "bf16"
+    },
+    {
+      "sequence": 74,
+      "game_id": "seed-25-mlx-affine8-g64",
+      "seed_round": 25,
+      "seed": "3cbb4ca056ba9a7e30d38f5357a37cd5",
+      "variant": "mlx-affine8-g64"
+    },
+    {
+      "sequence": 75,
+      "game_id": "seed-25-mlx-affine4-g64",
+      "seed_round": 25,
+      "seed": "3cbb4ca056ba9a7e30d38f5357a37cd5",
+      "variant": "mlx-affine4-g64"
+    },
+    {
+      "sequence": 76,
+      "game_id": "seed-26-bf16",
+      "seed_round": 26,
+      "seed": "b97cf1318c1e8996b3bc5e38cc4a3ece",
+      "variant": "bf16"
+    },
+    {
+      "sequence": 77,
+      "game_id": "seed-26-mlx-affine4-g64",
+      "seed_round": 26,
+      "seed": "b97cf1318c1e8996b3bc5e38cc4a3ece",
+      "variant": "mlx-affine4-g64"
+    },
+    {
+      "sequence": 78,
+      "game_id": "seed-26-mlx-affine8-g64",
+      "seed_round": 26,
+      "seed": "b97cf1318c1e8996b3bc5e38cc4a3ece",
+      "variant": "mlx-affine8-g64"
+    },
+    {
+      "sequence": 79,
+      "game_id": "seed-27-mlx-affine8-g64",
+      "seed_round": 27,
+      "seed": "4f959d1de7fd25c53db789e966275f05",
+      "variant": "mlx-affine8-g64"
+    },
+    {
+      "sequence": 80,
+      "game_id": "seed-27-bf16",
+      "seed_round": 27,
+      "seed": "4f959d1de7fd25c53db789e966275f05",
+      "variant": "bf16"
+    },
+    {
+      "sequence": 81,
+      "game_id": "seed-27-mlx-affine4-g64",
+      "seed_round": 27,
+      "seed": "4f959d1de7fd25c53db789e966275f05",
+      "variant": "mlx-affine4-g64"
+    },
+    {
+      "sequence": 82,
+      "game_id": "seed-28-mlx-affine8-g64",
+      "seed_round": 28,
+      "seed": "a47e602ceb7247d27f9e11193858ccd5",
+      "variant": "mlx-affine8-g64"
+    },
+    {
+      "sequence": 83,
+      "game_id": "seed-28-mlx-affine4-g64",
+      "seed_round": 28,
+      "seed": "a47e602ceb7247d27f9e11193858ccd5",
+      "variant": "mlx-affine4-g64"
+    },
+    {
+      "sequence": 84,
+      "game_id": "seed-28-bf16",
+      "seed_round": 28,
+      "seed": "a47e602ceb7247d27f9e11193858ccd5",
+      "variant": "bf16"
+    },
+    {
+      "sequence": 85,
+      "game_id": "seed-29-mlx-affine4-g64",
+      "seed_round": 29,
+      "seed": "c728fab7c77a33d4112ac519d95f28a8",
+      "variant": "mlx-affine4-g64"
+    },
+    {
+      "sequence": 86,
+      "game_id": "seed-29-bf16",
+      "seed_round": 29,
+      "seed": "c728fab7c77a33d4112ac519d95f28a8",
+      "variant": "bf16"
+    },
+    {
+      "sequence": 87,
+      "game_id": "seed-29-mlx-affine8-g64",
+      "seed_round": 29,
+      "seed": "c728fab7c77a33d4112ac519d95f28a8",
+      "variant": "mlx-affine8-g64"
+    },
+    {
+      "sequence": 88,
+      "game_id": "seed-30-mlx-affine4-g64",
+      "seed_round": 30,
+      "seed": "42df284490c4fdc8d5ff9f194c1a8762",
+      "variant": "mlx-affine4-g64"
+    },
+    {
+      "sequence": 89,
+      "game_id": "seed-30-mlx-affine8-g64",
+      "seed_round": 30,
+      "seed": "42df284490c4fdc8d5ff9f194c1a8762",
+      "variant": "mlx-affine8-g64"
+    },
+    {
+      "sequence": 90,
+      "game_id": "seed-30-bf16",
+      "seed_round": 30,
+      "seed": "42df284490c4fdc8d5ff9f194c1a8762",
+      "variant": "bf16"
+    }
+  ]
+}

@@ -78,7 +78,8 @@ python3 -m http.server 8000 --bind 127.0.0.1
 - [ ] [Benchmark another local decision model beyond CLEF (#1)](https://github.com/cameronbergh/clef-snake-quantization/issues/1), using its supported action interface and a frozen, separately audited protocol.
 - [x] Select Kev-4B for a bounded native decision-model preflight and prepare its [offline adapter and plans](experiments/kev4b_v1/README.md). Pinned acquisition and isolated setup are complete; the [60-decision preflight passed](experiments/kev4b_v1/PREFLIGHT_RESULTS.md), with zero games.
 - [x] Implement execution guards and complete the [Kev compatibility preflight](experiments/kev4b_v1/PREFLIGHT_RESULTS.md), preserving initial failures and the remaining aggregate budget.
-- [ ] Separately design, freeze and authorize a Kev game campaign; validate larger states and export/reload if persisted variants will be used.
+- [x] Prepare a separately frozen [30-seed Kev campaign](experiments/kev4b_campaign_v1/README.md), serial runner, independent auditor and prospective analysis.
+- [ ] Complete tokenizer-only long-state validation and separately authorize campaign execution. No Kev games have run; quantized export/reload is unnecessary for the planned in-memory design.
 
 Kev's 60 evaluations used twelve saved discovery states, the native BF16 MLX path and affine 8-bit/4-bit projection variants with its unchanged FP32 pointer head. All twelve native/wrapped BF16 probability vectors matched exactly; both quantizations retained all twelve baseline choices while changing probabilities. This is a zero-game compatibility check, not evidence of gameplay performance. The approved storage destination is the external Models partition, under a 56 GiB overall budget. See the [candidate assessment](docs/DECISION_MODEL_CANDIDATES.md) for the selection context and alternatives.
 
