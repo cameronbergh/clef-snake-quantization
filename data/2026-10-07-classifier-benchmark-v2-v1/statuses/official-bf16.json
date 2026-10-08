@@ -1,0 +1,13 @@
+{
+  "state": "complete",
+  "condition": "official-bf16",
+  "pid": 24472,
+  "forward_started": 869,
+  "forward_completed": 869,
+  "records": 869,
+  "scored": 866,
+  "warmup": 3,
+  "load_seconds": 19.650189207983203,
+  "elapsed_seconds": 367.77402291691396,
+  "process_peak_rss_bytes": 4288626688
+}

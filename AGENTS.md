@@ -18,6 +18,8 @@
 - `data/`: versioned public discovery evidence; `docs/`: methods/reproduction/limitations; `tests/`: lightweight protocol checks.
 
 - `experiments/kev4b_publication_v1/`: offline allowlisted export, portable audit and frozen prospective analysis of the completed 90-game campaign. Read `docs/KEV_CAMPAIGN_RESULTS.md`. Original preparation, including historical root documentation/CI, is byte-preserved under `archives/kev4b_campaign_v1/108fc446/`; use that explicit archive for freeze verification. Public authorization receipts are non-executable. Never rerun the consumed campaign.
+- `experiments/classifier_benchmark_v2_v1/`: separately authorized compact non-game CLEF comparison on the complete locked CC0 v2 suite (49 tasks/866 cases), including a same-runtime BF16 GGUF control. Read its `README.md` and frozen `protocol.json`. Keep all 24 frozen preparation files immutable; add amendments/results outside the freeze. The opt-in supervisor uses existing assets offline on the verified external Models volume, serially; it never calls historical server inference endpoints. Public evidence audit is entirely offline.
+- `experiments/classifier_benchmark_publication_v1/`: publication-only exporter/auditor superseding the frozen scanner's overbroad rejection of one exact public synthetic bearer-auth fixture and correcting the nested `hashes.json` inventory boundary. All original audit checks are retained, with the nested upstream lock additionally verified. The analysis wrapper runs byte-preserved frozen numerical/statistical code through this stronger auditor; no inference, scoring or statistical-algorithm change, or new model-call authorization. Use these publication entrypoints, not modifications of the original freeze. Read `docs/CLASSIFIER_BENCHMARK_RESULTS.md`.
 
 ## Read first
 
@@ -35,6 +37,7 @@ python3 -m experiments.kev4b_v1.verify
 python3 -c "from experiments.kev4b_campaign_v1.verify import verify; print(verify('archives/kev4b_campaign_v1/108fc446'))"
 python3 -m experiments.kev4b_publication_v1.audit data/2026-10-06-kev4b-campaign-v1
 python3 -m clef_snake.audit data/2026-10-05 --verify-hashes
+python3 -m experiments.classifier_benchmark_publication_v1.audit data/2026-10-07-classifier-benchmark-v2-v1
 ```
 
 These require no model weights, GPU, credentials or network (watcher tests use Node.js). Audit each added complete dataset, too. The parity audit must continue checking every full request, field order, factual feature, transition, food event and independent server match; do not weaken checks to make changed behavior pass.

@@ -1,0 +1,13 @@
+{
+  "state": "complete",
+  "condition": "gguf-bf16",
+  "pid": 33242,
+  "forward_started": 869,
+  "forward_completed": 869,
+  "records": 869,
+  "scored": 866,
+  "warmup": 3,
+  "load_seconds": 6.944450291921385,
+  "elapsed_seconds": 259.14971720892936,
+  "process_peak_rss_bytes": 20714749952
+}

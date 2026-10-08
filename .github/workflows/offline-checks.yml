@@ -39,6 +39,7 @@ jobs:
           from pathlib import Path
           from clef_snake.audit import audit, verify_hashes
           from experiments.kev4b_publication_v1.audit import audit as kev_audit
+          from experiments.classifier_benchmark_publication_v1.audit import audit as classifier_audit
           datasets = sorted(Path('data').glob('*/seed-manifest.json'))
           assert datasets, 'No public datasets found'
           for manifest in datasets:
@@ -51,4 +52,8 @@ jobs:
               result = audit(manifest.parent)
               assert result['passed'] and result['server_request_response_exact']
               print(manifest.parent, result['rounds'], result['calls'])
+          for dataset in sorted(Path('data').glob('*-classifier-benchmark-v2-v1')):
+              result, _ = classifier_audit(dataset)
+              assert result['audit'] == 'pass' and result['scored_calls'] == 5196
+              print(dataset, result)
           PY

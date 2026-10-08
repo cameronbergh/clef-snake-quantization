@@ -42,6 +42,23 @@ python -B -m experiments.kev4b_publication_v1.audit data/2026-10-06-kev4b-campai
 
 This standard-library audit needs no weights, tokenizer, GPU or third-party packages. It reconstructs every public decision/trajectory and verifies the source freeze, context report, tensor inventories and supervisor resources. Private authorization bytes were checked by the original local audit and remain excluded; public receipts retain hash commitments and authorize no execution.
 
+## Compact non-game CLEF comparison
+
+The lowest-bit recipes showed mixed equal-task macro accuracy changes on this suite. The Snake observation does not establish uniform improvement across tasks or recipes.
+
+| Condition | Correct / 866 | Micro accuracy | Equal-task macro accuracy |
+|---|---:|---:|---:|
+| official-bf16 | 787 | 90.88% | 90.86% |
+| gguf-bf16 | 785 | 90.65% | 90.61% |
+| q6-k-l | 784 | 90.53% | 90.47% |
+| q4-k-m | 786 | 90.76% | 90.75% |
+| iq2-m | 786 | 90.76% | 90.78% |
+| q2-k | 766 | 88.45% | 88.32% |
+
+All **5,196 scored decisions plus 18 warmups** completed; no failures, retries or dropped cases. Primary quant comparisons use the same-runtime BF16 GGUF control. These public synthetic tasks are not held-out confirmation or validated easy/hard levels.
+
+[Audited results and methods](docs/CLASSIFIER_BENCHMARK_RESULTS.md) · [Complete public data](data/2026-10-07-classifier-benchmark-v2-v1/) · [All-task/calibration analysis](analysis/2026-10-07-classifier-benchmark-v2-v1/summary.json)
+
 ## What is being measured in CLEF?
 
 - 12×12 Snake, fixed initial body `[[5,6],[4,6],[3,6],[2,6]]`, initially moving right.

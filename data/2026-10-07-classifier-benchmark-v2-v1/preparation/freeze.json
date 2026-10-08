@@ -1,0 +1,43 @@
+{
+  "version": "classifier_benchmark_v2_v1",
+  "files": {
+    "README.md": "1c14ed3b6199135bfa5f106341f4a1a249f28144f2e152fb182366d31c9000b9",
+    "__init__.py": "65dffd8e135fafc562bf878f07e682808b45f20d535912be0314b265b60933fd",
+    "analysis.py": "0c28b85ef89d68f5f47a76f4d56bdffadcfc9221269fcf67b2f4ae2788996ecb",
+    "assets.json": "30b6f8c1b683b79e41e234c20f52d4aa9368a90c9e1ad6f552e6680e2dc595e5",
+    "audit.py": "b67b0cf03f5717483efe9055885ce9a8ecc310d9a6337e50722e5e69e4d054d6",
+    "common.py": "d3801fcee2e2e4592268b734d7b97b1a1bf12e20f86bfd5b46895cac3a466c94",
+    "export.py": "759b1c29b5784255eaaf5684517fbca56a5d72da4c86f1a0837abe9662f6c8e1",
+    "freeze.py": "88d8ed51bf425a0f42ea6229126d11207b6b29fade7af52eb1f417df394d1e8f",
+    "protocol.json": "5352584231c1288acbe9c718520b97b10f615a7eb0eb007fa3dcc2210c23b0f1",
+    "requests.json": "9f05438ed7b6b5986c756a8936ea14a96370d9052d6245ad8a6a685baa709634",
+    "supervisor.py": "89cca83b5355a81800365052c18c801c498faad6fb4fcfb8a7e57d728dea1e23",
+    "support/catalog.py": "d8b966a07ef3a5475d693abf84f26d0a5526aa8207f68d747237e685b4bf343d",
+    "support/model_bridge.py": "02c37060cfc1f449235c343e6fa6da28f2e9bbd5aa22911b10410e1fa5ba7a66",
+    "vendor/LICENSE": "9e8e2d6cbb9c61f5fbeec07113540ca453705c604e21152d159963bd813aceaf",
+    "vendor/bench/backends/base.py": "a66f9416f2f72ca1399fe449f65ac8155d1dee1e60cd4f9ee7a010f9e46b67f6",
+    "vendor/bench/backends/jev.py": "caa48ee3421764355b0bf45786eff6f4650eff707749e852fa3f9801bcd45856",
+    "vendor/bench/cases.py": "5929f4ff3a35a5a8a84e7f09bc1c4dfe78970f2c77af2e1756ef9e054fd91096",
+    "vendor/bench/run.py": "4b800b8509ad2f9a98f728f7958432fbfbdd85b62d0908ebaabed53299226fe3",
+    "vendor/bench/validate.py": "866bc1f065fbab83150582551fc358d3e8168a4fb8150bffe814cf44864b8035",
+    "vendor/cases/README.md": "7ca8064dd56524caf11b220ca6740a5a2e317f26383affa0a8cc729832306732",
+    "vendor/cases/hashes.json": "b1b3dd66b4ee91ebafffbfe5e11a2603c0c3fc209eb82222386c1de0d0eaf09e",
+    "vendor/cases/v2.json": "d226ed43272ecc2b114ca3c02aef930529042163c765d0ed928476dec24014f7",
+    "vendor/cases/v2.toml": "57af4d24ba8d627b12b307c2ffd4ded3c0fe3828c803dc6d70c1449d89f0ac1c",
+    "worker.py": "da093bc1cd5d737414c4aae6417ad836b89b4b240a213674fbf0d7737321d12c"
+  },
+  "condition_order": [
+    "q4-k-m",
+    "iq2-m",
+    "official-bf16",
+    "q6-k-l",
+    "gguf-bf16",
+    "q2-k"
+  ],
+  "case_order": "exact upstream file task/case order",
+  "scored_calls": 5196,
+  "warmup_calls": 18,
+  "assets_sha256": "30b6f8c1b683b79e41e234c20f52d4aa9368a90c9e1ad6f552e6680e2dc595e5",
+  "requests_sha256": "9f05438ed7b6b5986c756a8936ea14a96370d9052d6245ad8a6a685baa709634",
+  "freeze_content_sha256": "12e80fe1a7079a356fa57670b788563db9b90befa2cb32723d99551a7b956b8f"
+}

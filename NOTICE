@@ -29,3 +29,11 @@ The independent Python driver implements documented behavior; published data
 verify exact parity with the observed original browser-run protocol.
 
 Third-party packages are installed separately under their own licenses.
+
+The compact decision benchmark vendors pinned cases, license and relevant
+protocol reference code from jabr/classifier-benchmark revision:
+afb83bee3b74064ae5a5d58c05b352a8d0ef7240, under CC0-1.0.
+Full upstream license: experiments/classifier_benchmark_v2_v1/vendor/LICENSE.
+The JSON case mirror is derived from the byte-preserved upstream v2 TOML;
+both the original file hash and upstream canonical content lock are verified.
+These are public synthetic tasks, not an official CLEF leaderboard evaluation.

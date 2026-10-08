@@ -14,6 +14,10 @@ The open question is **whether more aggressive quantization (lower bit width) he
 - [ ] Report gains, declines and inconclusive results for **every** condition and task. Use paired seed/case units and task-appropriate metrics (accuracy/macro-F1, calibration/Brier score, workflow exactness, game reward/survival). Keep decision quality separate from latency/memory; use matched-state timing and fixed decision budgets so faster inference does not masquerade as smarter decisions.
 - [ ] Analyze whether the precision effect differs by task family or difficulty using pre-specified contrasts/interactions and multiplicity control. Do not infer a difference merely because one subgroup is significant and another is not, and do not average incompatible raw scores into a claim about being better at everything.
 
+## Completed compact non-game decision suite
+
+- [x] Complete all 49 locked classifier-benchmark v2 tasks (866 cases) across official BF16, same-runtime GGUF BF16, Q6_K_L, Q4_K_M, IQ2_M and Q2_K. All 5,196 scored + 18 warmup calls are retained and audited; report all gains/declines, paired macro contrasts, calibration and limits. [Results](docs/CLASSIFIER_BENCHMARK_RESULTS.md) · [Data](data/2026-10-07-classifier-benchmark-v2-v1/). This completes the compact suite, not held-out validation, a difficulty experiment or every future benchmark in the matrix.
+
 ## Related work and explanation
 
 - [ ] Conduct a primary-source literature review of **post-training, inference-time quantization improving task accuracy/reward**, alongside negative results and sensitivity studies. Record model/task, quantization scope, runtime controls, calibration, retraining, sample size, uncertainty and artifact availability; distinguish speed/memory gains from decision-quality gains.

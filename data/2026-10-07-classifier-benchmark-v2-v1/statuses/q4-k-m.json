@@ -1,0 +1,13 @@
+{
+  "state": "complete",
+  "condition": "q4-k-m",
+  "pid": 23051,
+  "forward_started": 869,
+  "forward_completed": 869,
+  "records": 869,
+  "scored": 866,
+  "warmup": 3,
+  "load_seconds": 8.921892915968783,
+  "elapsed_seconds": 284.8704749159515,
+  "process_peak_rss_bytes": 8424849408
+}

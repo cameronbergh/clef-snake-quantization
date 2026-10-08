@@ -74,3 +74,22 @@ The checked-in [additional exports](../analysis/2026-10-05-fiveway/FIGURES.md) i
 ## Completed prospective Kev campaign
 
 The Kev campaign is separately versioned from CLEF discovery and the spent compatibility preflight. Its [report](KEV_CAMPAIGN_RESULTS.md) links exact frozen preparation, all recorded evidence, paired analysis and the standard-library portable audit. Use `requirements-kev-analysis.txt` for CPU-only figure/statistical reproduction into a new directory. The campaign one-use approval is consumed: publication and offline checks authorize no repeat inference.
+
+## Compact non-game CLEF benchmark
+
+The [separate compact suite preparation](../experiments/classifier_benchmark_v2_v1/README.md) pins complete classifier-benchmark v2 (49 tasks, 866 cases) and six conditions, including official BF16 and a same-runtime GGUF BF16 control. It retains exact state/instructions/criteria, native decision scoring and the unchanged official head. The frozen protocol budgets 5,196 scored forwards plus 18 warmups. No downloads or conversions are required when the inventoried historical assets already exist.
+
+For deliberate authorized replication, run the freezer on existing local assets into a **new verified external Models working root**, with `HF_HUB_OFFLINE=1`, `TRANSFORMERS_OFFLINE=1`, `PYTHONDONTWRITEBYTECODE=1`, `PYTORCH_ENABLE_MPS_FALLBACK=0`, and external `HF_HOME`, `XDG_CACHE_HOME` and `TMPDIR`. The original published preparation is immutable: a different machine/runtime/storage plan must get a separately labeled amended protocol and freeze, not edits to this release. Then invoke the isolated serial supervisor with its private local asset config and empty working output. The supervisor refuses restarting a used campaign root and stops on any technical failure, resource guard or deadline without retries. Do not reuse or append to historical CLEF server logs.
+
+The independent public audit checks complete records, both suite hashes, exact request order, token commitments, native-answer reconstruction from raw same-forward probabilities, pairing, forward budgets and resource receipts. It uses Python's standard library only. Offline analysis needs NumPy, resamples complete paired task vectors and reports Holm-adjusted primary quantization contrasts versus GGUF BF16. Public synthetic tasks are not held-out confirmation or validated difficulty levels; latency is descriptive.
+
+Use the [publication-only exporter](../experiments/classifier_benchmark_publication_v1/README.md) for allowlisted evidence release. The original frozen exporter intentionally remains unchanged: its broad privacy marker check would reject one known public synthetic PII-detection fixture. The new exporter exempts only that exact upstream example after suite-hash verification, records all occurrences and still rejects other private markers. This repair changes no model call, dataset case, answer or analysis.
+
+The publication auditor also fixes an inventory boundary: only the **root** hash manifest is excluded from its own inventory, so the vendored upstream `cases/hashes.json` is additionally verified. Every original exhaustive check remains intact. The frozen numerical/statistical analysis runs unchanged through that stronger auditor; the original frozen auditor/source remain preserved. Use the corrected final entrypoints:
+
+```sh
+python3 -B -m experiments.classifier_benchmark_publication_v1.audit data/2026-10-07-classifier-benchmark-v2-v1
+python3 -B -m experiments.classifier_benchmark_publication_v1.analysis data/2026-10-07-classifier-benchmark-v2-v1 runs/classifier-analysis-reproduction
+```
+
+All six conditions completed, with zero technical failures or retries. [Audited compact-suite results and limits](CLASSIFIER_BENCHMARK_RESULTS.md).

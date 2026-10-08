@@ -1,0 +1,33 @@
+{
+  "version": "classifier_benchmark_publication_v1",
+  "inference_version": "classifier_benchmark_v2_v1",
+  "freeze_content_sha256": "12e80fe1a7079a356fa57670b788563db9b90befa2cb32723d99551a7b956b8f",
+  "publication_export_source_sha256": "37da0be483f6bb7ea89f2c67e6a2cf748a13d0321e7fa25a517be2a598adb75d",
+  "scope": "publication-only narrow known-public-fixture exemption; frozen requests/inference/scoring/analysis unchanged",
+  "private_local_config_and_worker_logs_excluded": true,
+  "worker_log_sha256": {
+    "q4-k-m": "70d911981a2da7f31dbcf72f93ce5abbd678cd67ad2d1b4fda9101de2e304ba1",
+    "iq2-m": "f12ec37e724038fc7f107d7a47e4f3e0a049689571d64fc168b76412d532ab9c",
+    "official-bf16": "3568a47a3d39efc093349703163dfc01bd7b7791e4d8d26341a230e1b54db8f7",
+    "q6-k-l": "55052ef09e53898f5598bdaecd11501a279be4d1bf3a27826381683b12a9e15f",
+    "gguf-bf16": "b6112948c6b88bf475020e0e566310d4ca9b70a93adc48c0e0fe41301ed3f8df",
+    "q2-k": "7fa160fb46e0a07ceba7fc6b63a18990bb5c9b8a9d7923e3606088c5e20ad2b6"
+  },
+  "plain_and_compressed_payload_inspection": "pass",
+  "public_synthetic_auth_example_occurrences": {
+    "preparation/requests.json": 1,
+    "preparation/vendor/cases/v2.json": 1,
+    "preparation/vendor/cases/v2.toml": 1,
+    "publication/export.py": 1,
+    "records/gguf-bf16.jsonl.gz": 1,
+    "records/iq2-m.jsonl.gz": 1,
+    "records/official-bf16.jsonl.gz": 1,
+    "records/q2-k.jsonl.gz": 1,
+    "records/q4-k-m.jsonl.gz": 1,
+    "records/q6-k-l.jsonl.gz": 1
+  },
+  "no_request_or_response_redaction": true,
+  "audit_inventory_repair": "Exclude only the root hashes.json manifest; include nested upstream case lock manifests",
+  "publication_audit_source_sha256": "05718938d598a593d5d41bb073641a23938b58bbd32cb3e8f88706423b7b25a9",
+  "publication_analysis_wrapper_sha256": "386379c5f2ca8ddd147b3c965a6f3f8a2e4b230212b10c4ee1d0ed7276e4e021"
+}
