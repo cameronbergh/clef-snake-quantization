@@ -11,14 +11,14 @@ Linked, not vendored — arXiv links are the canonical copies; PDFs are not comm
 **Proskurina et al., "When Quantization Affects Confidence of Large Language Models?", arXiv:2405.00632 (2024).**
 https://arxiv.org/abs/2405.00632
 
-GPTQ 4-bit quantization decreases model confidence in true labels, with quantization disproportionately affecting samples where the full-precision model was already low-confidence. Directly predicts the Snake first-divergence pattern (flips concentrate at near-tie decisions, never at confident ones). A mechanism precedent, not a decision-quality gain.
+GPTQ 4-bit quantization decreases model confidence in true labels, with quantization disproportionately affecting samples where the full-precision model was already low-confidence. Predicts the Q6/Q4 near-boundary flip pattern in the Snake data; the IQ2/Q2 confident-BF16 flips go beyond it (see DIVERGENCE_MECHANISM_NOTE.md for the qualified scope). A mechanism precedent, not a decision-quality gain.
 
-### Lead worth reading (specific claim not yet verified from the paper body)
+### Verified finding (from the paper body, 2026-10-09)
 
 **Liu et al., "Evaluating the Generalization Ability of Quantized LLMs: Benchmark, Analysis, and Toolbox", arXiv:2406.12928 (2024).**
 https://arxiv.org/abs/2406.12928
 
-Benchmark of quantized-LLM generalization across 40+ datasets and multiple quantization algorithms, reporting counter-intuitive task-specific findings (notably around calibration-data distribution effects). Directly relevant to whether quantization effects transfer across task families — the core open question for the task-matrix plan (issue #6). The specific claim that 4-bit sometimes beats full precision on individual tasks needs verification against the paper body before citing.
+Across 26 datasets (plus cross-dataset/cross-subject settings), the authors report that in some cases, quantizing to 4 bits even leads to higher model performance compared to full precision — e.g. GLUE-SST and GLUE-QNLI in zero-shot. The effect is task-specific and non-monotonic: NLI tasks are least sensitive to quantization while scientific QA and commonsense reasoning degrade more; 2-bit mostly degrades. The paper's main focus is calibration-data distribution effects, not beating full precision. Caveats: two 7B model families, point estimates without uncertainty treatment in the reported figures, and "in some cases" is not a systematic gain — consistent with this project's survey finding of no systematic frozen-PTQ improvement. Directly relevant to whether quantization effects transfer across task families (issue #6).
 
 ### Red herring — do not cite as a mechanism here
 
