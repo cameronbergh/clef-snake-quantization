@@ -27,9 +27,13 @@ Do lower-bit CLEF-Flash GGUF backbones make *better* Snake decisions than BF16 a
 
 Snake frequently presents feature-equivalent move pairs; the BF16 head's tie-breaks are arbitrary but deterministic; quantization reshuffles them; sequential compounding amplifies early divergences into large score gaps. Earlier divergence means more compounding room, matching the observed score ordering.
 
-## External mechanism link (verified 2026-10-08)
+## External mechanism link (verified 2026-10-08; scope qualified 2026-10-09 per issue #8)
 
-Proskurina et al., "When Quantization Affects Confidence of Large Language Models?" (arXiv:2405.00632): GPTQ 4-bit decreases confidence in true labels, and quantization disproportionately affects samples where the full model was already low-confidence. Directly predicts the observed pattern — flips at near-tie decisions, never at confident ones.
+Proskurina et al., "When Quantization Affects Confidence of Large Language Models?" (arXiv:2405.00632): GPTQ 4-bit decreases confidence in true labels, and quantization disproportionately affects samples where the full model was already low-confidence.
+
+Scope of the analogy: this fits the Q6_K_L/Q4_K_M pattern well — all of their divergences are near-boundary flips on both sides (margins ≤ 0.13). It does not fully explain the IQ2_M/Q2_K pattern, where BF16 is often confident (median margin 0.31 / 0.21, max 0.58) yet the quantized backbone still chooses differently; there the *quantized* models' own distributions are flatter (median margin 0.17 / 0.09), i.e. the flip occurs where the quantized distribution is uncertain. Treat the paper as a relevant hypothesis for the near-boundary component, not an established explanation of all divergences.
+
+Note three distinct properties, which the earlier draft conflated: feature-equivalence (tied on recorded safety/distance/open-space features), top-2 rank swaps, and probability margins. Two moves can tie on every recorded feature while receiving quite different probabilities.
 
 ## Limitations
 
