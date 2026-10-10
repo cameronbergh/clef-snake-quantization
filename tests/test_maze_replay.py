@@ -1,10 +1,10 @@
 import csv
+import hashlib
 import json
 import shutil
 import tempfile
 import unittest
 from pathlib import Path
-from clef_maze.generate import main as _generate  # noqa: F401 (import exercises module load)
 from clef_maze.maze import generate_layout
 from clef_maze.replay import audit, AuditFailure
 from clef_maze.runner import run_episode
@@ -21,15 +21,17 @@ def write_manifest(path):
                 "difficulty": {"width": 5, "height": 5, "loop_fraction": 0.1,
                                "target_distance": "far"},
                 "mazes": mazes}
-    Path(path).write_text(json.dumps(manifest) + "\n")
-    return manifest
+    raw = json.dumps(manifest) + "\n"
+    Path(path).write_text(raw)
+    return manifest, hashlib.sha256(raw.encode()).hexdigest()
 
 
-def write_run(run_dir, manifest):
+def write_run(run_dir, manifest, manifest_sha):
     run_dir = Path(run_dir)
     run_dir.mkdir(parents=True)
     (run_dir / "maze-manifest.json").write_text(json.dumps(manifest) + "\n")
-    (run_dir / "config.json").write_text(json.dumps({"policies": ["optimal"]}) + "\n")
+    (run_dir / "config.json").write_text(json.dumps(
+        {"policies": ["optimal"], "manifest_sha256": manifest_sha}) + "\n")
     rounds = []
     with (run_dir / "decisions.jsonl").open("w") as log:
         for layout in manifest["mazes"]:
@@ -49,15 +51,27 @@ def write_run(run_dir, manifest):
         writer.writerows(rounds)
 
 
+def resign(run_dir, manifest):
+    """Rewrite a (possibly tampered) manifest and update its recorded sha."""
+    raw = json.dumps(manifest) + "\n"
+    (run_dir / "maze-manifest.json").write_text(raw)
+    config = json.loads((run_dir / "config.json").read_text())
+    config["manifest_sha256"] = hashlib.sha256(raw.encode()).hexdigest()
+    (run_dir / "config.json").write_text(json.dumps(config) + "\n")
+
+
 class ReplayTests(unittest.TestCase):
     def setUp(self):
         self.tmp = Path(tempfile.mkdtemp(prefix="maze-replay-"))
-        self.manifest = write_manifest(self.tmp / "manifest.json")
+        self.manifest, sha = write_manifest(self.tmp / "manifest.json")
         self.run_dir = self.tmp / "run"
-        write_run(self.run_dir, self.manifest)
+        write_run(self.run_dir, self.manifest, sha)
 
     def tearDown(self):
         shutil.rmtree(self.tmp, ignore_errors=True)
+
+    def _manifest(self):
+        return json.loads((self.run_dir / "maze-manifest.json").read_text())
 
     def test_clean_run_audits(self):
         self.assertTrue(audit(self.run_dir).startswith("OK:"))
@@ -86,10 +100,55 @@ class ReplayTests(unittest.TestCase):
         with self.assertRaises(AuditFailure):
             audit(self.run_dir)
 
-    def test_wrong_shortest_path_rejected(self):
-        manifest = json.loads((self.run_dir / "maze-manifest.json").read_text())
+    def test_altered_inefficiency_rejected(self):
+        text = (self.run_dir / "rounds.csv").read_text().replace("1.0", "0.5", 1)
+        (self.run_dir / "rounds.csv").write_text(text)
+        with self.assertRaises(AuditFailure):
+            audit(self.run_dir)
+
+    def test_manifest_tampering_rejected_by_sha(self):
+        manifest = self._manifest()
         manifest["mazes"][0]["shortest_path_length"] += 1
         (self.run_dir / "maze-manifest.json").write_text(json.dumps(manifest) + "\n")
+        with self.assertRaises(AuditFailure):
+            audit(self.run_dir)
+
+    def test_hand_edited_walls_rejected_by_regeneration(self):
+        manifest = self._manifest()
+        walls = manifest["mazes"][0]["walls"]
+        walls.append(walls[0])  # duplicate a wall segment: still sorted, still canonical-ish
+        manifest["mazes"][0]["walls"] = sorted(walls)
+        resign(self.run_dir, manifest)
+        with self.assertRaises(AuditFailure):
+            audit(self.run_dir)
+
+    def test_swapped_seed_rejected_by_regeneration(self):
+        manifest = self._manifest()
+        manifest["mazes"][0]["seed"] = "rep-b"
+        resign(self.run_dir, manifest)
+        with self.assertRaises(AuditFailure):
+            audit(self.run_dir)
+
+    def test_extra_row_after_termination_rejected(self):
+        lines = (self.run_dir / "decisions.jsonl").read_text().splitlines()
+        row = json.loads(lines[-1])
+        row["attempt"] += 1
+        lines.append(json.dumps(row))
+        (self.run_dir / "decisions.jsonl").write_text("\n".join(lines) + "\n")
+        with self.assertRaises(AuditFailure):
+            audit(self.run_dir)
+
+    def test_unconfigured_policy_rejected(self):
+        config = json.loads((self.run_dir / "config.json").read_text())
+        config["policies"] = ["greedy"]
+        (self.run_dir / "config.json").write_text(json.dumps(config) + "\n")
+        with self.assertRaises(AuditFailure):
+            audit(self.run_dir)
+
+    def test_missing_manifest_sha_rejected(self):
+        config = json.loads((self.run_dir / "config.json").read_text())
+        del config["manifest_sha256"]
+        (self.run_dir / "config.json").write_text(json.dumps(config) + "\n")
         with self.assertRaises(AuditFailure):
             audit(self.run_dir)
 
