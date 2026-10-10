@@ -116,8 +116,16 @@ condition gets a fresh `Maze` instance whose state evolves independently
 - `python3 -m clef_maze.generate --seeds ... --out manifest.json [...]`
 - `python3 -m clef_maze.runner --manifest manifest.json --out run-dir --policies greedy optimal`
 - `python3 -m clef_maze.replay run-dir` (exit 0 = exact replay; non-zero names
-  the first mismatch: altered actions/requests/outcomes, wrong terminal
-  reasons, or a shortest-path length that disagrees with the manifest).
+  the first mismatch). The auditor checks, in order: (1) manifest integrity —
+  sha256 of `maze-manifest.json` matches `config.json`; (2) manifest fidelity —
+  every layout regenerates exactly from its recorded seed/parameters via the
+  versioned generator, walls are canonical, the goal is reachable, and the
+  recorded shortest-path length matches recomputation; (3) episode replay —
+  every recorded request equals the recomputed request, every action applies
+  cleanly, every after-state matches, with no missing/duplicate/extra rows;
+  (4) summary reconciliation — `rounds.csv` reached/attempts/invalid_moves,
+  end_reason, and path_inefficiency all match the replay, episode sets agree
+  across files, and policies match the configured set.
 - `python3 -m clef_maze.demo --manifest manifest.json --maze-id maze-001 --policy greedy`
   (add `--frames` for every step, `--manual` for WASD play). Demos are labeled
   as scripted/manual, never as model results.
