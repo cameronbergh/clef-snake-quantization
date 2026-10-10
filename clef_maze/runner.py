@@ -7,6 +7,7 @@ Snake benchmark's evidence shape (request/action/after provenance).
 """
 import argparse
 import csv
+import hashlib
 import json
 from pathlib import Path
 from .maze import Maze
@@ -39,10 +40,13 @@ def main():
     manifest = json.loads(args.manifest.read_text())
     attempt_cap = manifest["attempt_cap"]
     args.out.mkdir(parents=True, exist_ok=True)
-    (args.out / "maze-manifest.json").write_bytes(args.manifest.read_bytes())
+    manifest_bytes = args.manifest.read_bytes()
+    (args.out / "maze-manifest.json").write_bytes(manifest_bytes)
     (args.out / "config.json").write_text(json.dumps(
         {"policies": args.policies, "policy_seed": args.policy_seed,
-         "driver": "clef-maze-runner-v1", "note": "scripted policies only; not model results"},
+         "driver": "clef-maze-runner-v1",
+         "manifest_sha256": hashlib.sha256(manifest_bytes).hexdigest(),
+         "note": "scripted policies only; not model results"},
         indent=2) + "\n")
     rounds = []
     sequence = 0
