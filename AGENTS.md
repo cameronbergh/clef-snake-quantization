@@ -7,6 +7,10 @@
 - `clef_snake/server.py`, `model_bridge.py`: official BF16 or GGUF backbone + unchanged official BF16 joint head.
 - `clef_snake/catalog.py`: pinned model, head/source and native revisions/hashes.
 - `clef_snake/audit.py`: exhaustive offline evidence/hash/request/trajectory/server audit.
+- `clef_maze/`: deterministic maze-navigation environment (issue #10): versioned
+  seeded generation, model-blind transitions, CLEF four-choice adapter, scripted
+  policies (fixtures only), offline generate/run/replay/demo CLIs. No weights,
+  inference, or downloads; see `docs/MAZE_PROTOCOL.md`.
 - `native/`: minimal all-token-state C ABI and MIT-context llama.cpp patch.
 - `scripts/`: build, allowlisted archival export and exploratory statistical analysis.
 - `watcher/`: independently authored passive JSON viewer; never add model calls or inference controls.
