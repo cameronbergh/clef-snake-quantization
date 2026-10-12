@@ -47,3 +47,63 @@ Note three distinct properties, which the earlier draft conflated: feature-equiv
 - Same-runtime GGUF-BF16 control (`Cloudflare_clef-flash-bf16.gguf` exists in the same bartowski repo; see issue #6).
 - Frozen held-out validation.
 - Calibration-overlap check (issue #3).
+
+## Addendum 2026-10-11: IQ2/Q2 confident flips are logit-noise rank swaps
+
+Closes the open hole flagged in the 2026-10-09 scope qualification above: the
+Proskurina analogy fits Q6/Q4 near-boundary flips but not the IQ2/Q2 flips where
+BF16 was confident (median margin 0.31 / 0.21, max 0.58).
+
+**Method (offline, no new inference).** Ran on the 2026-10-05 five-way decision
+records (10,747 records, `data/2026-10-05-fiveway/decisions/*.jsonl.gz`), a
+superset of the 45 first-divergence states (so disagreement counts here differ
+from the 45-state analysis). On BF16/quant *agree* states, fit a temperature T
+minimizing mean KL between the quant's distribution and softmax(BF16 implied
+logits / T), grid 0.5–4.0. On *disagree* states, recorded the BF16 rank of the
+quant's chosen move, the BF16 top1–top2 implied-logit gap, and both entropies.
+Scripts `mech_test.py` / `mech_test2.py` are not yet committed; available on
+request.
+
+**Results.**
+
+| pair | common states | disagreements | BF16 margin at disagreements (median / max) | fitted T* (agree n) | mean KL, agree | residual mean KL, disagree |
+|---|---|---|---|---|---|---|
+| IQ2_M vs BF16 | 537 | 37 | 0.241 / 0.661 | 1.10 (500) | 0.0212 | 0.1258 |
+| Q2_K vs BF16 | 589 | 39 | 0.226 / 0.650 | 1.25 (550) | 0.0159 | 0.0647 |
+| Q6_K_L vs BF16 | 1521 | 4 | 0.028 / 0.061 | 1.00 (1517) | 0.0002 | 0.0012 |
+| Q4_K_M vs BF16 | 990 | 17 | 0.039 / 0.132 | 1.00 (973) | 0.0018 | 0.0066 |
+
+Flip targets by BF16 rank: IQ2_M 36/37 rank-2 (1 rank-3); Q2_K 37/39 rank-2
+(2 rank-3); Q6/Q4 all rank-2. Combined IQ2/Q2: 73/76 flips land on BF16's
+runner-up. BF16 implied top1–top2 logit gap at IQ2/Q2 flips: median 0.53, range
+0.02–1.86. Implied logit spread (median, all common states): BF16 3.319 vs
+IQ2_M 3.204; BF16 3.312 vs Q2_K 2.829. Entropy at flips (median): BF16 0.905 vs
+IQ2_M 1.007; BF16 0.967 vs Q2_K 1.052 (max ln 4 = 1.386).
+
+**Interpretation.** 2-bit quantization both compresses logit scale (T* 1.10–1.25
+with low KL on agree states; Q6/Q4 fit T* = 1.00 with near-zero KL) and adds
+per-logit noise. Flattening alone cannot explain the confident flips: at
+T = 1.25 a logit gap of 1.86 becomes 1.49, argmax unchanged — yet flips occur at
+BF16 margins up to 0.66, so a noise component is required, and the residual KL
+on disagree states (4–6x the agree-state KL) is its signature. The flips are
+rank swaps to the runner-up, not a better policy: 73/76 pick exactly BF16's
+second-ranked move — the adjacent rank, i.e. the smallest gap for noise to
+cross. A systematically better policy would not concentrate 96% of its
+"improvements" there, and the follow-up experiments found no policy gain
+(90-game Kev campaign: no gain; Q2_K −2.3 pts vs same-runtime BF16 on the
+866-case classifier benchmark).
+
+**Caveats.**
+- The per-logit noise component is inferred, not directly measured.
+- One metric in the original script ("flattened-argmax predicts quant choice in
+  0/37") is vacuous: temperature scaling preserves argmax, so it is 0 by
+  construction on disagree states. The conclusion rests on the compression fit,
+  the rank-2 pattern, and the entropy/margin numbers instead.
+- "Not a better policy" is a joint conclusion with the feature-equivalence
+  finding (all 45 first-divergence states were feature-equivalent top-2
+  tie-break swaps) and the null follow-ups, not from this test alone.
+- A systematic (non-random) bias favoring runner-up features is not ruled out;
+  this test cannot distinguish structured bias from iid noise.
+- IQ2_M figures inherit the issue #15 artifact-provenance question (open as of
+  2026-10-11): the tested artifact's identity vs the historical Hugging Face
+  revision is still being verified.
